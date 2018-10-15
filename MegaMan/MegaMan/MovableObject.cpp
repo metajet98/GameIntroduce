@@ -28,7 +28,7 @@ void MovableObject::onCollision(BaseObject * other, int nx, int ny)
 		if (ny == -1)
 			isOnGround = true;
 
-		if (ny != 1)
+		if (ny != 0 || nx != 0)
 			COLLISION->preventMove(this, other);
 
 		if (ny < 0)

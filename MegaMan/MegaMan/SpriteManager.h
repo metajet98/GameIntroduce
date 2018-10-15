@@ -1,12 +1,6 @@
 #pragma once
 #include"Sprite.h"
 
-enum SPRITE_OBJECT
-{
-	SPR_MAIN,
-	SPR_COUNT,
-};
-
 class SpriteManager
 {
 private:

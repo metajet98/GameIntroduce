@@ -143,6 +143,12 @@
     <ClInclude Include="ObjectsCategory.h">
       <Filter>Map</Filter>
     </ClInclude>
+    <ClInclude Include="FixedPoint8.h">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlAnimation.h">
+      <Filter>FrameWord\Framework\Animation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -234,6 +240,9 @@
     </ClCompile>
     <ClCompile Include="ObjectsCategory.cpp">
       <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="ControlAnimation.cpp">
+      <Filter>FrameWord\Framework\Animation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

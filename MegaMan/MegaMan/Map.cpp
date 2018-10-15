@@ -13,12 +13,14 @@ void Map::update()
 	ROCKMAN->update();
 
 	List<BaseObject*>& groundsObject = CAMERA->objectsInCamera.grounds;
+	List<BaseObject*>& preventMoveCamerasObject = CAMERA->objectsInCamera.preventMoveCameras;
 
 	for (int i = 0; i < groundsObject.size(); i++)
 		COLLISION->checkCollision(ROCKMAN, groundsObject[i]);
 
-	CAMERA->updateLocation();
+	
 	ROCKMAN->updateLocation();
+	CAMERA->updateLocation();
 	updateLocation();
 }
 void Map::draw()

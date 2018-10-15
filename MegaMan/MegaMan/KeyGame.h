@@ -16,9 +16,16 @@ public:
 	bool keyDown;
 	bool keyLeft;
 	bool keyRight;
+
 	bool keyJum;
+	bool keyJumpPress, isKeyJumpDownPrevious;
+
 	bool keyAttack;
+
 	bool keyMove;
+	bool keySlide;
+
+	bool keyJumpShot;
 
 	void update();
 

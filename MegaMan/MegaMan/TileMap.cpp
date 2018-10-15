@@ -26,8 +26,8 @@ void TileMap::convertToViewportPos(int xInMap, int yInMap, int & xViewport, int 
 }
 void TileMap::updateLocation()
 {
-	xMap = CAMERA->x;
-	yMap = CAMERA->y;
+	xMap += CAMERA->dx;
+	yMap += CAMERA->dy;
 }
 void TileMap::initObjects(const char* objectsPath)
 {

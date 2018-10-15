@@ -152,7 +152,9 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Constant.h" />
+    <ClInclude Include="ControlAnimation.h" />
     <ClInclude Include="DrawableObject.h" />
+    <ClInclude Include="FixedPoint8.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameTimeLoop.h" />
     <ClInclude Include="Graphics.h" />
@@ -184,6 +186,7 @@
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="ControlAnimation.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GameTimeLoop.cpp" />

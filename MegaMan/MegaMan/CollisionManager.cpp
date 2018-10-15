@@ -148,6 +148,7 @@ void CollisionManager::checkCollision(BaseObject * M, BaseObject * S)
 			M->onCollision(S, nx, ny);
 			S->onCollision(M, nx, ny);
 		}
+		remainingtime = 1.0f - sweptTime;
 	}
 	M->dx += S->dx;
 	M->dy += S->dy;

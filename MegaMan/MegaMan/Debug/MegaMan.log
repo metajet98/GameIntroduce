@@ -1,7 +1,6 @@
-﻿  Map.cpp
+﻿  Rockman.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\map.cpp(27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  MegamanScene.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Generating Code...
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(49): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   MegaMan.vcxproj -> D:\Study\Visual Project\megaman\MegaMan\Debug\MegaMan.exe

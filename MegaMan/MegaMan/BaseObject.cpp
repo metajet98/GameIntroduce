@@ -52,10 +52,8 @@ BaseObject::BaseObject()
 
 void BaseObject::updateLocation()
 {
-
-
-	x += dx;
-	y += dy;
+		x += dx;
+		y += dy;
 }
 
 RectF BaseObject::oldRect()
