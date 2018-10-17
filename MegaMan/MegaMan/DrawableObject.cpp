@@ -18,7 +18,12 @@ void DrawableObject::setPauseAnimation(bool pauseAnimation, int frameIndex)
 void DrawableObject::changeAction(int newAction)
 {
 	if (curAnimation != newAction)
+	{
+		curFrame = 0;
+		curAnimation = newAction;
 		nextAnimation = newAction;
+	}
+		
 }
 
 void DrawableObject::update()

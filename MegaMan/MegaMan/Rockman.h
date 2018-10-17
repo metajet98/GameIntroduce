@@ -9,35 +9,11 @@
 
 class Rockman:public MovableObject
 {
-	int isFalling;
+	int inAir;
 	int isPushing;
-	bool keyJumpPre;
-	int updateX;
 
-	int lifeNum;
-	float shootSpeed;
-	int maxBullet;
-	//float _protectTime;
-	GameTimeLoop timeDeath;
-
-
-	bool onHit;
-	bool isDeath;
-
-	bool isShooting;
-
-	FixedPoint8 m_xSpeed;
-	FixedPoint8 m_ySpeed;
-
-	FixedPoint8 m_xSpeedJumping;
-	FixedPoint8 m_ySpeedJumping;
-
-	FixedPoint8 m_ySpeedJumpReleased;
-	FixedPoint8 m_ySpeedJumpReleasedMax;
-
-	FixedPoint8 m_xSpeedRunning;
-
-	FixedPoint8 m_ySpeedCollision;
+	bool pauseAnimation;
+	bool lastStatusRunAttack;
 
 	static Rockman* instance;
 public:

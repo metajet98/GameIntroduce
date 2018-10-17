@@ -23,6 +23,8 @@ void KeyGame::update()
 	isKeyJumpDownPrevious = keyJum;
 
 	keySlide = key->IsKeyDown(DIK_X);
+	keySlidePress = keyJum && !isKeySlideDownPrevious;
+	isKeySlideDownPrevious = keySlide;
 
 	keyJumpShot = keyJum && keyAttack;
 	keyMove = keyLeft || keyRight;

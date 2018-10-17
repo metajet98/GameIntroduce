@@ -20,7 +20,7 @@
 #define MOUSE				Mouse::getInstance()
 #define TIME				GameTime::getInstance()->frameTime
 #define GRAVITY				300
-#define TIMEJUMP			160.0f/GRAVITY
+#define TIMEJUMP			60.0f/GRAVITY
 #define CAMERA				Camera::getInstance()
 #define X_MAP				50
 #define Y_MAP				603
@@ -40,22 +40,24 @@ enum ROCK_ACTION
 	MOVE = 0,
 	STAND = 1,
 	JUMP = 2,
-	APPEAR = 3,
-	SHOT = 4,
-	STRONG_SHOT = 5,
-	SLIDING = 6,
-	RUN_SHOT=7
+	SHOT = 3,
+	RUN_SHOT=4,
+	PUSHING = 5,
+	JUMP_SHOT=6,
+	PUSHING_SHOT=7,
+	SLIDING = 8
 };
 enum TOTAL_FRAME
 {
-	TF_JUMP = 11,
-	TF_STAND = 1,
-	TF_APPEAR = 17,
-	TF_MOVE = 16,
-	TF_SHOT = 8,
-	TF_STRONGSHOT = 8,
-	TF_SLIDING = 8,
-	TF_RUN_SHOT = 32
+	TF_JUMP = 7,
+	TF_STAND = 3,
+	TF_MOVE = 11,
+	TF_SHOT = 2,
+	TF_RUN_SHOT = 11,
+	TF_PUSHING = 1,
+	TF_JUMP_SHOT = 1,
+	TF_PUSHING_SHOT = 1,
+	TF_SLIDING = 1
 };
 enum Direction
 {
