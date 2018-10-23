@@ -172,6 +172,7 @@
     <ClInclude Include="QuadNode.h" />
     <ClInclude Include="QuadTree.h" />
     <ClInclude Include="RectF.h" />
+    <ClInclude Include="RockButlet.h" />
     <ClInclude Include="Rockman.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Sprite.h" />
@@ -205,6 +206,7 @@
     <ClCompile Include="QuadNode.cpp" />
     <ClCompile Include="QuadTree.cpp" />
     <ClCompile Include="RectF.cpp" />
+    <ClCompile Include="RockButlet.cpp" />
     <ClCompile Include="Rockman.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Sprite.cpp" />

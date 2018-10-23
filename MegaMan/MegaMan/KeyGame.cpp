@@ -1,5 +1,5 @@
 #include "KeyGame.h"
-
+#include"GameTime.h"
 
 KeyGame*KeyGame::instance = 0;
 
@@ -23,16 +23,21 @@ void KeyGame::update()
 	isKeyJumpDownPrevious = keyJum;
 
 	keySlide = key->IsKeyDown(DIK_X);
-	keySlidePress = keyJum && !isKeySlideDownPrevious;
+	keySlidePress = keySlide && !isKeySlideDownPrevious;
 	isKeySlideDownPrevious = keySlide;
 
 	keyJumpShot = keyJum && keyAttack;
 	keyMove = keyLeft || keyRight;
+
+	keyRunShot = keyMove && keyAttack;
+
+	keyStrongJump = keySlide && keyJum && keyMove;
 }
 KeyGame::KeyGame()
 {
 	key = KEYBOARD;
 	isKeyJumpDownPrevious = false;
+	isKeySlideDownPrevious = false;
 }
 
 

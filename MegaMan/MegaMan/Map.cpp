@@ -14,9 +14,33 @@ void Map::update()
 
 	List<BaseObject*>& groundsObject = CAMERA->objectsInCamera.grounds;
 	List<BaseObject*>& preventMoveCamerasObject = CAMERA->objectsInCamera.preventMoveCameras;
+	
+	for (List<RockButlet*>::Node* p = ROCKBUTLET->pHead; p; p = p->pNext)
+	{
+		RockButlet* bullet = p->m_value;
+		bullet->update();
+		for (int i = 0; i < groundsObject.size(); i++)
+		{
+			COLLISION->checkCollision(bullet, groundsObject[i]);
+		}
+		bullet->updateLocation();
+
+	}
+	for (int i = 0; i < ROCKBUTLET->Count; i++)
+	{
+		RockButlet* bullet = ROCKBUTLET->at(i);
+		if (!COLLISION->AABBCheck(*bullet, *CAMERA))
+		{
+			ROCKBUTLET->_Remove(bullet);
+			delete bullet;
+			i--;
+		}
+	}
 
 	for (int i = 0; i < groundsObject.size(); i++)
+	{
 		COLLISION->checkCollision(ROCKMAN, groundsObject[i]);
+	}
 
 	
 	ROCKMAN->updateLocation();

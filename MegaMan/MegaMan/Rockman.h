@@ -6,11 +6,14 @@
 #include"TileMap.h"
 #include"FixedPoint8.h"
 #include"ControlAnimation.h"
+#include<DirectXMath.h>
+#include"RockButlet.h"
 
 class Rockman:public MovableObject
 {
 	int inAir;
 	int isPushing;
+	int isSliding;
 
 	bool pauseAnimation;
 	bool lastStatusRunAttack;

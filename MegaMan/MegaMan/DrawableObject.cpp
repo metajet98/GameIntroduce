@@ -19,8 +19,6 @@ void DrawableObject::changeAction(int newAction)
 {
 	if (curAnimation != newAction)
 	{
-		curFrame = 0;
-		curAnimation = newAction;
 		nextAnimation = newAction;
 	}
 		
@@ -28,7 +26,20 @@ void DrawableObject::changeAction(int newAction)
 
 void DrawableObject::update()
 {
-
+	BaseObject::update();
+	if (delayAnimation.canCreateFrame())
+	{
+		if (curFrame == sprite->animates[curAnimation].nFrame - 1)
+		{
+			if (curAnimation == JUMP || curAnimation == JUMP_SHOT || curAnimation==SLIDING || curAnimation== PUSHING_JUMP || curAnimation==APPEAR)
+			{
+				curFrame = sprite->animates[curAnimation].nFrame - 1;
+				return;
+			}
+			curFrame = 0;
+		}
+		else sprite->animates[curAnimation].next(curFrame);
+	}
 }
 
 void DrawableObject::draw()

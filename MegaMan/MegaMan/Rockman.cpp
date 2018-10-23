@@ -27,10 +27,11 @@ void Rockman::onCollisionPush(BaseObject*S, int nx, int ny)
 }
 void Rockman::onCollision(BaseObject*S, int nx, int ny)
 {
-	if(curAnimation==JUMP || curAnimation==PUSHING || curAnimation==PUSHING_SHOT)
+	if((curAnimation==JUMP || curAnimation==PUSHING || curAnimation==PUSHING_SHOT)&&(nx==-1||nx==1))
 		onCollisionPush(S, nx, ny);
 	MovableObject::onCollision(S,nx,ny);
 	if (ny == 1) vy = 0;
+	if (nx == -1 || nx == 1) vx = 0;
 }
 
 void Rockman::updateLocation()
@@ -55,11 +56,16 @@ void Rockman::draw()
 		mt._11 = -1;
 		GRAPHICS->GetSprite()->SetTransform(&mt);
 	}
-	if(curAnimation==JUMP)
-		sprite->draw(xInViewport, yInViewport, curAnimation, ++curFrame*TIMEJUMP);
-	else sprite->draw(xInViewport, yInViewport, curAnimation, (++curFrame)%CONTROLSPRITE->getCountFrame(curAnimation));
+	 sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
 
-	
+	 if ((curAnimation == SHOT) || (curAnimation == JUMP_SHOT) || ((curAnimation == PUSHING_SHOT) && isPushing) || (curAnimation == RUN_SHOT))
+	 {
+		 if (ROCKBUTLET->Count < 3)
+		 {
+			 RockButlet *butlet = new RockButlet();
+			 RockButlet::getListBullet()->_Add(butlet);
+		 }
+	 }
 
 	if (direction == sprite->image->direction)
 	{
@@ -71,13 +77,14 @@ void Rockman::draw()
 
 void Rockman::changeAction(int newAction)
 {
-	curAnimation = newAction;
+	if(curAnimation!=newAction)
+		curAnimation = newAction;
+	
 	DrawableObject::changeAction(newAction);
 }
 
 void Rockman::update()
 {
-	pauseAnimation = false;
 	updateDirection();
 	updateChangeAnimation();
 	MovableObject::update();
@@ -91,7 +98,7 @@ void Rockman::updateDirection()
 	{
 		direction = Right;
 	}
-	if (KEY->keyMove)
+	if (KEY->keyMove && ((curAnimation!=JUMP_SHOT && curAnimation!=SHOT) || !isOnGround))
 	{
 		vx = ROCKMAN_VX_GO * direction;
 	}
@@ -110,34 +117,38 @@ void Rockman::updateChangeAnimation()
 			vy = -170;
 			curFrame = 0;
 			isOnGround = false;
-
 		}
 		else
 		{
-			if (KEY->keySlide && !KEY->keyMove)
+			if (KEYBOARD->IskeyUp(DIK_X)) isSliding = true;
+			
+			if (KEY->keySlide && isSliding )
 			{
 				changeAction(SLIDING);
-				vx = direction * ROCKMAN_VX_GO * 2;
+				vx = direction * ROCKMAN_VX_GO * 3;
+				if (curFrame == sprite->animates[SLIDING].nFrame - 1) isSliding = false;
 			}
+			
 			else
-			if (KEY->keyMove)
-			{
-
-				changeAction(MOVE);
 				
-				if (KEY->keyAttack)
+				if (KEY->keyMove)
 				{
-					changeAction(RUN_SHOT);
+
+					changeAction(MOVE);
+
+					if (KEY->keyAttack)
+					{
+						changeAction(RUN_SHOT);
+					}
 				}
-			}
-			else
-			{
-				changeAction(STAND);
-				if (KEY->keyAttack)
+				else
 				{
-					changeAction(SHOT);
+					changeAction(STAND);
+					if (KEY->keyAttack)
+					{
+						changeAction(SHOT);
+					}
 				}
-			}
 			isPushing = false;
 		}
 	}
@@ -154,12 +165,20 @@ void Rockman::updateChangeAnimation()
 			{
 				curFrame = 0;
 				changeAction(PUSHING);
-				if (KEY->keyJum && KEY->keyMove)
+				if (KEY->keyJum && KEY->keyLeft&& !KEY->keyRight )
 				{
-					vx = direction * ROCKMAN_VX_GO-50;
+					changeAction(PUSHING_JUMP);
+					vx = - ROCKMAN_VX_GO - 50;
 					vy = -170;
 				}
-				
+				else if (KEY->keyJum && KEY->keyRight && !KEY->keyLeft)
+				{
+					changeAction(PUSHING_JUMP);
+					vx = ROCKMAN_VX_GO - 50;
+					vy = -170;
+				}
+					
+
 
 				if (KEY->keyAttack)
 					changeAction(PUSHING_SHOT);
@@ -183,6 +202,8 @@ Rockman::Rockman()
 	inAir = false;
 	isPushing = false;
 	pauseAnimation = false;
+	isSliding = true;
+	curAnimation = 0;
 }
 
 

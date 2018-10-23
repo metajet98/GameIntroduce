@@ -10,7 +10,7 @@ void MovableObject::updateVerlocity()
 
 void MovableObject::update()
 {
-	//isOnGround = false;
+	isOnGround = false;
 	updateVerlocity();
 	DrawableObject::update();
 }

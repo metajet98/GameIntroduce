@@ -11,6 +11,7 @@ void ObjectsCategory::add(BaseObject* object)
 	case CT_PREVENTMOVECAMERA:
 		preventMoveCameras._Add(object);
 		break;
+
 	}
 	allObjects._Add(object);
 }

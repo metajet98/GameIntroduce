@@ -17,6 +17,7 @@ public:
 	bool keyLeft;
 	bool keyRight;
 
+	bool keyStrongJump;
 	bool keyJum;
 	bool keyJumpPress, isKeyJumpDownPrevious;
 
@@ -28,6 +29,8 @@ public:
 	bool keySlidePress, isKeySlideDownPrevious;
 
 	bool keyJumpShot;
+
+	bool keyRunShot;
 
 	void update();
 

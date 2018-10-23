@@ -34,30 +34,33 @@
 
 #define ROCKMAN				Rockman::getInstance()
 #define ROCKMAN_VX_GO		75
+#define ROCKBUTLET			RockButlet::getListBullet()
 
 enum ROCK_ACTION
 {
-	MOVE = 0,
-	STAND = 1,
+	STAND = 0,
+	MOVE = 1,
 	JUMP = 2,
 	SHOT = 3,
-	RUN_SHOT=4,
+	RUN_SHOT = 4,
 	PUSHING = 5,
-	JUMP_SHOT=6,
-	PUSHING_SHOT=7,
-	SLIDING = 8
+	JUMP_SHOT = 6,
+	PUSHING_SHOT = 7,
+	SLIDING = 8,
+	APPEAR = 9,
+	PUSHING_JUMP = 10
 };
 enum TOTAL_FRAME
 {
-	TF_JUMP = 7,
-	TF_STAND = 3,
+	TF_JUMP = 5,
+	TF_STAND = 1,
 	TF_MOVE = 11,
 	TF_SHOT = 2,
 	TF_RUN_SHOT = 11,
 	TF_PUSHING = 1,
 	TF_JUMP_SHOT = 1,
 	TF_PUSHING_SHOT = 1,
-	TF_SLIDING = 1
+	TF_SLIDING = 5
 };
 enum Direction
 {
@@ -67,16 +70,20 @@ enum Direction
 enum COLLISION_TYPE
 {
 	CT_GROUND,
-	CT_PREVENTMOVECAMERA
+	CT_PREVENTMOVECAMERA,
+	CT_BUTLET
 };
-enum BULLET_TYPE
+enum BULLET_ACTION
 {
-	ST_FIRE,
-	ST_FROZEN,
+	FIRE,
+	NORMAL,
+	NONE,
+	//IS_THROW,
+	//IS_BACK,
 };
 enum SPRITE_OBJECT
 {
 	SPR_MAIN,
-	SPR_COUNT,
+	SPR_BUTLET
 };
 

@@ -41,7 +41,7 @@ bool KeyBoard::IsKeyDown(BYTE keycode)
 }
 bool KeyBoard::IskeyUp(BYTE keycode)
 {
-	return (keyStates[keycode] & 0x80) > 0;
+	return !(keyStates[keycode] & 0x80) > 0;
 }
 void KeyBoard::Release()
 {

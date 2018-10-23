@@ -149,6 +149,9 @@
     <ClInclude Include="ControlAnimation.h">
       <Filter>FrameWord\Framework\Animation</Filter>
     </ClInclude>
+    <ClInclude Include="RockButlet.h">
+      <Filter>X</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -243,6 +246,9 @@
     </ClCompile>
     <ClCompile Include="ControlAnimation.cpp">
       <Filter>FrameWord\Framework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="RockButlet.cpp">
+      <Filter>X</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
