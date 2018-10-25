@@ -48,6 +48,12 @@
     <Filter Include="Scene">
       <UniqueIdentifier>{1e353378-1916-415a-9bd1-6cfa1aa017d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enermy">
+      <UniqueIdentifier>{ba5454d7-aa37-432e-ac05-d8d707128d1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\Butterlift">
+      <UniqueIdentifier>{014a3496-145b-4918-8908-b6cf7b16ee4c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animate.h">
@@ -146,11 +152,14 @@
     <ClInclude Include="FixedPoint8.h">
       <Filter>FrameWord\Framework\Object</Filter>
     </ClInclude>
-    <ClInclude Include="ControlAnimation.h">
-      <Filter>FrameWord\Framework\Animation</Filter>
-    </ClInclude>
     <ClInclude Include="RockButlet.h">
       <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="Enermy.h">
+      <Filter>Enermy</Filter>
+    </ClInclude>
+    <ClInclude Include="Dragonfly.h">
+      <Filter>Enermy\Butterlift</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -244,11 +253,14 @@
     <ClCompile Include="ObjectsCategory.cpp">
       <Filter>Map</Filter>
     </ClCompile>
-    <ClCompile Include="ControlAnimation.cpp">
-      <Filter>FrameWord\Framework\Animation</Filter>
-    </ClCompile>
     <ClCompile Include="RockButlet.cpp">
       <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="Enermy.cpp">
+      <Filter>Enermy</Filter>
+    </ClCompile>
+    <ClCompile Include="Dragonfly.cpp">
+      <Filter>Enermy\Butterlift</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

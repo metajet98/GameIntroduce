@@ -5,7 +5,6 @@
 #include"KeyGame.h"
 #include"TileMap.h"
 #include"FixedPoint8.h"
-#include"ControlAnimation.h"
 #include<DirectXMath.h>
 #include"RockButlet.h"
 
@@ -14,6 +13,7 @@ class Rockman:public MovableObject
 	int inAir;
 	int isPushing;
 	int isSliding;
+	
 
 	bool pauseAnimation;
 	bool lastStatusRunAttack;
@@ -21,7 +21,7 @@ class Rockman:public MovableObject
 	static Rockman* instance;
 public:
 	static Rockman* getInstance();
-
+	bool onHit;
 	void onCollision(BaseObject*S,int nx,int ny);
 	void onCollisionPush(BaseObject*S, int nx, int ny);
 	void updateLocation();
@@ -30,6 +30,7 @@ public:
 	void updateChangeAnimation();
 	void draw();
 	void changeAction(int newAction);
+	bool setOnHit(bool newOnHit);
 
 	Rockman();
 

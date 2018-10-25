@@ -23,7 +23,6 @@ void MovableObject::draw()
 
 void MovableObject::onCollision(BaseObject * other, int nx, int ny)
 {
-
 	if (other->collisionType == CT_GROUND)
 	{
 		if (ny == -1)

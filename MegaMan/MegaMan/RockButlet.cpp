@@ -67,7 +67,7 @@ RockButlet::RockButlet()
 	}
 	if (ROCKMAN->curAnimation == RUN_SHOT )
 	{
-		x = ROCKMAN->x + ROCKMAN->width + direction*width;
+		x = ROCKMAN->x + ROCKMAN->width + direction*(width);
 		y = ROCKMAN->y + 10;
 	}
 }

@@ -12,9 +12,10 @@ SpriteManager * SpriteManager::getInstance()
 
 SpriteManager::SpriteManager()
 {
-	sprites = new Sprite*[2];
+	sprites = new Sprite*[3];
 	sprites[SPR_MAIN] = new Sprite("Data\\Rockman\\rock_x3.png", "Data\\Rockman\\rockman.txt");
 	sprites[SPR_BUTLET] = new Sprite("Data\\Rockman\\butlet.png", "Data\\Rockman\\butlet.txt");
+	sprites[SPR_DRAGONFLY] = new Sprite("Data\\Enermies\\butterlift.png", "Data\\Enermies\\butterlift.txt");
 }
 
 

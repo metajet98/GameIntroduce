@@ -31,7 +31,7 @@ void DrawableObject::update()
 	{
 		if (curFrame == sprite->animates[curAnimation].nFrame - 1)
 		{
-			if (curAnimation == JUMP || curAnimation == JUMP_SHOT || curAnimation==SLIDING || curAnimation== PUSHING_JUMP || curAnimation==APPEAR)
+			if (curAnimation == JUMP || curAnimation == JUMP_SHOT || curAnimation==SLIDING || curAnimation== PUSHING_JUMP || curAnimation==ON_HIT)
 			{
 				curFrame = sprite->animates[curAnimation].nFrame - 1;
 				return;

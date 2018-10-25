@@ -11,7 +11,9 @@ void ObjectsCategory::add(BaseObject* object)
 	case CT_PREVENTMOVECAMERA:
 		preventMoveCameras._Add(object);
 		break;
-
+	case CT_ENERMY:
+		enermies._Add((Enermy*)object);
+		break;
 	}
 	allObjects._Add(object);
 }
@@ -24,6 +26,9 @@ void ObjectsCategory::remove(BaseObject * object)
 		break;
 	case CT_PREVENTMOVECAMERA:
 		preventMoveCameras._Remove(object);
+		break;
+	case CT_ENERMY:
+		enermies._Remove((Enermy*)object);
 		break;
 	}
 	allObjects._Remove(object);

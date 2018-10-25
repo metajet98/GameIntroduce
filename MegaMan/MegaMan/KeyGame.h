@@ -22,6 +22,7 @@ public:
 	bool keyJumpPress, isKeyJumpDownPrevious;
 
 	bool keyAttack;
+	bool keyAttackPress, isKeyAttackDownPrevious;
 
 	bool keyMove;
 

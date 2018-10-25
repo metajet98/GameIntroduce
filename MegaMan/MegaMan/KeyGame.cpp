@@ -13,6 +13,9 @@ KeyGame * KeyGame::getInstance()
 void KeyGame::update()
 {
 	keyAttack = key->IsKeyDown(DIK_Z);
+	keyAttackPress = keyAttack && !isKeyAttackDownPrevious;
+	isKeyAttackDownPrevious = keyAttack;
+
 	keyUp = key->IsKeyDown(DIK_UP);
 	keyDown = key->IsKeyDown(DIK_DOWN);
 	keyLeft = key->IsKeyDown(DIK_LEFT);
@@ -38,6 +41,7 @@ KeyGame::KeyGame()
 	key = KEYBOARD;
 	isKeyJumpDownPrevious = false;
 	isKeySlideDownPrevious = false;
+	isKeyAttackDownPrevious = false;
 }
 
 

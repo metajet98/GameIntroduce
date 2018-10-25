@@ -1,5 +1,6 @@
 #include "TileMap.h"
 #include"Camera.h"
+#include"Dragonfly.h"
 
 TileMap* TileMap::curMap = 0;
 TileMap::TileMap()
@@ -43,6 +44,9 @@ void TileMap::initObjects(const char* objectsPath)
 		fs >> id >> x >> y >> width >> height;
 		switch (id % 100) //
 		{
+		case SPR_DRAGONFLY:
+			objects[i] = new Dragonfly();
+			break;
 		default:
 			objects[i] = new BaseObject();
 			break;

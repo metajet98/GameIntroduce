@@ -1,6 +1,2 @@
-﻿  RockButlet.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\rockbutlet.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockbutlet.cpp(18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockbutlet.cpp(24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  DrawableObject.cpp
   MegaMan.vcxproj -> D:\Study\Visual Project\megaman\MegaMan\Debug\MegaMan.exe

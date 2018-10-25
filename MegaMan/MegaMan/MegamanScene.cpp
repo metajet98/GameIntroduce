@@ -1,5 +1,6 @@
 #include "MegamanScene.h"
 #include"RockButlet.h"
+#include"TileMap.h"
 
 MegamanScene* MegamanScene::megamanScene;
 
