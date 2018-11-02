@@ -6,7 +6,10 @@ MegamanScene* MegamanScene::megamanScene;
 
 void MegamanScene::init()
 {
-	map.init("Data\\Map\\Stage3.png", "Data\\Map\\Stage3(objectMap).txt", "Data\\Map\\Stage3(QuadTree).txt");
+	map.init("Data\\Map\\Stage3.png", "Data\\Map\\objectsMap.txt", "Data\\Map\\quadtree.txt");
+	//Stage3(QuadTree)
+	//quadtree
+	//map.initStage("Data\\Map\\changestage.txt");
 }
 
 void MegamanScene::update()

@@ -4,14 +4,15 @@
 #include"TileMap.h"
 #include"Rockman.h"
 #include"RockButlet.h"
+
 class Enermy:public MovableObject
 {
-
 public:
 	CATEGORY_ENEMY categoryEnermy;
 	int count;
 	int damage;
 	bool damaged;
+	GameTimeLoop timeDeath;
 
 	virtual void update();
 	virtual void draw();

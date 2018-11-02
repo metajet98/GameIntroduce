@@ -39,17 +39,25 @@ void RockButlet::draw()
 
 void RockButlet::update()
 {		
-	x += direction * 10;
+	vx = direction * 90;
+	dx = vx * TIME;
 }
 
 void RockButlet::onCollision(BaseObject * S, int nx, int ny)
 {
-	/*MovableObject::onCollision(S, nx, ny);
-	if (nx == -1 || nx == 1) getListBullet()->_Remove(this);*/
+	if (S->collisionType == CT_ENERMY)
+	{
+		dx = 0;
+		dy = 0;
+		allowDelete = true;
+	}
 }
 
 RockButlet::RockButlet()
 {
+	categoryBullet = OF_MEGAMAN;
+	allowDelete = false;
+	collisionType = CT_BUTLET;
 	sprite = SPRITEMANAGER->sprites[SPR_BUTLET];
 	this->width = sprite->animates[0].frames[0].width;
 	this->height = sprite->animates[0].frames[0].height;

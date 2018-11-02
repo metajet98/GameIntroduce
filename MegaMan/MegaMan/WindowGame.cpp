@@ -13,7 +13,7 @@ LRESULT WindowGame::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lPara
 {
 	switch (message)
 	{
-	case WM_QUIT:
+	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
 	}

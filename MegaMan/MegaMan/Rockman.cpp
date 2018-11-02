@@ -4,7 +4,6 @@
 Rockman* Rockman::instance = 0;
 Rockman * Rockman::getInstance()
 {
-
 	if (instance == 0)
 		instance = new Rockman();
 	return instance;
@@ -27,13 +26,15 @@ void Rockman::onCollisionPush(BaseObject*S, int nx, int ny)
 }
 void Rockman::onCollision(BaseObject*S, int nx, int ny)
 {
-	if((curAnimation==JUMP || curAnimation==PUSHING || curAnimation==PUSHING_SHOT)&&(nx==-1||nx==1))
-		onCollisionPush(S, nx, ny);
-	MovableObject::onCollision(S,nx,ny);
-	if (ny == 1) vy = 0;
-	if (nx == -1 || nx == 1) vx = 0;
+	if (S->collisionType == CT_GROUND)
+	{
+		if ((curAnimation == JUMP || curAnimation == PUSHING || curAnimation == PUSHING_SHOT || curAnimation==HIGH_JUMP) && (nx == -1 || nx == 1))
+			onCollisionPush(S, nx, ny);
+		MovableObject::onCollision(S, nx, ny);
+		if (ny == 1) vy = 0;
+	}
 
-	if (onHit)
+	if (onHit && isOnGround)
 	{
 		//curAnimation = ON_HIT;
 		setOnHit(false);
@@ -44,6 +45,16 @@ void Rockman::onCollision(BaseObject*S, int nx, int ny)
 
 void Rockman::updateLocation()
 {
+	if (!alive)
+		return;
+
+	if (isCollisionCross && !isCollision)
+	{
+		if (abs(dx) > abs(dy))
+			dy = 0;
+		else
+			dx = 0;
+	}
 	x += dx;
 	y += dy;
 }
@@ -53,6 +64,7 @@ void Rockman::updateLocation()
 void Rockman::draw()
 {	
 	if (sprite == 0) return;
+
 	int xInViewport, yInViewport;
 	TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
 	int trucQuay = xInViewport + width / 2;
@@ -69,7 +81,7 @@ void Rockman::draw()
 
 	 if ((curAnimation == SHOT) || (curAnimation == JUMP_SHOT) || ((curAnimation == PUSHING_SHOT) && isPushing) || (curAnimation == RUN_SHOT))
 	 {
-		 if (ROCKBUTLET->Count < 4)
+		 if (ROCKBUTLET->Count < 1)
 		 {
 			 RockButlet *butlet = new RockButlet();
 			 RockButlet::getListBullet()->_Add(butlet);
@@ -86,27 +98,50 @@ void Rockman::draw()
 
 void Rockman::changeAction(int newAction)
 {
+	
+
 	if(curAnimation!=newAction)
 		curAnimation = newAction;
 	
 	DrawableObject::changeAction(newAction);
 }
 
-bool Rockman::setOnHit(bool newOnHit)
+void Rockman::setOnHit(bool newOnHit)
 {
 	if (newOnHit)
 	{
-		//changeAction(ON_HIT);
-		vx = -5 * direction;
-		vy = -100;
+		changeAction(ON_HIT);
+		vx = -50 * direction;
+		vy = -80;
 	}
 
 	onHit = newOnHit;
-	return onHit;
+}
+
+void Rockman::updateInvisible()
+{
+	if (invisible)
+	{
+		if (gameTimeLoop.canCreateFrame())
+			allowDraw = !allowDraw;
+
+		if (gameTimeLoop.isTerminated())
+		{
+			allowDraw = true;
+			setOnHit(false);
+			invisible = false;
+		}
+	}
 }
 
 void Rockman::update()
 {
+	if (onHit)
+	{
+		MovableObject::update();
+		return;
+	}
+	/*updateInvisible();*/
 	updateDirection();
 	updateChangeAnimation();
 	MovableObject::update();
@@ -114,31 +149,35 @@ void Rockman::update()
 
 void Rockman::updateDirection()
 {
-	if (KEY->keyLeft)
+	if (KEY->keyLeft && (curAnimation!=ON_HIT ))
 		direction = Left;
-	if (KEY->keyRight)
+	if (KEY->keyRight && curAnimation != ON_HIT)
 	{
 		direction = Right;
 	}
-	if (KEY->keyMove && ((curAnimation!=JUMP_SHOT &&  curAnimation!=SHOT && curAnimation!= PUSHING_JUMP) || !isOnGround))
+	if (KEY->keyMove && ((curAnimation != JUMP_SHOT && curAnimation != SHOT && curAnimation != PUSHING_JUMP) || !isOnGround))
 	{
 		vx = ROCKMAN_VX_GO * direction;
+		if (curAnimation == APPEAR || curAnimation == ON_HIT) vx = 0;
+		if (curAnimation == HIGH_JUMP) vx *= 2;
+
 	}
 	else
 	{
 		vx = 0;
-	}
+	}	
 }
 
 void Rockman::updateChangeAnimation()
 {
 	if (isOnGround)
 		{
-			if (KEY->keyJumpPress)
+			if (KEY->keyJumpPress && curAnimation!=SLIDING)
 			{
 				vy = -170;
 				//curFrame = 0;
-				isOnGround = false;
+				
+				//isOnGround = false;
 			}
 			else
 			{
@@ -149,8 +188,16 @@ void Rockman::updateChangeAnimation()
 					changeAction(SLIDING);
 					vx = direction * ROCKMAN_VX_GO * 3;
 					if (curFrame == sprite->animates[SLIDING].nFrame - 1) isSliding = false;
+					
+					if (KEY->keyJumpPress && isSliding)
+					{
+						
+						changeAction(HIGH_JUMP);
+						vy = -210;
+						vx = direction * ROCKMAN_VX_GO * 3;
+					}
+					
 				}
-
 				else
 
 					if (KEY->keyMove)
@@ -204,9 +251,12 @@ void Rockman::updateChangeAnimation()
 				}
 				else
 				{
-					
-					if (curAnimation != ON_HIT && curAnimation != APPEAR)
-						changeAction(JUMP);
+					if (curAnimation == APPEAR) return;
+					//co the doi animation hight jump o day
+					if (curAnimation != ON_HIT );
+					{
+						changeAction(JUMP); 
+					}
 				}
 				
 				isPushing = false;
@@ -219,6 +269,8 @@ Rockman::Rockman()
 	sprite = SPRITEMANAGER->sprites[SPR_MAIN];
 	x = 126;
 	y = 680;
+	//x = 349;
+	//y = 409;
 	direction = Right;
 	width = 25;
 	height = 26;
@@ -228,6 +280,8 @@ Rockman::Rockman()
 	isSliding = true;
 	curAnimation = 0;
 	collisionType = CT_PLAYER;
+	gameTimeLoop.init(0.01, 100);
+	gameTimeLoop.start();
 }
 
 

@@ -126,8 +126,6 @@ void CollisionManager::checkCollision(BaseObject * M, BaseObject * S)
 	if (!S->alive || !M->alive)
 		return;
 
-	int oldDx = M->dx;
-	int oldDy = M->dy;
 	M->dx -= S->dx;
 	M->dy -= S->dy;
 

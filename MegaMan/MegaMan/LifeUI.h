@@ -1,11 +1,17 @@
 #pragma once
-class LifeUI
+#include"DrawableObject.h"
+#include"Map.h"
+
+class LifeUI:public DrawableObject
 {
+	static LifeUI* instance;
 public:
-	 void init();
-	 void draw();
-	 void update();
-	LifeUI(int number);
+	static LifeUI* getInstance();
+
+	virtual void next(int& curFrame);
+	virtual void draw();
+	void updateLocation();
+	LifeUI();
 	~LifeUI();
 };
 

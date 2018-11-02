@@ -12,20 +12,23 @@ SpriteManager * SpriteManager::getInstance()
 
 SpriteManager::SpriteManager()
 {
-	sprites = new Sprite*[3];
+	sprites = new Sprite*[SPR_COUNT];
 	sprites[SPR_MAIN] = new Sprite("Data\\Rockman\\rock_x3.png", "Data\\Rockman\\rockman.txt");
 	sprites[SPR_BUTLET] = new Sprite("Data\\Rockman\\butlet.png", "Data\\Rockman\\butlet.txt");
-	sprites[SPR_DRAGONFLY] = new Sprite("Data\\Enermies\\butterlift.png", "Data\\Enermies\\butterlift.txt");
+
+	sprites[SPR_DRAGONFLY] = new Sprite("Data\\Enermies\\butterfly\\butterlift.png", "Data\\Enermies\\butterfly\\butterlift.txt");
+	sprites[SPR_DRAGONFLY_BULLET] = new Sprite("Data\\Enermies\\butterfly\\butterlift.png", "Data\\Enermies\\butterfly\\butterfly_bullet.txt");
+
+	sprites[SPR_NOTORBANGER] = new Sprite("Data\\Enermies\\notorbanger\\notorbanger.png", "Data\\Enermies\\notorbanger\\notorbanger.txt");
+	sprites[SPR_NOTORBANGER_BULLET] = new Sprite("Data\\Enermies\\notorbanger\\notorbanger.png", "Data\\Enermies\\notorbanger\\notorbanger_bullet.txt");
 }
 
 
 SpriteManager::~SpriteManager()
 {
-	delete sprites[0]->image;
-	delete sprites[0]->animates;
-	delete sprites[0];
-
-	delete sprites[2]->image;
-	delete sprites[2]->animates;
-	delete sprites[2];
+	for (int i = 0; i < SPR_COUNT; i++)
+	{
+		delete[] sprites[i]->animates;
+		delete sprites[i];
+	}
 }

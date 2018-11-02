@@ -54,6 +54,9 @@
     <Filter Include="Enermy\Butterlift">
       <UniqueIdentifier>{014a3496-145b-4918-8908-b6cf7b16ee4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enermy\Notorbanger">
+      <UniqueIdentifier>{7b095249-5a3c-43bb-8004-5545ce23930e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animate.h">
@@ -161,6 +164,18 @@
     <ClInclude Include="Dragonfly.h">
       <Filter>Enermy\Butterlift</Filter>
     </ClInclude>
+    <ClInclude Include="Dragonfly_bullet.h">
+      <Filter>Enermy\Butterlift</Filter>
+    </ClInclude>
+    <ClInclude Include="NotorBanger.h">
+      <Filter>Enermy\Notorbanger</Filter>
+    </ClInclude>
+    <ClInclude Include="NotoBanger_bullet.h">
+      <Filter>Enermy\Notorbanger</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -261,6 +276,18 @@
     </ClCompile>
     <ClCompile Include="Dragonfly.cpp">
       <Filter>Enermy\Butterlift</Filter>
+    </ClCompile>
+    <ClCompile Include="Dragonfly_bullet.cpp">
+      <Filter>Enermy\Butterlift</Filter>
+    </ClCompile>
+    <ClCompile Include="NotorBanger.cpp">
+      <Filter>Enermy\Notorbanger</Filter>
+    </ClCompile>
+    <ClCompile Include="NotoBanger_bullet.cpp">
+      <Filter>Enermy\Notorbanger</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

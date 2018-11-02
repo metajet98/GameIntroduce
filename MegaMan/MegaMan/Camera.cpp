@@ -1,5 +1,5 @@
 #include "Camera.h"
-
+#include"Stage.h"
 
 Camera* Camera::instance = 0;
 Camera * Camera::getInstance()
@@ -30,10 +30,14 @@ void Camera::update()
 		dx = 0;
 	}
 
-	/*if (right() + dx > right() && dx > 0)
+	/*if (x + dx < Stage::curStage->left() && x>=Stage::curStage->left())
 	{
-		x = right() - width;
-		dx = 0;
+		dx = Stage::curStage->left()-x;
+	}
+
+	if (right() + dx > Stage::curStage->right() && right()<=Stage::curStage->right())
+	{
+		dx = Stage::curStage->right() - width;
 	}*/
 }
 

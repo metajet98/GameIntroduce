@@ -17,7 +17,6 @@ void MovableObject::update()
 
 void MovableObject::draw()
 {
-
 	DrawableObject::draw();
 }
 
@@ -30,6 +29,8 @@ void MovableObject::onCollision(BaseObject * other, int nx, int ny)
 
 		if (ny != 0 || nx != 0)
 			COLLISION->preventMove(this, other);
+	/*	if (ny != 1)
+			COLLISION->preventMove(this, other);*/
 
 		if (ny < 0)
 			vy = 0;

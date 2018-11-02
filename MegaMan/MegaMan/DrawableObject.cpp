@@ -26,6 +26,8 @@ void DrawableObject::changeAction(int newAction)
 
 void DrawableObject::update()
 {
+	if (!alive) return;
+
 	BaseObject::update();
 	if (delayAnimation.canCreateFrame())
 	{

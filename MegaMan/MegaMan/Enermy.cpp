@@ -4,7 +4,7 @@
 
 void Enermy::update()
 {
-	/*if (damaged)
+	if (damaged)
 	{
 		dx = 0;
 		gameTimeLoop.canCreateFrame();
@@ -13,7 +13,7 @@ void Enermy::update()
 			damaged = false;
 
 		return;
-	}*/
+	}
 
 	if (alive)
 		vx = direction * 40;
@@ -53,7 +53,6 @@ void Enermy::draw()
 void Enermy::onCollision(BaseObject * other, int nx, int ny)
 {
 	MovableObject::onCollision(other, nx, ny);
-
 }
 
 void Enermy::onAABBCheck(BaseObject * other)
@@ -67,11 +66,24 @@ void Enermy::onAABBCheck(BaseObject * other)
 			ROCKMAN->gameTimeLoop.start();
 		}
 	}
+	if (other->collisionType == CT_BUTLET)
+	{
+		if (!damaged)
+		{
+			damaged = true;
+			this->life --;
+			other->allowDelete = true;
+			gameTimeLoop.start();
+		}
+	
+		if (life <= 0) this->alive = false;
+	}
 }
 
 void Enermy::restore(BaseObject * obj)
 {
 	DrawableObject::restore(obj);
+	timeDeath.start();
 }
 
 Enermy::Enermy()
@@ -82,6 +94,12 @@ Enermy::Enermy()
 	collisionType = CT_ENERMY;
 	gameTimeLoop.init(0.35, 1);
 	gameTimeLoop.start();
+	damage = 2;
+	damaged = false;
+	gameTimeLoop.init(0.35, 1);
+	gameTimeLoop.start();
+	timeDeath.init(0.2, 10);
+	timeDeath.start();
 }
 
 

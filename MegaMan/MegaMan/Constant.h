@@ -1,12 +1,12 @@
 ﻿#pragma once
-#define CLASS_NAME "FrameWork"
-#define TITLE_STR "Frame"
+#define CLASS_NAME "Megaman"
+#define TITLE_STR "Game Megaman"
 
 #define ANIMATE_DELAY_TIME_DEFAULT	0.1f
 #define SCREEN_WIDTH		800
 #define SCREEN_HEIGHT		600
-#define VIEWPORT_WIDTH		190
-#define VIEWPORT_HEIGHT		141
+#define VIEWPORT_WIDTH		250
+#define VIEWPORT_HEIGHT		150
 #define BACK_WIDTH			VIEWPORT_WIDTH
 #define BACK_HEIGHT			VIEWPORT_HEIGHT
 
@@ -24,6 +24,8 @@
 #define CAMERA				Camera::getInstance()
 #define X_MAP				50
 #define Y_MAP				603
+//#define X_MAP				307
+//#define Y_MAP				358
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 
@@ -35,6 +37,11 @@
 #define ROCKMAN				Rockman::getInstance()
 #define ROCKMAN_VX_GO		75
 #define ROCKBUTLET			RockButlet::getListBullet()
+#define DRAGONFLY			Dragonfly::getInstance()
+#define DRAGONFLY_BULLET	Dragonfly_bullet::getListDragonfly_bullet()
+
+#define NOTOBANGER			NotorBanger::getInstance()
+#define NOTOBANGER_BULLET	NotoBanger_bullet::getListnotobanger_bullet()
 
 enum ROCK_ACTION
 {
@@ -50,7 +57,8 @@ enum ROCK_ACTION
 	SLIDING = 8,
 	PUSHING_JUMP = 10,
 	ON_HIT=11,
-	DIE = 12
+	DIE = 12,
+	HIGH_JUMP = 13,
 };
 enum Direction
 {
@@ -63,24 +71,25 @@ enum COLLISION_TYPE
 	CT_PREVENTMOVECAMERA,
 	CT_BUTLET,
 	CT_ENERMY,
-	CT_PLAYER
-};
-enum BULLET_ACTION
-{
-	FIRE,
-	NORMAL,
-	NONE,
-	//IS_THROW,
-	//IS_BACK,
+	CT_PLAYER,
+	CT_BULLET_ENERMY
 };
 enum SPRITE_OBJECT
 {
 	SPR_MAIN,
 	SPR_BUTLET,
-	SPR_DRAGONFLY
+	SPR_DRAGONFLY,
+	SPR_DRAGONFLY_BULLET,
+	SPR_NOTORBANGER,
+	SPR_NOTORBANGER_BULLET,
+	SPR_COUNT
 };
 enum CATEGORY_ENEMY
 {
-	CREP_DRAGONFLY
+	CREP_DRAGONFLY,
+	CREP_NOTORBANGER
+};
+enum CATEGORY_BULLET_FOR_MEGAMAN {
+	OF_MEGAMAN,
 };
 
