@@ -17,6 +17,7 @@ class NotorBanger:public Enermy
 public:
 	static NotorBanger* getInstance();
 	GameTimeLoop timeStand;
+	GameTimeLoop timeShot;
 	int countJump;
 
 	void draw();

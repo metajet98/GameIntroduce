@@ -33,13 +33,17 @@ void Dragonfly::update()
 		vx = direction * 40;
 		if (direction == Left && abs((ROCKMAN->x + ROCKMAN->width) - x) < 20 && abs((y + height) - ROCKMAN->y) < 20)
 		{
-			curAnimation = DRAGONFLY_SHOT;
 			vx = 0;
-
-			if (DRAGONFLY_BULLET->Count < 1)
+			curAnimation = DRAGONFLY_SHOT;
+			timeShot.canCreateFrame();
+			if (timeShot.isTerminated())
 			{
-				Dragonfly_bullet *db = new Dragonfly_bullet(this->x, this->y, this->direction);
-				DRAGONFLY_BULLET->_Add(db);
+				if (DRAGONFLY_BULLET->Count < 1)
+				{
+					Dragonfly_bullet *db = new Dragonfly_bullet(this->x, this->y, this->direction);
+					DRAGONFLY_BULLET->_Add(db);
+				}
+				timeShot.start();
 			}
 		}
 		else curAnimation = DRAGONFLY_FLY;
@@ -89,6 +93,8 @@ Dragonfly::Dragonfly()
 	//gameTimeLoopBullet->init(0.7, 1);
 	//gameTimeLoopBullet->start();
 	collisionType == CT_ENERMY;
+	timeShot.init(0.2, 10);
+	timeShot.start();
 }
 
 

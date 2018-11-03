@@ -2,6 +2,7 @@
 #include"Camera.h"
 #include"Dragonfly.h"
 #include "NotorBanger.h"
+#include"Caterkiller.h"
 
 TileMap* TileMap::curMap = 0;
 TileMap::TileMap()
@@ -50,6 +51,9 @@ void TileMap::initObjects(const char* objectsPath)
 			break;
 		case SPR_NOTORBANGER:
 			objects[i] = new NotorBanger();
+			break;
+		case SPR_CATERKILLER:
+			objects[i] = new Caterkiller();
 			break;
 		default:
 			objects[i] = new BaseObject();

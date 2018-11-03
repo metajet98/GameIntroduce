@@ -12,11 +12,12 @@ class Dragonfly: public Enermy
 {
 private:
 	DRAGONFLY_ACTIVITY dragonflyActivity;
+
 	static Dragonfly* instance;
 public:
 	static Dragonfly* getInstance();
 
-
+	GameTimeLoop timeShot;
 	void draw();
 	void update();
 	void onCollision(BaseObject* S, int nx, int ny);

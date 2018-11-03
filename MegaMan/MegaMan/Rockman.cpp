@@ -134,6 +134,63 @@ void Rockman::updateInvisible()
 	}
 }
 
+void Rockman::die()
+{
+	if (alive)
+	{
+		DieEffect* effect1 = new DieEffect(ROCK_DIE);
+		effect1->x = this->x;
+		effect1->y = this->y;
+		effect1->dx = -1;
+		effect1->dy = -1;
+
+		DieEffect* effect2 = new DieEffect(ROCK_DIE);
+		effect2->x = this->x + width/2;
+		effect2->y = this->y;
+		effect2->dx = 0;
+		effect2->dy = -1;
+
+		DieEffect* effect3 = new DieEffect(ROCK_DIE);
+		effect3->x = this->x + width;
+		effect3->y = this->y;
+		effect3->dx = 1;
+		effect3->dy = -1;
+
+		DieEffect* effect4 = new DieEffect(ROCK_DIE);
+		effect4->x = this->x;
+		effect4->y = this->y + height/2;
+		effect4->dx = -1;
+		effect4->dy = 0;
+
+		DieEffect* effect5 = new DieEffect(ROCK_DIE);
+		effect5->x = this->x;
+		effect5->y = this->y+height;
+		effect5->dx = 0;
+		effect5->dy = 1;
+
+		DieEffect* effect6 = new DieEffect(ROCK_DIE);
+		effect6->x = this->x + width/2;
+		effect6->y = this->y + height;
+		effect6->dx = -1;
+		effect6->dy = 1;
+
+		DieEffect* effect7 = new DieEffect(ROCK_DIE);
+		effect7->x = this->x+width;
+		effect7->y = this->y+height;
+		effect7->dx = 0;
+		effect7->dy = 1;
+
+		DieEffect* effect8 = new DieEffect(ROCK_DIE);
+		effect8->x = this->x + width;
+		effect8->y = this->y + height/2;
+		effect8->dx = 1;
+		effect8->dy = 0;
+		dx = 0;
+		dy = 0;
+		alive = true;
+	}
+}
+
 void Rockman::update()
 {
 	if (onHit)
@@ -142,6 +199,7 @@ void Rockman::update()
 		return;
 	}
 	/*updateInvisible();*/
+
 	updateDirection();
 	updateChangeAnimation();
 	MovableObject::update();
@@ -267,10 +325,10 @@ void Rockman::updateChangeAnimation()
 Rockman::Rockman()
 {
 	sprite = SPRITEMANAGER->sprites[SPR_MAIN];
-	x = 126;
-	y = 680;
-	//x = 349;
-	//y = 409;
+	//x = 126;
+	//y = 680;
+	x = 680;
+	y = 132;
 	direction = Right;
 	width = 25;
 	height = 26;
@@ -282,6 +340,7 @@ Rockman::Rockman()
 	collisionType = CT_PLAYER;
 	gameTimeLoop.init(0.01, 100);
 	gameTimeLoop.start();
+
 }
 
 

@@ -22,10 +22,10 @@
 #define GRAVITY				300
 #define TIMEJUMP			60.0f/GRAVITY
 #define CAMERA				Camera::getInstance()
-#define X_MAP				50
-#define Y_MAP				603
-//#define X_MAP				307
-//#define Y_MAP				358
+//#define X_MAP				50
+//#define Y_MAP				603
+#define X_MAP				600
+#define Y_MAP				80
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 
@@ -37,11 +37,15 @@
 #define ROCKMAN				Rockman::getInstance()
 #define ROCKMAN_VX_GO		75
 #define ROCKBUTLET			RockButlet::getListBullet()
+
 #define DRAGONFLY			Dragonfly::getInstance()
 #define DRAGONFLY_BULLET	Dragonfly_bullet::getListDragonfly_bullet()
 
 #define NOTOBANGER			NotorBanger::getInstance()
 #define NOTOBANGER_BULLET	NotoBanger_bullet::getListnotobanger_bullet()
+
+#define CATERKILLER			Caterkiller::getInstance()
+#define CATERKILLER_BULLET	Caterkiller_bullet::getListCaterkiller_bullet()
 
 enum ROCK_ACTION
 {
@@ -72,7 +76,8 @@ enum COLLISION_TYPE
 	CT_BUTLET,
 	CT_ENERMY,
 	CT_PLAYER,
-	CT_BULLET_ENERMY
+	CT_BULLET_ENERMY,
+	CT_NONE,
 };
 enum SPRITE_OBJECT
 {
@@ -82,6 +87,11 @@ enum SPRITE_OBJECT
 	SPR_DRAGONFLY_BULLET,
 	SPR_NOTORBANGER,
 	SPR_NOTORBANGER_BULLET,
+	SPR_ENEMY_DIE,
+	SPR_BOSS_DIE,
+	SPR_ROCK_DIE,
+	SPR_CATERKILLER,
+	SPR_CATERKILLER_BULLET,
 	SPR_COUNT
 };
 enum CATEGORY_ENEMY

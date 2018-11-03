@@ -7,6 +7,7 @@
 #include"FixedPoint8.h"
 #include<DirectXMath.h>
 #include"RockButlet.h"
+#include"DieEffect.h"
 
 class Rockman:public MovableObject
 {
@@ -33,6 +34,7 @@ public:
 	void changeAction(int newAction);
 	void setOnHit(bool newOnHit);
 	void updateInvisible();
+	void die();
 
 	Rockman();
 

@@ -153,8 +153,11 @@
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Caterkiller.h" />
+    <ClInclude Include="Caterkiller_bullet.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Constant.h" />
+    <ClInclude Include="DieEffect.h" />
     <ClInclude Include="Dragonfly.h" />
     <ClInclude Include="Dragonfly_bullet.h" />
     <ClInclude Include="DrawableObject.h" />
@@ -194,7 +197,10 @@
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Caterkiller.cpp" />
+    <ClCompile Include="Caterkiller_bullet.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
+    <ClCompile Include="DieEffect.cpp" />
     <ClCompile Include="Dragonfly.cpp" />
     <ClCompile Include="Dragonfly_bullet.cpp" />
     <ClCompile Include="DrawableObject.cpp" />

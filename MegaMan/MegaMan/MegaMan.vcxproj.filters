@@ -57,6 +57,9 @@
     <Filter Include="Enermy\Notorbanger">
       <UniqueIdentifier>{7b095249-5a3c-43bb-8004-5545ce23930e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enermy\caterkiller">
+      <UniqueIdentifier>{70d76624-9192-4657-b001-09f94c4e8501}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animate.h">
@@ -176,6 +179,15 @@
     <ClInclude Include="Stage.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="DieEffect.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="Caterkiller.h">
+      <Filter>Enermy\caterkiller</Filter>
+    </ClInclude>
+    <ClInclude Include="Caterkiller_bullet.h">
+      <Filter>Enermy\caterkiller</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -288,6 +300,15 @@
     </ClCompile>
     <ClCompile Include="Stage.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="DieEffect.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="Caterkiller.cpp">
+      <Filter>Enermy\caterkiller</Filter>
+    </ClCompile>
+    <ClCompile Include="Caterkiller_bullet.cpp">
+      <Filter>Enermy\caterkiller</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

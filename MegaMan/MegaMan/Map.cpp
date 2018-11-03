@@ -1,6 +1,8 @@
 #include "Map.h"
 #include"Dragonfly.h"
 #include"NotorBanger.h"
+#include"DieEffect.h"
+#include"Caterkiller.h"
 
 void Map::init(const char* tileSheetPath, const char* objectsPath, const char* quadtreePath)
 {
@@ -48,6 +50,7 @@ void Map::update()
 	for (int i = 0; i < NOTOBANGER_BULLET->size(); i++)
 	{
 		NOTOBANGER_BULLET->at(i)->update();
+		NOTOBANGER_BULLET->at(i)->updateLocation();
 	}
 
 	for (List<RockButlet*>::Node* p = ROCKBUTLET->pHead; p; p = p->pNext)
@@ -59,8 +62,19 @@ void Map::update()
 			COLLISION->checkCollision(bullet, enermyObject[i]);
 		}
 		bullet->updateLocation();
-
 	}
+	for (List<DieEffect*>::Node *p = DieEffect::getList()->pHead; p; p = p->pNext)
+	{
+		DieEffect * effect = p->m_value;
+		effect->update();
+		effect->updateLocation();
+	}
+	for (int i = 0; i < CATERKILLER_BULLET->size(); i++)
+	{
+		CATERKILLER_BULLET->at(i)->update();
+		CATERKILLER_BULLET->at(i)->updateLocation();
+	}
+
 #pragma endregion
 
 	#pragma region CheckCollision
@@ -88,6 +102,10 @@ void Map::update()
 	for (int i = 0; i < NOTOBANGER_BULLET->size(); i++)
 	{
 		COLLISION->checkCollision(ROCKMAN, NOTOBANGER_BULLET->at(i));
+	}
+	for (int i = 0; i < CATERKILLER_BULLET->size(); i++)
+	{
+		COLLISION->checkCollision(ROCKMAN, CATERKILLER_BULLET->at(i));
 	}
 #pragma endregion
 
@@ -120,9 +138,28 @@ void Map::update()
 		NOTOBANGER_BULLET->at(i)->updateLocation();
 		if (!COLLISION->AABBCheck(*NOTOBANGER_BULLET->at(i), *CAMERA) || NOTOBANGER_BULLET->at(i)->allowDelete)
 		{
-			NotoBanger_bullet *nb = NOTOBANGER_BULLET->at(i);
-			NOTOBANGER_BULLET->_Remove(nb);
-			delete nb;
+			NotoBanger_bullet *db = NOTOBANGER_BULLET->at(i);
+			NOTOBANGER_BULLET->_Remove(db);
+			delete db;
+		}
+	}
+	for (int i = 0; i < DieEffect::getList()->size(); i++)
+	{
+		DieEffect* effect = DieEffect::getList()->at(i);
+		if (!COLLISION->AABBCheck(*effect, *CAMERA))
+		{
+			DieEffect::getList()->_Remove(effect);
+			delete effect;
+		}
+	}
+	for (int i = 0; i < CATERKILLER_BULLET->size(); i++)
+	{
+		CATERKILLER_BULLET->at(i)->updateLocation();
+		if (!COLLISION->AABBCheck(*CATERKILLER_BULLET->at(i), *CAMERA) || CATERKILLER_BULLET->at(i)->allowDelete)
+		{
+			Caterkiller_bullet *cb = CATERKILLER_BULLET->at(i);
+			CATERKILLER_BULLET->_Remove(cb);
+			delete cb;
 		}
 	}
 #pragma endregion
@@ -152,6 +189,14 @@ void Map::draw()
 	for (int i = 0; i < NOTOBANGER_BULLET->size(); i++)
 	{
 		NOTOBANGER_BULLET->at(i)->draw();
+	}
+	for (int i = 0; i < DieEffect::getList()->size(); i++)
+	{
+		DieEffect::getList()->at(i)->draw();
+	}
+	for (int i = 0; i < CATERKILLER_BULLET->size(); i++)
+	{
+		CATERKILLER_BULLET->at(i)->draw();
 	}
 }
 void Map::restoreAllObject()

@@ -12,14 +12,13 @@ List<NotoBanger_bullet*>* NotoBanger_bullet::getListnotobanger_bullet()
 void NotoBanger_bullet::update()
 {
 	timeShot.canCreateFrame();
-	vx = 80 * direction;
+	vx = 50 * direction;
 	dx = vx * TIME;
 	if (timeShot.isTerminated())
 	{
 		MovableObject::update();
 		timeShot.start();
 	}
-
 }
 
 void NotoBanger_bullet::draw()

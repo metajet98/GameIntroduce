@@ -39,7 +39,7 @@ void RockButlet::draw()
 
 void RockButlet::update()
 {		
-	vx = direction * 90;
+	vx = direction * 130;
 	dx = vx * TIME;
 }
 

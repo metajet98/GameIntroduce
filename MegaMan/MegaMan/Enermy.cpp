@@ -23,6 +23,23 @@ void Enermy::update()
 
 void Enermy::draw()
 {
+	if (!alive)
+	{
+		if (timeDeath.canCreateFrame())
+		{
+			sprite = SPRITEMANAGER->sprites[SPR_ENEMY_DIE];
+			curAnimation = 0;
+			curFrame = (curFrame + 1) % 3;
+			vx = 0;
+		}
+
+		if (timeDeath.isTerminated())
+			return;
+
+		int xInViewport, yInViewport;
+		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
+		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+	}
 
 	if (alive)
 	{
@@ -92,13 +109,11 @@ Enermy::Enermy()
 	count = 0;
 	//vy = 0.5;
 	collisionType = CT_ENERMY;
-	gameTimeLoop.init(0.35, 1);
+	gameTimeLoop.init(0.3, 1);
 	gameTimeLoop.start();
 	damage = 2;
 	damaged = false;
-	gameTimeLoop.init(0.35, 1);
-	gameTimeLoop.start();
-	timeDeath.init(0.2, 10);
+	timeDeath.init(0.2, 4);
 	timeDeath.start();
 }
 
