@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Resources File">
+      <UniqueIdentifier>{1fb4fb12-18b9-471f-b30b-f247d0d88045}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWord">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="FrameWord\Framework">
+      <UniqueIdentifier>{38c3c538-9a19-4008-86ff-66fa5d195fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWord\Framework\Animation">
+      <UniqueIdentifier>{1b9ea408-c45b-4b47-af54-de466ad5a17b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWord\Framework\Collision">
+      <UniqueIdentifier>{19516702-0edb-43cf-bcd4-c81eb3dbb5d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWord\Framework\GameTime">
+      <UniqueIdentifier>{6614f72d-aad9-4803-9ae3-0be78eebfa4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWord\Framework\Graphics">
+      <UniqueIdentifier>{f403fe3c-2003-427c-bcd5-034ac8169b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWord\Framework\KeyBoard">
+      <UniqueIdentifier>{b23dcfc1-7f5d-4c95-bfe7-9289e87f2954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWord\Framework\Mouse">
+      <UniqueIdentifier>{129b9140-5891-423d-afbf-ea269d16d10b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWord\Framework\Object">
+      <UniqueIdentifier>{02dc5787-ee06-476d-9d5f-eaffb2caa0df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X">
+      <UniqueIdentifier>{de1b55fb-e9eb-4bef-b96f-a8a9b78790c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Life">
+      <UniqueIdentifier>{f063d5e0-360b-4e31-8dd0-4efd73ee6529}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{cf4e383f-b1d7-4a37-adc2-2c42896684f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{1e353378-1916-415a-9bd1-6cfa1aa017d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy">
+      <UniqueIdentifier>{ba5454d7-aa37-432e-ac05-d8d707128d1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\Butterlift">
+      <UniqueIdentifier>{014a3496-145b-4918-8908-b6cf7b16ee4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\Notorbanger">
+      <UniqueIdentifier>{7b095249-5a3c-43bb-8004-5545ce23930e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\caterkiller">
+      <UniqueIdentifier>{70d76624-9192-4657-b001-09f94c4e8501}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Item">
+      <UniqueIdentifier>{7611edb7-ad84-4012-8d14-201093be6e1c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Animate.h">
+      <Filter>FrameWord\Framework\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>FrameWord\Framework\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteManager.h">
+      <Filter>FrameWord\Framework\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>FrameWord\Framework\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>FrameWord\Framework\GameTime</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTimeLoop.h">
+      <Filter>FrameWord\Framework\GameTime</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>FrameWord\Framework\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyBoard.h">
+      <Filter>FrameWord\Framework\KeyBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyGame.h">
+      <Filter>FrameWord\Framework\KeyBoard</Filter>
+    </ClInclude>
+    <ClInclude Include="Mouse.h">
+      <Filter>FrameWord\Framework\Mouse</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableObject.h">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="OldRestore.h">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RectF.h">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Constant.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>FrameWord\Framework\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowGame.h">
+      <Filter>FrameWord\Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="MovableObject.h">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Point.h">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Rockman.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadNode.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="TileMap.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="QuadTree.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="MegamanScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>FrameWord</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectsCategory.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="FixedPoint8.h">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="RockButlet.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="Enermy.h">
+      <Filter>Enermy</Filter>
+    </ClInclude>
+    <ClInclude Include="Dragonfly.h">
+      <Filter>Enermy\Butterlift</Filter>
+    </ClInclude>
+    <ClInclude Include="Dragonfly_bullet.h">
+      <Filter>Enermy\Butterlift</Filter>
+    </ClInclude>
+    <ClInclude Include="NotorBanger.h">
+      <Filter>Enermy\Notorbanger</Filter>
+    </ClInclude>
+    <ClInclude Include="NotoBanger_bullet.h">
+      <Filter>Enermy\Notorbanger</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="DieEffect.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="Caterkiller.h">
+      <Filter>Enermy\caterkiller</Filter>
+    </ClInclude>
+    <ClInclude Include="Caterkiller_bullet.h">
+      <Filter>Enermy\caterkiller</Filter>
+    </ClInclude>
+    <ClInclude Include="HP_bar.h">
+      <Filter>Life</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="BigHealth.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="SmallHealth.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Animate.cpp">
+      <Filter>FrameWord\Framework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>FrameWord\Framework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteManager.cpp">
+      <Filter>FrameWord\Framework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>FrameWord\Framework\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>FrameWord\Framework\GameTime</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTimeLoop.cpp">
+      <Filter>FrameWord\Framework\GameTime</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>FrameWord\Framework\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyBoard.cpp">
+      <Filter>FrameWord\Framework\KeyBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyGame.cpp">
+      <Filter>FrameWord\Framework\KeyBoard</Filter>
+    </ClCompile>
+    <ClCompile Include="Mouse.cpp">
+      <Filter>FrameWord\Framework\Mouse</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseObject.cpp">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableObject.cpp">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="OldRestore.cpp">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="RectF.cpp">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>FrameWord\Framework\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowGame.cpp">
+      <Filter>FrameWord\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="MovableObject.cpp">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.cpp">
+      <Filter>FrameWord\Framework\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Rockman.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadNode.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="TileMap.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="QuadTree.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="MegamanScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectsCategory.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="RockButlet.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="Enermy.cpp">
+      <Filter>Enermy</Filter>
+    </ClCompile>
+    <ClCompile Include="Dragonfly.cpp">
+      <Filter>Enermy\Butterlift</Filter>
+    </ClCompile>
+    <ClCompile Include="Dragonfly_bullet.cpp">
+      <Filter>Enermy\Butterlift</Filter>
+    </ClCompile>
+    <ClCompile Include="NotorBanger.cpp">
+      <Filter>Enermy\Notorbanger</Filter>
+    </ClCompile>
+    <ClCompile Include="NotoBanger_bullet.cpp">
+      <Filter>Enermy\Notorbanger</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="DieEffect.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="Caterkiller.cpp">
+      <Filter>Enermy\caterkiller</Filter>
+    </ClCompile>
+    <ClCompile Include="Caterkiller_bullet.cpp">
+      <Filter>Enermy\caterkiller</Filter>
+    </ClCompile>
+    <ClCompile Include="HP_bar.cpp">
+      <Filter>Life</Filter>
+    </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="BigHealth.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="SmallHealth.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

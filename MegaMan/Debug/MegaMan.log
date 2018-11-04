@@ -1,0 +1,12 @@
+﻿  SmallHealth.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  TileMap.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(29): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(30): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+  Generating Code...
+  MegaMan.vcxproj -> D:\Study\Visual Project\megaman\MegaMan\Debug\MegaMan.exe
