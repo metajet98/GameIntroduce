@@ -3,6 +3,7 @@
 #include"NotorBanger.h"
 #include"DieEffect.h"
 #include"Caterkiller.h"
+#include"HP_bar.h"
 
 void Map::init(const char* tileSheetPath, const char* objectsPath, const char* quadtreePath)
 {
@@ -36,6 +37,9 @@ void Map::update()
 
 
 	#pragma region Update
+
+	HP_BAR->update();
+
 	for (int i = 0; i < enermyObject.size(); i++)
 	{
 		enermyObject[i]->update();
@@ -174,6 +178,8 @@ void Map::draw()
 	RECT r;
 	SetRect(&r, xMap, yMap, xMap+VIEWPORT_WIDTH, yMap+VIEWPORT_HEIGHT);
 	tileSheetImg.RenderTexture(0, 0, &r);
+
+	HP_BAR->draw();
 
 	List<Enermy*> enermyObject = CAMERA->objectsInCamera.enermies;
 

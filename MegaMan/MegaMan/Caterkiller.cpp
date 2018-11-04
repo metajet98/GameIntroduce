@@ -33,7 +33,7 @@ void Caterkiller::update()
 		curAnimation = CATERKILLER_STAND;
 		dx = direction;
 	}
-	if (alive && isMove)
+	else if (alive && isMove)
 	{
 		curAnimation = CATERKILLER_MOVE;
 		vy = UpDown * 10;
@@ -48,14 +48,14 @@ void Caterkiller::update()
 				if (direction == Left)
 				{
 					
-					cb1 = new Caterkiller_bullet(this->x + this->width - 16, this->y + 8, Left);
-					cb2 = new Caterkiller_bullet(this->x + this->width - 16, this->y + this->height - 21, Right);
+					cb1 = new Caterkiller_bullet(this->x + this->width - 16, this->y + 8, Left,true);
+					cb2 = new Caterkiller_bullet(this->x + this->width - 16, this->y + this->height - 21, Right,false);
 					cb2->curFrame = cb1->curFrame;
 				}
 				else
 				{
-					cb1 = new Caterkiller_bullet(this->x - 16, this->y + 8, Right);
-					cb2 = new Caterkiller_bullet(this->x - 16, this->y + this->height - 8, Left);
+					cb1 = new Caterkiller_bullet(this->x - 16, this->y + 8, Right,true);
+					cb2 = new Caterkiller_bullet(this->x - 16, this->y + this->height - 8, Left,false);
 				}
 				CATERKILLER_BULLET->_Add(cb1);
 				CATERKILLER_BULLET->_Add(cb2);

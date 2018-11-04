@@ -52,7 +52,7 @@ void NotoBanger_bullet::onCollision(BaseObject * S, int nx, int ny)
 
 void NotoBanger_bullet::onAABBCheck(BaseObject * other)
 {
-	if (other == ROCKMAN && !ROCKMAN->onHit)
+	if (other == ROCKMAN && !ROCKMAN->onHit && !ROCKMAN->invisible)
 	{
 		ROCKMAN->changeAction(ON_HIT);
 		ROCKMAN->setOnHit(true);

@@ -125,9 +125,6 @@
     <ClInclude Include="Rockman.h">
       <Filter>X</Filter>
     </ClInclude>
-    <ClInclude Include="LifeUI.h">
-      <Filter>Life</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Map</Filter>
     </ClInclude>
@@ -187,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="Caterkiller_bullet.h">
       <Filter>Enermy\caterkiller</Filter>
+    </ClInclude>
+    <ClInclude Include="HP_bar.h">
+      <Filter>Life</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -253,9 +253,6 @@
     <ClCompile Include="Rockman.cpp">
       <Filter>X</Filter>
     </ClCompile>
-    <ClCompile Include="LifeUI.cpp">
-      <Filter>Life</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Map</Filter>
     </ClCompile>
@@ -309,6 +306,9 @@
     </ClCompile>
     <ClCompile Include="Caterkiller_bullet.cpp">
       <Filter>Enermy\caterkiller</Filter>
+    </ClCompile>
+    <ClCompile Include="HP_bar.cpp">
+      <Filter>Life</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

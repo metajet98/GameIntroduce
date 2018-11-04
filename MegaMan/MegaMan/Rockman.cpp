@@ -36,9 +36,9 @@ void Rockman::onCollision(BaseObject*S, int nx, int ny)
 
 	if (onHit && isOnGround)
 	{
-		//curAnimation = ON_HIT;
+		invisible = true;
 		setOnHit(false);
-		//vx = 0;
+		vx = 0;
 	}
 
 }
@@ -48,13 +48,13 @@ void Rockman::updateLocation()
 	if (!alive)
 		return;
 
-	if (isCollisionCross && !isCollision)
+	/*if (isCollisionCross && !isCollision)
 	{
 		if (abs(dx) > abs(dy))
 			dy = 0;
 		else
 			dx = 0;
-	}
+	}*/
 	x += dx;
 	y += dy;
 }
@@ -64,6 +64,9 @@ void Rockman::updateLocation()
 void Rockman::draw()
 {	
 	if (sprite == 0) return;
+
+	if (!allowDraw)
+		return;
 
 	int xInViewport, yInViewport;
 	TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
@@ -136,58 +139,60 @@ void Rockman::updateInvisible()
 
 void Rockman::die()
 {
-	if (alive)
+	if (!alive)
 	{
-		DieEffect* effect1 = new DieEffect(ROCK_DIE);
-		effect1->x = this->x;
-		effect1->y = this->y;
-		effect1->dx = -1;
-		effect1->dy = -1;
+		if (DieEffect::getList()->Count < 8)
+		{
+			DieEffect* effect1 = new DieEffect(ROCK_DIE);
+			effect1->x = this->x;
+			effect1->y = this->y;
+			effect1->dx = -1;
+			effect1->dy = -1;
 
-		DieEffect* effect2 = new DieEffect(ROCK_DIE);
-		effect2->x = this->x + width/2;
-		effect2->y = this->y;
-		effect2->dx = 0;
-		effect2->dy = -1;
+			DieEffect* effect2 = new DieEffect(ROCK_DIE);
+			effect2->x = this->x + width / 2;
+			effect2->y = this->y;
+			effect2->dx = 0;
+			effect2->dy = -1;
 
-		DieEffect* effect3 = new DieEffect(ROCK_DIE);
-		effect3->x = this->x + width;
-		effect3->y = this->y;
-		effect3->dx = 1;
-		effect3->dy = -1;
+			DieEffect* effect3 = new DieEffect(ROCK_DIE);
+			effect3->x = this->x + width;
+			effect3->y = this->y;
+			effect3->dx = 1;
+			effect3->dy = -1;
 
-		DieEffect* effect4 = new DieEffect(ROCK_DIE);
-		effect4->x = this->x;
-		effect4->y = this->y + height/2;
-		effect4->dx = -1;
-		effect4->dy = 0;
+			DieEffect* effect4 = new DieEffect(ROCK_DIE);
+			effect4->x = this->x;
+			effect4->y = this->y + height / 2;
+			effect4->dx = -1;
+			effect4->dy = 0;
 
-		DieEffect* effect5 = new DieEffect(ROCK_DIE);
-		effect5->x = this->x;
-		effect5->y = this->y+height;
-		effect5->dx = 0;
-		effect5->dy = 1;
+			DieEffect* effect5 = new DieEffect(ROCK_DIE);
+			effect5->x = this->x;
+			effect5->y = this->y + height;
+			effect5->dx = -1;
+			effect5->dy = 1;
 
-		DieEffect* effect6 = new DieEffect(ROCK_DIE);
-		effect6->x = this->x + width/2;
-		effect6->y = this->y + height;
-		effect6->dx = -1;
-		effect6->dy = 1;
+			DieEffect* effect6 = new DieEffect(ROCK_DIE);
+			effect6->x = this->x + width / 2;
+			effect6->y = this->y + height;
+			effect6->dx = 0;
+			effect6->dy = 1;
 
-		DieEffect* effect7 = new DieEffect(ROCK_DIE);
-		effect7->x = this->x+width;
-		effect7->y = this->y+height;
-		effect7->dx = 0;
-		effect7->dy = 1;
+			DieEffect* effect7 = new DieEffect(ROCK_DIE);
+			effect7->x = this->x + width;
+			effect7->y = this->y + height;
+			effect7->dx = 1;
+			effect7->dy = 1;
 
-		DieEffect* effect8 = new DieEffect(ROCK_DIE);
-		effect8->x = this->x + width;
-		effect8->y = this->y + height/2;
-		effect8->dx = 1;
-		effect8->dy = 0;
+			DieEffect* effect8 = new DieEffect(ROCK_DIE);
+			effect8->x = this->x + width;
+			effect8->y = this->y + height / 2;
+			effect8->dx = 1;
+			effect8->dy = 0;
+		}
 		dx = 0;
 		dy = 0;
-		alive = true;
 	}
 }
 
@@ -198,7 +203,16 @@ void Rockman::update()
 		MovableObject::update();
 		return;
 	}
-	/*updateInvisible();*/
+	updateInvisible();
+	if (life <= 0)
+	{
+		alive = false;
+		changeAction(DIE);
+		die();
+		return;
+	}
+
+	//if (!updatePause()) return;
 
 	updateDirection();
 	updateChangeAnimation();
@@ -338,9 +352,12 @@ Rockman::Rockman()
 	isSliding = true;
 	curAnimation = 0;
 	collisionType = CT_PLAYER;
-	gameTimeLoop.init(0.01, 100);
+	gameTimeLoop.init(0.01, 30);
 	gameTimeLoop.start();
-
+	life = 23;
+	alive = true;
+	invisible = false;
+	allowDraw = true;
 }
 
 

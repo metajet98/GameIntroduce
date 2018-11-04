@@ -37,6 +37,7 @@
 #define ROCKMAN				Rockman::getInstance()
 #define ROCKMAN_VX_GO		75
 #define ROCKBUTLET			RockButlet::getListBullet()
+#define HP_BAR				HP_bar::getInstance()
 
 #define DRAGONFLY			Dragonfly::getInstance()
 #define DRAGONFLY_BULLET	Dragonfly_bullet::getListDragonfly_bullet()
@@ -92,6 +93,8 @@ enum SPRITE_OBJECT
 	SPR_ROCK_DIE,
 	SPR_CATERKILLER,
 	SPR_CATERKILLER_BULLET,
+	SPR_HP_BAR_MGM,
+	SPR_HP_BAR_BOSS,
 	SPR_COUNT
 };
 enum CATEGORY_ENEMY

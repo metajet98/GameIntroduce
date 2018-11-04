@@ -76,11 +76,13 @@ void Enermy::onAABBCheck(BaseObject * other)
 {
 	if (other == ROCKMAN)
 	{
-		if (!ROCKMAN->onHit)
+		if (!ROCKMAN->onHit && !ROCKMAN->invisible)
 		{
 			ROCKMAN->changeAction(ON_HIT);
 			ROCKMAN->setOnHit(true);
+			ROCKMAN->life -= damage;
 			ROCKMAN->gameTimeLoop.start();
+			
 		}
 	}
 	if (other->collisionType == CT_BUTLET)
@@ -109,9 +111,9 @@ Enermy::Enermy()
 	count = 0;
 	//vy = 0.5;
 	collisionType = CT_ENERMY;
-	gameTimeLoop.init(0.3, 1);
+	gameTimeLoop.init(0.4, 1);
 	gameTimeLoop.start();
-	damage = 2;
+	damage = 23;
 	damaged = false;
 	timeDeath.init(0.2, 4);
 	timeDeath.start();

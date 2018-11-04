@@ -1,10 +1,13 @@
-﻿  Caterkiller_bullet.cpp
+﻿  Rockman.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(70): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(71): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(74): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(72): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(73): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(79): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(117): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(232): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(261): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(269): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(313): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(328): warning C4390: ';': empty controlled statement found; is this the intent?
+d:\study\visual project\megaman\megaman\megaman\rockman.cpp(355): warning C4305: 'argument': truncation from 'double' to 'float'
   MegaMan.vcxproj -> D:\Study\Visual Project\megaman\MegaMan\Debug\MegaMan.exe

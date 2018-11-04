@@ -14,7 +14,7 @@ class Rockman:public MovableObject
 	int inAir;
 	int isPushing;
 	int isSliding;
-	bool invisible;
+	
 	bool allowDraw;
 	bool pauseAnimation;
 	bool lastStatusRunAttack;
@@ -23,6 +23,8 @@ class Rockman:public MovableObject
 public:
 	static Rockman* getInstance();
 	bool onHit;
+	bool invisible;
+
 
 	void onCollision(BaseObject*S,int nx,int ny);
 	void onCollisionPush(BaseObject*S, int nx, int ny);

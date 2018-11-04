@@ -11,8 +11,16 @@ List<Caterkiller_bullet*>* Caterkiller_bullet::getListCaterkiller_bullet()
 
 void Caterkiller_bullet::update()
 {
-	vx = abs(direction) * 50;
-	vy = direction * 30;
+	if (above)
+	{
+		vx = -direction * 50;
+		vy = -abs(direction) * 30;
+	}
+	if (!above)
+	{
+		vx = direction * 50;
+		vy = abs(direction) * 30;
+	}
 		
 	MovableObject::update();
 }
@@ -48,7 +56,7 @@ void Caterkiller_bullet::onCollision(BaseObject * S, int nx, int ny)
 
 void Caterkiller_bullet::onAABBCheck(BaseObject * other)
 {
-	if (other == ROCKMAN && !ROCKMAN->onHit)
+	if (other == ROCKMAN && !ROCKMAN->onHit && !ROCKMAN->invisible)
 	{
 		ROCKMAN->changeAction(ON_HIT);
 		ROCKMAN->setOnHit(true);
@@ -57,7 +65,7 @@ void Caterkiller_bullet::onAABBCheck(BaseObject * other)
 	}
 }
 
-Caterkiller_bullet::Caterkiller_bullet(int xCater, int yCater, Direction directionCater)
+Caterkiller_bullet::Caterkiller_bullet(int xCater, int yCater, Direction directionCater,bool _above)
 {
 	ay = 0;
 	sprite = SPRITEMANAGER->sprites[SPR_CATERKILLER_BULLET];
@@ -69,6 +77,7 @@ Caterkiller_bullet::Caterkiller_bullet(int xCater, int yCater, Direction directi
 	collisionType = CT_BULLET_ENERMY;
 	this->x = xCater;
 	this->y = yCater;
+	above = _above;
 	delayAnimation.minFrameTime = ANIMATE_DELAY_TIME_DEFAULT * 2;
 	delayAnimation.maxFrameTime = ANIMATE_DELAY_TIME_DEFAULT * 3;
 	timeShot.init(0.1, 1);

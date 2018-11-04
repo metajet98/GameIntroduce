@@ -16,6 +16,7 @@ SpriteManager::SpriteManager()
 	sprites[SPR_MAIN] = new Sprite("Data\\Rockman\\rock_x3.png", "Data\\Rockman\\rockman.txt");
 	sprites[SPR_BUTLET] = new Sprite("Data\\Rockman\\butlet.png", "Data\\Rockman\\butlet.txt");
 	sprites[SPR_ROCK_DIE] = new Sprite("Data\\Rockman\\die.png", "Data\\Rockman\\die.txt");
+	sprites[SPR_HP_BAR_MGM] = new Sprite("Data\\Rockman\\HP_bar_MGM.png","Data\\Rockman\\HP_bar_MGM.txt");
 
 	sprites[SPR_DRAGONFLY] = new Sprite("Data\\Enermies\\butterfly\\butterlift.png", "Data\\Enermies\\butterfly\\butterlift.txt");
 	sprites[SPR_DRAGONFLY_BULLET] = new Sprite("Data\\Enermies\\butterfly\\butterlift.png", "Data\\Enermies\\butterfly\\butterfly_bullet.txt");
@@ -28,6 +29,7 @@ SpriteManager::SpriteManager()
 
 	sprites[SPR_ENEMY_DIE] = new Sprite("Data\\Miscellaneous\\x3_explosions.png", "Data\\Miscellaneous\\enemy_die.txt");
 	sprites[SPR_BOSS_DIE] = new Sprite("Data\\Miscellaneous\\x3_explosions.png", "Data\\Miscellaneous\\boss_die.txt");
+	sprites[SPR_HP_BAR_BOSS] = new Sprite("Data\\BOSS\\HP_bar_boss.png", "Data\\BOSS\\HP_bar_boss.txt");
 }
 
 
