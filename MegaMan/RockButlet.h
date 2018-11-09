@@ -9,16 +9,17 @@ class RockButlet:public MovableObject
 {
 private:
 	bool inFlight;
-	CATEGORY_BULLET_FOR_MEGAMAN categoryBullet;
+	
 	static List<RockButlet*>* bullets;
 public:
 	static List<RockButlet*>* getListBullet();
-	
+	CATEGORY_BULLET_FOR_MEGAMAN categoryBullet;
 
 	void draw();
 	void update();
 	void onCollision(BaseObject* S, int nx, int ny);
-	RockButlet();
+	void onAABBCheck(BaseObject * other);
+	RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level);
 	~RockButlet();
 };
 

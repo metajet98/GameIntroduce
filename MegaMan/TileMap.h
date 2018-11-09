@@ -3,6 +3,7 @@
 #include "BaseObject.h"
 #include <fstream>
 #include"DrawableObject.h"
+#include"Door.h"
 using namespace std;
 
 class TileMap

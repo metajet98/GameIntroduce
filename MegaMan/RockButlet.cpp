@@ -15,9 +15,9 @@ void RockButlet::draw()
 	
 	int xInViewport, yInViewport;
 	TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
-	int trucQuay = xInViewport - ROCKMAN->width / 2;
+	int trucQuay = (xInViewport +ROCKMAN->width);
 
-	if (direction == sprite->image->direction)
+	if (direction != sprite->image->direction)
 	{
 		D3DXMATRIX mt;
 		D3DXMatrixIdentity(&mt);
@@ -26,9 +26,9 @@ void RockButlet::draw()
 		GRAPHICS->GetSprite()->SetTransform(&mt);
 	}
 
-	sprite->draw(xInViewport, yInViewport, 0, 0);
+	sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
 
-	if (direction == sprite->image->direction)
+	if (direction != sprite->image->direction)
 	{
 		D3DXMATRIX mt;
 		D3DXMatrixIdentity(&mt);
@@ -39,13 +39,19 @@ void RockButlet::draw()
 
 void RockButlet::update()
 {		
-	vx = direction * 130;
+	vx = direction * 120;
 	dx = vx * TIME;
+	DrawableObject::update();
 }
 
 void RockButlet::onCollision(BaseObject * S, int nx, int ny)
 {
-	if (S->collisionType == CT_ENERMY)
+	
+}
+
+void RockButlet::onAABBCheck(BaseObject * other)
+{
+	if (other->collisionType == CT_ENERMY)
 	{
 		dx = 0;
 		dy = 0;
@@ -53,30 +59,35 @@ void RockButlet::onCollision(BaseObject * S, int nx, int ny)
 	}
 }
 
-RockButlet::RockButlet()
+RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 {
-	categoryBullet = OF_MEGAMAN;
+	categoryBullet = level;
 	allowDelete = false;
 	collisionType = CT_BUTLET;
 	sprite = SPRITEMANAGER->sprites[SPR_BUTLET];
-	this->width = sprite->animates[0].frames[0].width;
-	this->height = sprite->animates[0].frames[0].height;
-	curAnimation = 0;
+	curAnimation = level;
 	curFrame = 0;
+	this->width = sprite->animates[curAnimation].frames[curFrame].width;
+	this->height = sprite->animates[curAnimation].frames[curFrame].height;
 	direction = ROCKMAN->direction;
-	x = ROCKMAN->x + ROCKMAN->width;
-	y = ROCKMAN->y + 11;
+	x = ROCKMAN->x + ((direction==Right)?1:-2) * (ROCKMAN->width -8);
+	y = ROCKMAN->yCenter()- height/2;
 	if (ROCKMAN->curAnimation == PUSHING_SHOT)
 	{
 		direction = ROCKMAN->direction == Right ? Left : Right;
-		x = ROCKMAN->x+ROCKMAN->width;
-		y = ROCKMAN->y + 15;
-		
+		x = ROCKMAN->x + ((direction == Right) ? 1 : -2) * (ROCKMAN->width - 8);
+		y = ROCKMAN->yCenter() - height / 3;
 	}
-	if (ROCKMAN->curAnimation == RUN_SHOT )
+	if (level == OF_MEGAMAN)
 	{
-		x = ROCKMAN->x + ROCKMAN->width + direction*(width);
-		y = ROCKMAN->y + 10;
+		x = ROCKMAN->x + ((direction == Right) ? -1 : -2)*8;
+		y = ROCKMAN->yCenter() - height / 2;
+		if (ROCKMAN->curAnimation == PUSHING_SHOT)
+		{
+			direction = ROCKMAN->direction == Right ? Left : Right;
+			x = ROCKMAN->x + ((direction == Right) ? -1 : -2) * 8;
+			y = ROCKMAN->yCenter() + height / 2;
+		}
 	}
 }
 

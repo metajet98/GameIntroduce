@@ -63,6 +63,9 @@
     <Filter Include="Item">
       <UniqueIdentifier>{7611edb7-ad84-4012-8d14-201093be6e1c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enermy\Rhino">
+      <UniqueIdentifier>{b680b64c-b98d-4688-82ea-02ae8b8b5f69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animate.h">
@@ -200,6 +203,18 @@
     <ClInclude Include="SmallHealth.h">
       <Filter>Item</Filter>
     </ClInclude>
+    <ClInclude Include="Door.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Effect_Power.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="DeadLane.h">
+      <Filter>Item</Filter>
+    </ClInclude>
+    <ClInclude Include="Rhino.h">
+      <Filter>Enermy\Rhino</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -330,6 +345,18 @@
     </ClCompile>
     <ClCompile Include="SmallHealth.cpp">
       <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Door.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect_Power.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="DeadLane.cpp">
+      <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Rhino.cpp">
+      <Filter>Enermy\Rhino</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -18,11 +18,7 @@ void Caterkiller::update()
 {
 	if (damaged)
 	{
-		gameTimeLoop.canCreateFrame();
-
-		if (gameTimeLoop.isTerminated())
-			damaged = false;
-
+		damaged = false;
 		return;
 	}
 	if (x<CAMERA->x || x>(CAMERA->x + CAMERA->width)) isMove = false;
@@ -32,6 +28,7 @@ void Caterkiller::update()
 		dy = 0;
 		curAnimation = CATERKILLER_STAND;
 		dx = direction;
+		return;
 	}
 	else if (alive && isMove)
 	{
@@ -42,23 +39,27 @@ void Caterkiller::update()
 		if (abs(ROCKMAN->x - x) <= 70)
 		{
 			curAnimation = CATERKILLER_SHOT;
-			if (CATERKILLER_BULLET->Count < 2)
+			if (curFrame == sprite->animates[CATERKILLER_SHOT].nFrame - 1)
 			{
-				Caterkiller_bullet *cb1,*cb2;
-				if (direction == Left)
+				if (CATERKILLER_BULLET->Count < 2)
 				{
-					
-					cb1 = new Caterkiller_bullet(this->x + this->width - 16, this->y + 8, Left,true);
-					cb2 = new Caterkiller_bullet(this->x + this->width - 16, this->y + this->height - 21, Right,false);
-					cb2->curFrame = cb1->curFrame;
+					Caterkiller_bullet *cb1, *cb2;
+					if (direction == Left)
+					{
+
+						cb1 = new Caterkiller_bullet(this->x + this->width - 16, this->y + 8, Left, true);
+						cb2 = new Caterkiller_bullet(this->x + this->width - 16, this->y + this->height - 21, Right, false);
+						cb2->curFrame = cb1->curFrame;
+					}
+					else
+					{
+						cb1 = new Caterkiller_bullet(this->x - 16, this->y + 8, Right, true);
+						cb2 = new Caterkiller_bullet(this->x - 16, this->y + this->height - 8, Left, false);
+					}
+					CATERKILLER_BULLET->_Add(cb1);
+					CATERKILLER_BULLET->_Add(cb2);
 				}
-				else
-				{
-					cb1 = new Caterkiller_bullet(this->x - 16, this->y + 8, Right,true);
-					cb2 = new Caterkiller_bullet(this->x - 16, this->y + this->height - 8, Left,false);
-				}
-				CATERKILLER_BULLET->_Add(cb1);
-				CATERKILLER_BULLET->_Add(cb2);
+				curFrame = 0;
 			}
 		}
 	}

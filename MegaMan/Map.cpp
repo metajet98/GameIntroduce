@@ -4,11 +4,21 @@
 #include"DieEffect.h"
 #include"Caterkiller.h"
 #include"HP_bar.h"
+#include<string>
+#include"Effect_Power.h"
+#include"DeadLane.h"
 
 void Map::init(const char* tileSheetPath, const char* objectsPath, const char* quadtreePath)
 {
 	TileMap::init(tileSheetPath, objectsPath);
 	quadtree.init(quadtreePath, objects);
+	doors = new Door*[3];
+	doors[0] = new Door(3575, 376, 16, 48);
+	doors[0]->id = -3;
+	doors[1] = new Door(3960, 376, 16, 40);
+	doors[1]->id = -3;
+	doors[2] = new Door(4340, 376, 16, 40);
+	doors[2]->id = -3;
 }
 void Map::initStage(const char * stageInfoPath)
 {
@@ -26,20 +36,27 @@ void Map::initStage(const char * stageInfoPath)
 }
 void Map::update()
 {
+	/*for (int i = 0; i < stages.size(); i++)
+	{
+		if (Stage::curStage->index == i) continue;
+		if (Stage::checkMegamanInStage(ROCKMAN, stages[i]))
+		{
+			
+		}
+	}*/
 	CAMERA->update();
 	quadtree.update();
 	ROCKMAN->update();
-	//Stage::curStage->update();
 
 	List<BaseObject*>& groundsObject = CAMERA->objectsInCamera.grounds;
-	List<BaseObject*>& preventMoveCamerasObject = CAMERA->objectsInCamera.preventMoveCameras;
 	List<Enermy*>& enermyObject = CAMERA->objectsInCamera.enermies;
 	List<BaseObject*>& itemsObject = CAMERA->objectsInCamera.items;
-
+	List<BaseObject*> trapsObject = CAMERA->objectsInCamera.traps;
 
 	#pragma region Update
 
 	HP_BAR->update();
+
 
 	for (int i = 0; i < itemsObject.size(); i++)
 	{
@@ -84,7 +101,6 @@ void Map::update()
 		CATERKILLER_BULLET->at(i)->update();
 		CATERKILLER_BULLET->at(i)->updateLocation();
 	}
-
 #pragma endregion
 
 	#pragma region CheckCollision
@@ -122,6 +138,37 @@ void Map::update()
 	for (int i = 0; i < CATERKILLER_BULLET->size(); i++)
 	{
 		COLLISION->checkCollision(ROCKMAN, CATERKILLER_BULLET->at(i));
+	}
+	int doorIsOpen = -1;
+	for (int i = 0; i < 3; i++)
+	{
+		if (COLLISION->AABBCheck(*doors[i], *ROCKMAN))
+		{
+			doorIsOpen = i;
+			if (ROCKMAN->direction == Right && ROCKMAN->x <= doors[doorIsOpen]->right())
+			{
+				ROCKMAN->dx = 0;
+				if (!doors[doorIsOpen]->isOpen)
+				{
+					doors[doorIsOpen]->Open();
+					CAMERA->dx = 3 * ROCKMAN->direction;
+				}
+			}
+			else
+			{
+				ROCKMAN->x -= ROCKMAN->dx;
+			}
+		}
+		else if(!doors[i]->isClose && ROCKMAN->x>doors[i]->right() && ROCKMAN->direction != Left && !doors[i]->isOpen)
+		{
+			if (doorIsOpen >= 0) doors[doorIsOpen]->isOpen = true;
+			doors[i]->Close();
+		}
+	}
+
+	for (int i = 0; i < trapsObject.size(); i++)
+	{
+		COLLISION->checkCollision(ROCKMAN, trapsObject[i]);
 	}
 #pragma endregion
 
@@ -183,7 +230,9 @@ void Map::update()
 
 	ROCKMAN->updateLocation();
 	CAMERA->updateLocation();
+	HP_BAR->updateLocation();
 	updateLocation();
+	
 }
 void Map::draw()
 {
@@ -192,6 +241,11 @@ void Map::draw()
 	tileSheetImg.RenderTexture(0, 0, &r);
 
 	HP_BAR->draw();
+
+	for (int i = 0; i < 3; i++)
+	{
+		doors[i]->draw();
+	}
 
 	List<Enermy*> enermyObject = CAMERA->objectsInCamera.enermies;
 	List<BaseObject*>& itemsObject = CAMERA->objectsInCamera.items;

@@ -8,7 +8,7 @@ void SmallHealth::onAABBCheck(BaseObject * other)
 	if (other == ROCKMAN)
 	{
 		ROCKMAN->life += 4;
-		if (ROCKMAN->life >= 23) ROCKMAN->life = 23;
+		if (ROCKMAN->life >= 24) ROCKMAN->life = 24;
 		//audio
 	}
 }

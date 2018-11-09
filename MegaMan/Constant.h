@@ -5,8 +5,8 @@
 #define ANIMATE_DELAY_TIME_DEFAULT	0.1f
 #define SCREEN_WIDTH		800
 #define SCREEN_HEIGHT		600
-#define VIEWPORT_WIDTH		250
-#define VIEWPORT_HEIGHT		150
+#define VIEWPORT_WIDTH		245
+#define VIEWPORT_HEIGHT		180
 #define BACK_WIDTH			VIEWPORT_WIDTH
 #define BACK_HEIGHT			VIEWPORT_HEIGHT
 
@@ -22,10 +22,10 @@
 #define GRAVITY				300
 #define TIMEJUMP			60.0f/GRAVITY
 #define CAMERA				Camera::getInstance()
-//#define X_MAP				50
+//#define X_MAP				7
 //#define Y_MAP				603
-#define X_MAP				600
-#define Y_MAP				80
+#define X_MAP				3436
+#define Y_MAP				300
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 
@@ -37,6 +37,7 @@
 #define ROCKMAN				Rockman::getInstance()
 #define ROCKMAN_VX_GO		75
 #define ROCKBUTLET			RockButlet::getListBullet()
+#define EFFECT_POWER		Effect_Power::getInstance()
 #define HP_BAR				HP_bar::getInstance()
 
 #define DRAGONFLY			Dragonfly::getInstance()
@@ -48,10 +49,11 @@
 #define CATERKILLER			Caterkiller::getInstance()
 #define CATERKILLER_BULLET	Caterkiller_bullet::getListCaterkiller_bullet()
 
+#define RHINO				Rhino::getInstance()
+
 enum ROCK_ACTION
 {
 	APPEAR = 0,
-	STAND = 9,
 	MOVE = 1,
 	JUMP = 2,
 	SHOT = 3,
@@ -60,6 +62,7 @@ enum ROCK_ACTION
 	JUMP_SHOT = 6,
 	PUSHING_SHOT = 7,
 	SLIDING = 8,
+	STAND = 9,
 	PUSHING_JUMP = 10,
 	ON_HIT=11,
 	DIE = 12,
@@ -75,16 +78,20 @@ enum COLLISION_TYPE
 	CT_GROUND,
 	CT_PREVENTMOVECAMERA,
 	CT_BUTLET,
+	CT_BUTTLET_STRONG,
 	CT_ENERMY,
 	CT_PLAYER,
 	CT_BULLET_ENERMY,
 	CT_ITEM,
+	CT_DOOR,
+	CT_DEAD_LANE,
 	CT_NONE,
 };
 enum SPRITE_OBJECT
 {
 	SPR_MAIN,
 	SPR_BUTLET,
+	SPR_BULLET_STRONG,
 	SPR_DRAGONFLY,
 	SPR_DRAGONFLY_BULLET,
 	SPR_NOTORBANGER,
@@ -98,6 +105,8 @@ enum SPRITE_OBJECT
 	SPR_HP_BAR_BOSS,
 	SPR_BIG_HEALTH,
 	SPR_SMALL_HEALTH,
+	SPR_DOOR,
+	SPR_RHINO,
 	SPR_COUNT
 };
 enum CATEGORY_ENEMY
@@ -107,5 +116,7 @@ enum CATEGORY_ENEMY
 };
 enum CATEGORY_BULLET_FOR_MEGAMAN {
 	OF_MEGAMAN,
+	OF_STRONG_MEGAMAN,
+	OF_STRONG_2_MEGAMAN,
 };
 

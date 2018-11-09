@@ -10,15 +10,9 @@ public:
 	static Stage* curStage;
 	int index;
 	bool updating;
-	float xViewportNext, yViewportNext, xViewportPrev, yViewportPrev;
 
-	virtual void loadStageNext();
-	virtual void loadStagePrev();
 	virtual bool update();
-	static void next();
-	static void prev();
-	virtual void onStageChange(Stage* nextStage);
-
+	static bool checkMegamanInStage(RectF* M, RectF* S);// phuc vu cho viec chuyen stage
 	Stage(fstream& fs, int index);
 	~Stage();
 };

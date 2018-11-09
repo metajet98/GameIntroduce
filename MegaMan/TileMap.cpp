@@ -5,6 +5,8 @@
 #include"Caterkiller.h"
 #include"BigHealth.h"
 #include"SmallHealth.h"
+#include "DeadLane.h"
+#include"Rhino.h"
 
 TileMap* TileMap::curMap = 0;
 TileMap::TileMap()
@@ -63,6 +65,12 @@ void TileMap::initObjects(const char* objectsPath)
 		case SPR_SMALL_HEALTH:
 			objects[i] = new SmallHealth();
 			break;
+		case SPR_RHINO:
+			objects[i] = new Rhino();
+			break;
+		case -5: //Deadlane
+			objects[i] = new DeadLane();
+			break;
 		default:
 			objects[i] = new BaseObject();
 			break;
@@ -75,6 +83,7 @@ void TileMap::initObjects(const char* objectsPath)
 
 		objects[i]->getFromObject(objects[i]);
 	}
+
 }
 void TileMap::init(const char * tileSheetPath, const char* objectsPath)
 {

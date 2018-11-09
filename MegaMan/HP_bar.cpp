@@ -22,7 +22,6 @@ void HP_bar::draw()
 
 void HP_bar::update()
 {
-	updateLocation();
 
 	if (ROCKMAN->life > 0)
 	{
@@ -37,6 +36,22 @@ void HP_bar::update()
 		}
 	}
 	else { curFrame = 0; }
+	if (RHINO->appearHP)
+	{
+		if (RHINO->life > 0)
+		{
+			int healthPoint = RHINO->life;
+			if (healthPoint > curFrame_Boss)
+			{
+				curFrame_Boss++;
+			}
+			else
+			{
+				curFrame_Boss = healthPoint;
+			}
+		}
+		else { curFrame_Boss = 0; }
+	}
 }
 
 void HP_bar::updateLocation()
@@ -52,8 +67,8 @@ HP_bar::HP_bar()
 	curAnimation = 0;
 	curFrame = 0;
 	curFrame_Boss = 0;
-	x = Map::curMap->xMap;
-	y = Map::curMap->yMap;
+	x = CAMERA->x;
+	y = CAMERA->y;
 	gameTimeLoop.init(0.2, 400);
 	gameTimeLoop.start();
 }

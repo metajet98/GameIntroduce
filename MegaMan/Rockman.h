@@ -8,15 +8,15 @@
 #include<DirectXMath.h>
 #include"RockButlet.h"
 #include"DieEffect.h"
+#include"Effect_Power.h"
 
 class Rockman:public MovableObject
 {
-	int inAir;
+	int isCharging;
 	int isPushing;
 	int isSliding;
 	
 	bool allowDraw;
-	bool pauseAnimation;
 	bool lastStatusRunAttack;
 
 	static Rockman* instance;
@@ -24,7 +24,10 @@ public:
 	static Rockman* getInstance();
 	bool onHit;
 	bool invisible;
-
+	bool pauseAnimation;
+	bool onAreaBoss;
+	GameTimeLoop timeCharging;
+	GameTimeLoop timeCharging1;
 
 	void onCollision(BaseObject*S,int nx,int ny);
 	void onCollisionPush(BaseObject*S, int nx, int ny);

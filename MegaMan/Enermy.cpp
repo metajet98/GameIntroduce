@@ -6,11 +6,12 @@ void Enermy::update()
 {
 	if (damaged)
 	{
-		dx = 0;
+	/*	dx = 0;
 		gameTimeLoop.canCreateFrame();
 
 		if (gameTimeLoop.isTerminated())
-			damaged = false;
+			damaged = false;*/
+		damaged = false;
 
 		return;
 	}
@@ -25,12 +26,14 @@ void Enermy::draw()
 {
 	if (!alive)
 	{
+		vx = 0;
+		vy = 0;
+		ay = 0;
 		if (timeDeath.canCreateFrame())
 		{
 			sprite = SPRITEMANAGER->sprites[SPR_ENEMY_DIE];
 			curAnimation = 0;
-			curFrame = (curFrame + 1) % 3;
-			vx = 0;
+			curFrame = (curFrame + 1) % 6;
 		}
 
 		if (timeDeath.isTerminated())
@@ -39,8 +42,8 @@ void Enermy::draw()
 		int xInViewport, yInViewport;
 		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
 		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+		
 	}
-
 	if (alive)
 	{
 		int xInViewport, yInViewport;
@@ -85,16 +88,21 @@ void Enermy::onAABBCheck(BaseObject * other)
 			
 		}
 	}
-	if (other->collisionType == CT_BUTLET)
+	else if (other->collisionType == CT_BUTLET)
 	{
+		RockButlet* r = (RockButlet*)other;
 		if (!damaged)
 		{
 			damaged = true;
-			this->life --;
+			if (r->categoryBullet == OF_STRONG_MEGAMAN)
+				this->life -= 2;
+			else if(r->categoryBullet == OF_STRONG_2_MEGAMAN)
+				this->life -= 4;
+			else this->life--;
 			other->allowDelete = true;
-			gameTimeLoop.start();
+			//gameTimeLoop.start();
 		}
-	
+
 		if (life <= 0) this->alive = false;
 	}
 }
@@ -111,11 +119,11 @@ Enermy::Enermy()
 	count = 0;
 	//vy = 0.5;
 	collisionType = CT_ENERMY;
-	gameTimeLoop.init(0.4, 1);
-	gameTimeLoop.start();
+	/*gameTimeLoop.init(0.1, 1);
+	gameTimeLoop.start();*/
 	damage = 2;
 	damaged = false;
-	timeDeath.init(0.2, 4);
+	timeDeath.init(0.2, 5);
 	timeDeath.start();
 }
 

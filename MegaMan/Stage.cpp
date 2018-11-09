@@ -6,29 +6,9 @@ Stage* Stage::curStage = 0;
 
 Stage::Stage(fstream & fs, int index)
 {
-	fs >> x >> y >> width >> height >> xViewportNext >> yViewportNext >> xViewportPrev >> yViewportPrev;
+	fs >> x >> y >> width >> height;
 	this->index = index;
 	updating = false;
-}
-
-void Stage::loadStageNext()
-{
-	Map::curMap->xMap = -xViewportNext;
-	Map::curMap->yMap = -yViewportNext;
-	CAMERA->x = xViewportNext;
-	CAMERA->y = yViewportNext;
-	CAMERA->dx = 0;
-	CAMERA->dy = 0;
-}
-
-void Stage::loadStagePrev()
-{
-	Map::curMap->xMap = -xViewportPrev;
-	Map::curMap->yMap = -yViewportPrev;
-	CAMERA->x = xViewportPrev;
-	CAMERA->y = yViewportPrev;
-	CAMERA->dx = 0;
-	CAMERA->dy = 0;
 }
 
 bool Stage::update()
@@ -37,22 +17,11 @@ bool Stage::update()
 		return false;
 }
 
-void Stage::next()
+bool Stage::checkMegamanInStage(RectF * M, RectF * S)
 {
-	curStage = curStages->at(curStage->index + 1);
-	curStage->loadStageNext();
+	return (((M->left() <= S->right() && M->right() >= S->left()) &&
+			(M->yCenter()<=S->top() && M->yCenter()>=S->bottom())));
 }
-
-void Stage::prev()
-{
-	curStage = curStages->at(curStage->index - 1);
-	curStage->loadStagePrev();
-}
-
-void Stage::onStageChange(Stage * nextStage)
-{
-}
-
 
 
 Stage::~Stage()

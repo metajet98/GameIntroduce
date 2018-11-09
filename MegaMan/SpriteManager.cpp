@@ -15,6 +15,7 @@ SpriteManager::SpriteManager()
 	sprites = new Sprite*[SPR_COUNT];
 	sprites[SPR_MAIN] = new Sprite("Data\\Rockman\\rock_x3.png", "Data\\Rockman\\rockman.txt");
 	sprites[SPR_BUTLET] = new Sprite("Data\\Rockman\\butlet.png", "Data\\Rockman\\butlet.txt");
+	sprites[SPR_BULLET_STRONG] = new Sprite("Data\\Rockman\\butlet.png","Data\\Miscellaneous\\efect_power_shoot.txt");
 	sprites[SPR_ROCK_DIE] = new Sprite("Data\\Rockman\\die.png", "Data\\Rockman\\die.txt");
 	sprites[SPR_HP_BAR_MGM] = new Sprite("Data\\Rockman\\HP_bar_MGM.png","Data\\Rockman\\HP_bar_MGM.txt");
 
@@ -28,11 +29,16 @@ SpriteManager::SpriteManager()
 	sprites[SPR_CATERKILLER_BULLET] = new Sprite("Data\\Enermies\\caterkiller\\caterkiller.png", "Data\\Enermies\\caterkiller\\caterkiller_bullet.txt");
 
 	sprites[SPR_ENEMY_DIE] = new Sprite("Data\\Miscellaneous\\x3_explosions.png", "Data\\Miscellaneous\\enemy_die.txt");
+
+	sprites[SPR_RHINO] = new Sprite("Data\\BOSS\\tunnelrhino.png", "Data\\BOSS\\rhino.txt");
 	sprites[SPR_BOSS_DIE] = new Sprite("Data\\Miscellaneous\\x3_explosions.png", "Data\\Miscellaneous\\boss_die.txt");
 	sprites[SPR_HP_BAR_BOSS] = new Sprite("Data\\BOSS\\HP_bar_boss.png", "Data\\BOSS\\HP_bar_boss.txt");
 	
 	sprites[SPR_BIG_HEALTH] = new Sprite("Data\\Miscellaneous\\GameObject\\Items\\items.png", "Data\\Miscellaneous\\GameObject\\Items\\big_health.txt");
 	sprites[SPR_SMALL_HEALTH] = new Sprite("Data\\Miscellaneous\\GameObject\\Items\\items.png", "Data\\Miscellaneous\\GameObject\\Items\\small_health.txt");
+	sprites[SPR_DOOR] = new Sprite("Data\\Miscellaneous\\door.png", "Data\\Miscellaneous\\door.txt");
+
+	
 }
 
 

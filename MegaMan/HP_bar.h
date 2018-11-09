@@ -2,6 +2,7 @@
 #include"DrawableObject.h"
 #include"Map.h"
 #include"Constant.h"
+#include"Rhino.h"
 
 class HP_bar:public DrawableObject
 {

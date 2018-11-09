@@ -29,18 +29,21 @@ void DrawableObject::update()
 	if (!alive) return;
 
 	BaseObject::update();
-	if (delayAnimation.canCreateFrame())
+	if (!pauseAnimation)
 	{
-		if (curFrame == sprite->animates[curAnimation].nFrame - 1)
+		if (delayAnimation.canCreateFrame())
 		{
-			if (curAnimation == JUMP || curAnimation == JUMP_SHOT || curAnimation==SLIDING || curAnimation== PUSHING_JUMP || curAnimation==ON_HIT)
+			if (curFrame == sprite->animates[curAnimation].nFrame - 1)
 			{
-				curFrame = sprite->animates[curAnimation].nFrame - 1;
-				return;
+				if (curAnimation == JUMP || curAnimation == JUMP_SHOT || curAnimation == SLIDING || curAnimation == PUSHING_JUMP || curAnimation == ON_HIT)
+				{
+					curFrame = sprite->animates[curAnimation].nFrame - 1;
+					return;
+				}
+				curFrame = 0;
 			}
-			curFrame = 0;
+			else sprite->animates[curAnimation].next(curFrame);
 		}
-		else sprite->animates[curAnimation].next(curFrame);
 	}
 }
 

@@ -17,6 +17,9 @@ void ObjectsCategory::add(BaseObject* object)
 	case CT_ITEM:
 		items._Add(object);
 		break;
+	case CT_DEAD_LANE:
+		traps._Add(object);
+		break;
 	}
 	allObjects._Add(object);
 }
@@ -35,6 +38,9 @@ void ObjectsCategory::remove(BaseObject * object)
 		break;
 	case CT_ITEM:
 		items._Remove(object);
+		break;
+	case CT_DEAD_LANE:
+		traps._Remove(object);
 		break;
 	}
 	allObjects._Remove(object);

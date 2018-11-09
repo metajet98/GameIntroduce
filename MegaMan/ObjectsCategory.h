@@ -12,7 +12,7 @@ public:
 	List<BaseObject*> preventMoveCameras;
 	List<BaseObject*> items;
 	List<Enermy*> enermies;
-
+	List<BaseObject*> traps;
 
 	void add(BaseObject* object);
 	void remove(BaseObject* object);

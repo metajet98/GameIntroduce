@@ -9,7 +9,7 @@ void BigHealth::onAABBCheck(BaseObject * other)
 	if (other == ROCKMAN)
 	{
 		ROCKMAN->life += 8;
-		if (ROCKMAN->life >= 23) ROCKMAN->life = 23;
+		if (ROCKMAN->life >= 24) ROCKMAN->life = 24;
 		//audio
 	}
 }

@@ -21,11 +21,11 @@ void Dragonfly::update()
 {
 	if (damaged)
 	{
-		gameTimeLoop.canCreateFrame();
+		/*gameTimeLoop.canCreateFrame();
 
 		if (gameTimeLoop.isTerminated())
-			damaged = false;
-
+			damaged = false;*/
+		damaged = false;
 		return;
 	}
 	if (alive)
@@ -35,15 +35,13 @@ void Dragonfly::update()
 		{
 			vx = 0;
 			curAnimation = DRAGONFLY_SHOT;
-			timeShot.canCreateFrame();
-			if (timeShot.isTerminated())
+			if (curFrame == sprite->animates[DRAGONFLY_SHOT].nFrame - 1)
 			{
 				if (DRAGONFLY_BULLET->Count < 1)
 				{
 					Dragonfly_bullet *db = new Dragonfly_bullet(this->x, this->y, this->direction);
 					DRAGONFLY_BULLET->_Add(db);
 				}
-				timeShot.start();
 			}
 		}
 		else curAnimation = DRAGONFLY_FLY;

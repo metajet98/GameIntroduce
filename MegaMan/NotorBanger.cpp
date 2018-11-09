@@ -18,15 +18,10 @@ void NotorBanger::update()
 {
 	if (damaged)
 	{
-		gameTimeLoop.canCreateFrame();
-
-		if (gameTimeLoop.isTerminated())
-			damaged = false;
+		damaged = false;
 
 		return;
 	}
-
-	
 
 	if (alive)
 	{

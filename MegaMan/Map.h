@@ -9,6 +9,7 @@ class Map:public TileMap
 public:
 	QuadTree quadtree;
 	List<Stage*> stages;
+	Door** doors;
 
 	void init(const char* tileSheetPath, const char* objectsPath, const char* quadtreePath);
 	void initStage(const char* stageInfoPath);
