@@ -7,18 +7,23 @@
 #include<string>
 #include"Effect_Power.h"
 #include"DeadLane.h"
+#include"Rhino_bullet.h"
+#include"HP_Boss.h"
 
 void Map::init(const char* tileSheetPath, const char* objectsPath, const char* quadtreePath)
 {
 	TileMap::init(tileSheetPath, objectsPath);
 	quadtree.init(quadtreePath, objects);
 	doors = new Door*[3];
+	//neu doors sai id luc' dau la -3
 	doors[0] = new Door(3575, 376, 16, 48);
-	doors[0]->id = -3;
+	doors[0]->id = -2;
 	doors[1] = new Door(3960, 376, 16, 40);
-	doors[1]->id = -3;
+	doors[1]->id = -2;
 	doors[2] = new Door(4340, 376, 16, 40);
-	doors[2]->id = -3;
+	doors[2]->id = -2;
+	doors[3] = new Door(505, 392, 16, 48);
+	doors[3]->id = -2;
 }
 void Map::initStage(const char * stageInfoPath)
 {
@@ -32,30 +37,42 @@ void Map::initStage(const char * stageInfoPath)
 	Stage::curStages = &stages;
 
 	if (Stage::curStage == NULL)
+	{
 		Stage::curStage = stages[0];
+		Stage::curStage->index = 0;
+	}
 }
 void Map::update()
 {
-	/*for (int i = 0; i < stages.size(); i++)
+	for (int i = 0; i < stages.size(); i++)
 	{
 		if (Stage::curStage->index == i) continue;
-		if (Stage::checkMegamanInStage(ROCKMAN, stages[i]))
+		if (COLLISION->AABBCheck(*ROCKMAN, *stages[i]) && !ROCKMAN->onAreaBoss) //dung pahi
 		{
+			ROCKMAN->dx = 0;
+			Stage::curStage = stages[i];
+			Stage::curStage->updating = true;
+			ROCKMAN->pauseAnimation = true;
 			
+			if (CAMERA->x >= Stage::curStage->right())
+			{
+				Stage::curStage->updating = false;
+				ROCKMAN->pauseAnimation = false;
+			}
 		}
-	}*/
+	}
 	CAMERA->update();
 	quadtree.update();
 	ROCKMAN->update();
-
 	List<BaseObject*>& groundsObject = CAMERA->objectsInCamera.grounds;
 	List<Enermy*>& enermyObject = CAMERA->objectsInCamera.enermies;
 	List<BaseObject*>& itemsObject = CAMERA->objectsInCamera.items;
-	List<BaseObject*> trapsObject = CAMERA->objectsInCamera.traps;
+	List<BaseObject*>& trapsObject = CAMERA->objectsInCamera.traps;
+	List<BaseObject*>& preventcameraObject = CAMERA->objectsInCamera.preventMoveCameras;
 
 	#pragma region Update
 
-	HP_BAR->update();
+	
 
 
 	for (int i = 0; i < itemsObject.size(); i++)
@@ -67,7 +84,7 @@ void Map::update()
 	{
 		enermyObject[i]->update();
 	}
-
+	
 	//update dan creep
 	for (int i = 0; i < DRAGONFLY_BULLET->size(); i++)
 	{
@@ -90,6 +107,9 @@ void Map::update()
 		}
 		bullet->updateLocation();
 	}
+
+	
+
 	for (List<DieEffect*>::Node *p = DieEffect::getList()->pHead; p; p = p->pNext)
 	{
 		DieEffect * effect = p->m_value;
@@ -100,6 +120,11 @@ void Map::update()
 	{
 		CATERKILLER_BULLET->at(i)->update();
 		CATERKILLER_BULLET->at(i)->updateLocation();
+	}
+	for (int i = 0; i < RHINO_BULLET->size(); i++)
+	{
+		RHINO_BULLET->at(i)->update();
+		//RHINO_BULLET->at(i)->updateLocation();
 	}
 #pragma endregion
 
@@ -113,7 +138,10 @@ void Map::update()
 		for (int j1 = 0; j1 < itemsObject.size(); j1++)
 			COLLISION->checkCollision(itemsObject[j1], groundsObject[i]);
 	}
-
+	for (int i = 0; i < preventcameraObject.size(); i++)
+	{
+		COLLISION->checkCollision(CAMERA, preventcameraObject[i]);
+	}
 	for (int i = 0; i < enermyObject.size(); i++)
 	{
 		COLLISION->checkCollision(ROCKMAN, enermyObject[i]);
@@ -139,31 +167,44 @@ void Map::update()
 	{
 		COLLISION->checkCollision(ROCKMAN, CATERKILLER_BULLET->at(i));
 	}
-	int doorIsOpen = -1;
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < RHINO_BULLET->size(); i++)
 	{
-		if (COLLISION->AABBCheck(*doors[i], *ROCKMAN))
+		COLLISION->checkCollision(ROCKMAN, RHINO_BULLET->at(i));
+	}
+	int doorIsOpen = -1;
+	for (int i = 0; i < 4; i++)
+	{
+		if (COLLISION->AABBCheck(*doors[i], *ROCKMAN)&& !ROCKMAN->onAreaBoss)
 		{
 			doorIsOpen = i;
 			if (ROCKMAN->direction == Right && ROCKMAN->x <= doors[doorIsOpen]->right())
 			{
-				ROCKMAN->dx = 0;
+				
 				if (!doors[doorIsOpen]->isOpen)
 				{
+					ROCKMAN->dx = 0;
 					doors[doorIsOpen]->Open();
-					CAMERA->dx = 3 * ROCKMAN->direction;
+					//CAMERA->dx = 3 * ROCKMAN->direction;
+					ROCKMAN->pauseAnimation = true;
 				}
 			}
 			else
 			{
+				doors[doorIsOpen]->isOpen = true;
 				ROCKMAN->x -= ROCKMAN->dx;
 			}
 		}
 		else if(!doors[i]->isClose && ROCKMAN->x>doors[i]->right() && ROCKMAN->direction != Left && !doors[i]->isOpen)
 		{
-			if (doorIsOpen >= 0) doors[doorIsOpen]->isOpen = true;
+			
 			doors[i]->Close();
+			doors[i]->curFrame = doors[i]->sprite->animates[0].nFrame - 1;
+			if (doorIsOpen >= 0)
+			{
+				doors[doorIsOpen]->isOpen = true;
+			}
 		}
+
 	}
 
 	for (int i = 0; i < trapsObject.size(); i++)
@@ -225,11 +266,23 @@ void Map::update()
 			delete cb;
 		}
 	}
+	for (int i = 0; i < RHINO_BULLET->size(); i++)
+	{
+		RHINO_BULLET->at(i)->updateLocation();
+		if ((!COLLISION->AABBCheck(*RHINO_BULLET->at(i),*CAMERA)|| RHINO_BULLET->at(i)->allowDelete))
+		{
+			Rhino_bullet* rb = RHINO_BULLET->at(i);
+			RHINO_BULLET->_Remove(rb);
+			delete rb;
+		}
+	}
 #pragma endregion
 
-
+	HP_BAR->update();
+	HP_BOSS->update();
 	ROCKMAN->updateLocation();
 	CAMERA->updateLocation();
+	HP_BOSS->updateLocation();
 	HP_BAR->updateLocation();
 	updateLocation();
 	
@@ -240,9 +293,9 @@ void Map::draw()
 	SetRect(&r, xMap, yMap, xMap+VIEWPORT_WIDTH, yMap+VIEWPORT_HEIGHT);
 	tileSheetImg.RenderTexture(0, 0, &r);
 
-	HP_BAR->draw();
+	
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		doors[i]->draw();
 	}
@@ -260,6 +313,8 @@ void Map::draw()
 		enermyObject[i]->draw();
 		
 	}
+	HP_BAR->draw();
+	HP_BOSS->draw();
 	for (int i = 0; i < DRAGONFLY_BULLET->size(); i++)
 	{
 		DRAGONFLY_BULLET->at(i)->draw();
@@ -267,6 +322,10 @@ void Map::draw()
 	for (int i = 0; i < NOTOBANGER_BULLET->size(); i++)
 	{
 		NOTOBANGER_BULLET->at(i)->draw();
+	}
+	for (int i = 0; i < RHINO_BULLET->size(); i++)
+	{
+		RHINO_BULLET->at(i)->draw();
 	}
 	for (int i = 0; i < DieEffect::getList()->size(); i++)
 	{

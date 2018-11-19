@@ -45,6 +45,7 @@ void Door::Close()
 {
 	curAnimation = 1;
 	pauseAnimation = false;
+	ROCKMAN->pauseAnimation = false;
 	update();
 }
 

@@ -23,6 +23,7 @@ public:
 	void update();
 	void onCollision(BaseObject* S, int nx, int ny);
 	void restore(BaseObject *obj);
+	Caterkiller(int _direction);
 	Caterkiller();
 	~Caterkiller();
 };

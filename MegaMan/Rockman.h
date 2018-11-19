@@ -9,6 +9,8 @@
 #include"RockButlet.h"
 #include"DieEffect.h"
 #include"Effect_Power.h"
+#include"Stage.h"
+#include"Scene.h"
 
 class Rockman:public MovableObject
 {
@@ -16,18 +18,23 @@ class Rockman:public MovableObject
 	int isPushing;
 	int isSliding;
 	
-	bool allowDraw;
+	
 	bool lastStatusRunAttack;
 
 	static Rockman* instance;
 public:
 	static Rockman* getInstance();
+	bool allowDraw;
 	bool onHit;
 	bool invisible;
+	bool isDeath;
 	bool pauseAnimation;
 	bool onAreaBoss;
+	int NumberOfLife;
+
 	GameTimeLoop timeCharging;
 	GameTimeLoop timeCharging1;
+	GameTimeLoop timeDeath;
 
 	void onCollision(BaseObject*S,int nx,int ny);
 	void onCollisionPush(BaseObject*S, int nx, int ny);

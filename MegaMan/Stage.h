@@ -8,10 +8,15 @@ class Stage :public RectF
 public:
 	static List<Stage*>* curStages;
 	static Stage* curStage;
+	static bool updating;
+
 	int index;
-	bool updating;
+	int xPre;
+	int yPre;
 
 	virtual bool update();
+	void next();
+	void prev();
 	static bool checkMegamanInStage(RectF* M, RectF* S);// phuc vu cho viec chuyen stage
 	Stage(fstream& fs, int index);
 	~Stage();

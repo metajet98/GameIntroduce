@@ -12,12 +12,14 @@
 #include"Mouse.h"
 #include"Rockman.h"
 #include"MegamanScene.h"
+#include "MainMenu.h"
 
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
 {
 	WINDOW->initHandleWindows(hInstance, nCmdShow);
 
-	MegamanScene::changeScene(new MegamanScene());
+	//MegamanScene::changeScene(new MegamanScene());
+	MegamanScene::changeScene(new MainMenu());
 
 	KeyBoard::Create(hInstance, WINDOW->getHandleWindow());
 	GAME_TIME->minFrameTime = MIN_FRAME_TIME;

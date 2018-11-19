@@ -12,11 +12,10 @@ List<RockButlet*>* RockButlet::getListBullet()
 
 void RockButlet::draw()
 {
-	
 	int xInViewport, yInViewport;
 	TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
 	int trucQuay = (xInViewport +ROCKMAN->width);
-
+	if (ROCKMAN->curAnimation == PUSHING && this->categoryBullet != OF_MEGAMAN) direction = ROCKMAN->direction == Right ? Left : Right;
 	if (direction != sprite->image->direction)
 	{
 		D3DXMATRIX mt;
@@ -25,7 +24,7 @@ void RockButlet::draw()
 		mt._11 = -1;
 		GRAPHICS->GetSprite()->SetTransform(&mt);
 	}
-
+	
 	sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
 
 	if (direction != sprite->image->direction)
@@ -34,11 +33,13 @@ void RockButlet::draw()
 		D3DXMatrixIdentity(&mt);
 		GRAPHICS->GetSprite()->SetTransform(&mt);
 	}
+	
 }
 
 
 void RockButlet::update()
 {		
+	
 	vx = direction * 120;
 	dx = vx * TIME;
 	DrawableObject::update();
@@ -70,7 +71,7 @@ RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 	this->width = sprite->animates[curAnimation].frames[curFrame].width;
 	this->height = sprite->animates[curAnimation].frames[curFrame].height;
 	direction = ROCKMAN->direction;
-	x = ROCKMAN->x + ((direction==Right)?1:-2) * (ROCKMAN->width -8);
+	x = ROCKMAN->x + ((direction==Right)?1:-2) * (ROCKMAN->width - 8);
 	y = ROCKMAN->yCenter()- height/2;
 	if (ROCKMAN->curAnimation == PUSHING_SHOT)
 	{

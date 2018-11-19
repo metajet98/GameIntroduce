@@ -32,11 +32,13 @@ void Caterkiller::update()
 	}
 	else if (alive && isMove)
 	{
+		/*if (abs(this->oldY - this->y) > 30)
+			UpDown = -1 * UpDown;*/
 		curAnimation = CATERKILLER_MOVE;
 		vy = UpDown * 10;
 		
 
-		if (abs(ROCKMAN->x - x) <= 70)
+		if (abs(ROCKMAN->xCenter() - xCenter()) <= 70)
 		{
 			curAnimation = CATERKILLER_SHOT;
 			if (curFrame == sprite->animates[CATERKILLER_SHOT].nFrame - 1)
@@ -55,6 +57,7 @@ void Caterkiller::update()
 					{
 						cb1 = new Caterkiller_bullet(this->x - 16, this->y + 8, Right, true);
 						cb2 = new Caterkiller_bullet(this->x - 16, this->y + this->height - 8, Left, false);
+						cb2->curFrame = cb1->curFrame;
 					}
 					CATERKILLER_BULLET->_Add(cb1);
 					CATERKILLER_BULLET->_Add(cb2);
@@ -69,6 +72,7 @@ void Caterkiller::update()
 void Caterkiller::onCollision(BaseObject * S, int nx, int ny)
 {
 	Enermy::onCollision(S,nx,ny);
+	if (ny != 0) UpDown = -1 * UpDown;
 	if (nx != 0 && S->collisionType == CT_GROUND)
 	{
 		if ((S->y + 5) >= y)
@@ -84,12 +88,25 @@ void Caterkiller::restore(BaseObject * obj)
 	life = 2;
 }
 
+Caterkiller::Caterkiller(int _direction)
+{
+	sprite = SPRITEMANAGER->sprites[SPR_CATERKILLER];
+	ay = 0;
+	direction = (_direction == -1) ? Left : Right;
+	vx = direction;
+	UpDown = -1;
+	curAnimation = CATERKILLER_STAND;
+	curFrame = 0;
+	life = 2;
+	collisionType = CT_ENERMY;
+	width = 40;
+	height = 51;
+}
+
 Caterkiller::Caterkiller()
 {
 	sprite = SPRITEMANAGER->sprites[SPR_CATERKILLER];
 	ay = 0;
-	direction = Left;
-	vx = direction;
 	UpDown = -1;
 	curAnimation = CATERKILLER_STAND;
 	curFrame = 0;

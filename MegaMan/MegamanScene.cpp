@@ -14,6 +14,79 @@ void MegamanScene::init()
 
 void MegamanScene::update()
 {
+	if (ROCKMAN->NumberOfLife==0)
+	{
+		//Scene gameover
+		ROCKMAN->NumberOfLife = 3;
+		ROCKMAN->x = 110;
+		ROCKMAN->y = 680;
+		Stage::curStage = Stage::curStages->at(0);
+		Stage::curStage->prev();
+		return;
+	}
+	if (!ROCKMAN->alive && ROCKMAN->isDeath)
+	{
+		ROCKMAN->curAnimation = APPEAR;
+		ROCKMAN->allowDraw = true;
+		ROCKMAN->curFrame = 0;
+		ROCKMAN->NumberOfLife--;
+		ROCKMAN->life = 24;
+		ROCKMAN->onAreaBoss = false;
+		ROCKMAN->alive = true;
+		if (Stage::curStage->index == 0)
+		{
+			ROCKMAN->x = 110;
+			ROCKMAN->y = 680;
+			Stage::curStage = Stage::curStages->at(0);
+			Stage::curStage->prev();
+		}
+		else if (Stage::curStage->index == 1)
+		{
+			ROCKMAN->x = 609;
+			ROCKMAN->y = 438;
+			Stage::curStage = Stage::curStages->at(1);
+			Stage::curStage->prev();
+		}
+		else if (Stage::curStage->index == 2)
+		{
+			ROCKMAN->x = 1055;
+			ROCKMAN->y = 153;
+			Stage::curStage = Stage::curStages->at(2);
+			Stage::curStage->prev();
+		}
+		else if (Stage::curStage->index == 3)
+		{
+			ROCKMAN->x = 1566;
+			ROCKMAN->y = 425;
+			Stage::curStage = Stage::curStages->at(3);
+			Stage::curStage->prev();
+		}
+		else if (Stage::curStage->index == 4)
+		{
+			ROCKMAN->x = 1821;
+			ROCKMAN->y = 616;
+			Stage::curStage = Stage::curStages->at(4);
+			Stage::curStage->prev();
+		}
+		else if (Stage::curStage->index == 5)
+		{
+			ROCKMAN->x = 4017;
+			ROCKMAN->y = 390;
+			Stage::curStage = Stage::curStages->at(5);
+			Stage::curStage->prev();
+		}
+		else if (Stage::curStage->index == 6)
+		{
+			ROCKMAN->x = 4017;
+			ROCKMAN->y = 390;
+			Stage::curStage = Stage::curStages->at(6);
+			Stage::curStage->prev();
+		}
+		HP_BAR->x = CAMERA->x;
+		HP_BAR->y = CAMERA->y;
+		ROCKMAN->timeDeath.start();
+		return;
+	}
 	map.update();
 }
 

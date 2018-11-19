@@ -215,6 +215,24 @@
     <ClInclude Include="Rhino.h">
       <Filter>Enermy\Rhino</Filter>
     </ClInclude>
+    <ClInclude Include="HP_Boss.h">
+      <Filter>Enermy\Rhino</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenu.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Rhino_bullet.h">
+      <Filter>Enermy\Rhino</Filter>
+    </ClInclude>
+    <ClInclude Include="ChangeScene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="WinGame.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -357,6 +375,24 @@
     </ClCompile>
     <ClCompile Include="Rhino.cpp">
       <Filter>Enermy\Rhino</Filter>
+    </ClCompile>
+    <ClCompile Include="HP_Boss.cpp">
+      <Filter>Enermy\Rhino</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenu.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Rhino_bullet.cpp">
+      <Filter>Enermy\Rhino</Filter>
+    </ClCompile>
+    <ClCompile Include="ChangeScene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="WinGame.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>Scene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

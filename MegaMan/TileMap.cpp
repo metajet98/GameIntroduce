@@ -51,13 +51,25 @@ void TileMap::initObjects(const char* objectsPath)
 		switch (id % 100) //
 		{
 		case SPR_DRAGONFLY:
+
 			objects[i] = new Dragonfly();
 			break;
 		case SPR_NOTORBANGER:
 			objects[i] = new NotorBanger();
 			break;
 		case SPR_CATERKILLER:
-			objects[i] = new Caterkiller();
+			int diretion;
+			fs >> diretion;
+			switch (diretion)
+			{
+			case 1:
+				diretion = 1;
+				break;
+			default: 
+				diretion = -1;
+				break;
+			}
+			objects[i] = new Caterkiller(diretion);
 			break;
 		case SPR_BIG_HEALTH:
 			objects[i] = new BigHealth();
@@ -70,6 +82,10 @@ void TileMap::initObjects(const char* objectsPath)
 			break;
 		case -5: //Deadlane
 			objects[i] = new DeadLane();
+			break;
+		case -3:
+			objects[i] = new BaseObject();
+			objects[i]->collisionType = CT_PREVENTMOVECAMERA;
 			break;
 		default:
 			objects[i] = new BaseObject();

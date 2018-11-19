@@ -156,6 +156,7 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterkiller.h" />
     <ClInclude Include="Caterkiller_bullet.h" />
+    <ClInclude Include="ChangeScene.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Constant.h" />
     <ClInclude Include="DeadLane.h" />
@@ -167,14 +168,17 @@
     <ClInclude Include="Effect_Power.h" />
     <ClInclude Include="Enermy.h" />
     <ClInclude Include="FixedPoint8.h" />
+    <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameTimeLoop.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="HP_Boss.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="KeyBoard.h" />
     <ClInclude Include="KeyGame.h" />
     <ClInclude Include="HP_bar.h" />
     <ClInclude Include="List.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="MegamanScene.h" />
     <ClInclude Include="Mouse.h" />
@@ -188,6 +192,7 @@
     <ClInclude Include="QuadTree.h" />
     <ClInclude Include="RectF.h" />
     <ClInclude Include="Rhino.h" />
+    <ClInclude Include="Rhino_bullet.h" />
     <ClInclude Include="RockButlet.h" />
     <ClInclude Include="Rockman.h" />
     <ClInclude Include="Scene.h" />
@@ -198,6 +203,7 @@
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TileMap.h" />
     <ClInclude Include="WindowGame.h" />
+    <ClInclude Include="WinGame.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp" />
@@ -207,6 +213,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterkiller.cpp" />
     <ClCompile Include="Caterkiller_bullet.cpp" />
+    <ClCompile Include="ChangeScene.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="DeadLane.cpp" />
     <ClCompile Include="DieEffect.cpp" />
@@ -216,14 +223,17 @@
     <ClCompile Include="DrawableObject.cpp" />
     <ClCompile Include="Effect_Power.cpp" />
     <ClCompile Include="Enermy.cpp" />
+    <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GameTimeLoop.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="HP_Boss.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="KeyBoard.cpp" />
     <ClCompile Include="KeyGame.cpp" />
     <ClCompile Include="HP_bar.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MegamanScene.cpp" />
     <ClCompile Include="Mouse.cpp" />
@@ -237,6 +247,7 @@
     <ClCompile Include="QuadTree.cpp" />
     <ClCompile Include="RectF.cpp" />
     <ClCompile Include="Rhino.cpp" />
+    <ClCompile Include="Rhino_bullet.cpp" />
     <ClCompile Include="RockButlet.cpp" />
     <ClCompile Include="Rockman.cpp" />
     <ClCompile Include="Scene.cpp" />
@@ -247,6 +258,7 @@
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TileMap.cpp" />
     <ClCompile Include="WindowGame.cpp" />
+    <ClCompile Include="WinGame.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

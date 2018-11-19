@@ -12,53 +12,53 @@ Camera * Camera::getInstance()
 void Camera::onCollision(BaseObject* other, int nx, int ny)
 {
 	if (other->collisionType == CT_PREVENTMOVECAMERA)
+	{
 		COLLISION->preventMove(this, other);
+	}
 }
 void Camera::update()
 {
-	/*if ((ROCKMAN->y + ROCKMAN->dy < yCenter() && ROCKMAN->dy < 0) || (ROCKMAN->y + ROCKMAN->dy > yCenter() && ROCKMAN->dy > 0))
-		dy = ROCKMAN->dy;
-	else
-		dy = 0;*/
-
-	if ((ROCKMAN->y < this->y + VIEWPORT_HEIGHT/5) || (ROCKMAN->bottom() > this->bottom() - VIEWPORT_HEIGHT/4))
+	if (Stage::updating)
 	{
-		dy = ROCKMAN->dy;
+		if (Stage::curStage->x - CAMERA->x > 0)
+			dx = (Stage::curStage->x - CAMERA->x)*GAME_TIME->frameTime*1.5f +5;
+		else
+		{
+			dx = 0;
+			//ROCKMAN->dx = 0;
+		}
+		if (Stage::curStage->y - CAMERA->y > 0)
+			dy = (Stage::curStage->y - CAMERA->y)*GAME_TIME->frameTime * 10;
+		else
+		{
+			dy = 2;
+			//ROCKMAN->dx = 0;
+		}
+		Stage::curStage->updating = false;
+		ROCKMAN->pauseAnimation = false;
+		return;
 	}
-	else
-		dy = 0; 
 
-	if ((ROCKMAN->x + ROCKMAN->dx < xCenter() && ROCKMAN->dx < 0) || (ROCKMAN->x + ROCKMAN->dx > xCenter() && ROCKMAN->dx > 0))
-	{
+	if ((ROCKMAN->x + ROCKMAN->dx < xCenter() && ROCKMAN->dx < 0  ) || (ROCKMAN->x + ROCKMAN->dx > xCenter() && ROCKMAN->dx > 0))
 		dx = ROCKMAN->dx;
-		
-	}
 	else
-	{
 		dx = 0;
-		
-	}
-		
+	if ((ROCKMAN->y + ROCKMAN->dy < yCenter() && ROCKMAN->dy < 0) || (ROCKMAN->y + ROCKMAN->dy > yCenter() && ROCKMAN->dy > 0))
+		dy = ROCKMAN->dy;
+	else
+		dy = 0;
 
-
-	/*if (x + dx < Stage::curStage->left() && x>=Stage::curStage->left())
+	if (x + dx < Stage::curStage->left() && dx<0)
 	{
-		dx = Stage::curStage->left() - x;
-	}
-
-	if (right() + dx > Stage::curStage->right() && right() <= Stage::curStage->right())
-	{
-		dx = Stage::curStage->right() - right();
-	}
-	if (y + dy < Stage::curStage->top() && y>=Stage::curStage->top())
-	{
-		dy = Stage::curStage->top() - y;
+		//x = Stage::curStage->left();
+		dx = 0;
 	}
 
-	if (bottom() + dy > Stage::curStage->bottom() && bottom()<= Stage::curStage->bottom())
+	if (right() + dx > Stage::curStage->right() && dx>0)
 	{
-		dy = Stage::curStage->bottom() - bottom();
-	}*/
+		//x = Stage::curStage->right() - width;
+		dx = 0;
+	}
 }
 
 Camera::Camera()

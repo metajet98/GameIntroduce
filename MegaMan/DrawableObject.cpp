@@ -31,6 +31,16 @@ void DrawableObject::update()
 	BaseObject::update();
 	if (!pauseAnimation)
 	{
+		if (curAnimation == STAND)
+		{
+			delayAnimation.minFrameTime = 6 * ANIMATE_DELAY_TIME_DEFAULT;
+			delayAnimation.maxFrameTime = 7 * ANIMATE_DELAY_TIME_DEFAULT;
+		}
+		else
+		{
+			delayAnimation.minFrameTime = ANIMATE_DELAY_TIME_DEFAULT;
+			delayAnimation.maxFrameTime = 2 * ANIMATE_DELAY_TIME_DEFAULT;
+		}
 		if (delayAnimation.canCreateFrame())
 		{
 			if (curFrame == sprite->animates[curAnimation].nFrame - 1)

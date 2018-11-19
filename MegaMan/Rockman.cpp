@@ -28,7 +28,7 @@ void Rockman::onCollision(BaseObject*S, int nx, int ny)
 {
 	if (S->collisionType == CT_GROUND)
 	{
-		if ((curAnimation == JUMP || curAnimation == PUSHING || curAnimation == PUSHING_SHOT || curAnimation==HIGH_JUMP) && (nx == -1 || nx == 1))
+		if ((curAnimation == JUMP || curAnimation == PUSHING || curAnimation == PUSHING_SHOT || curAnimation==HIGH_JUMP || curAnimation==PUSHING_JUMP) && (nx == -1 || nx == 1))
 			onCollisionPush(S, nx, ny);
 		MovableObject::onCollision(S, nx, ny);
 		if (ny == 1) vy = 0;
@@ -112,7 +112,7 @@ void Rockman::draw()
 		 }
 		 
 	 }
-	 if (isCharging)
+	 if (isCharging && curAnimation!=ON_HIT)
 	 {
 		 EFFECT_POWER->x = ROCKMAN->x + ROCKMAN->direction;
 		 EFFECT_POWER->y = ROCKMAN->y;
@@ -145,7 +145,8 @@ void Rockman::setOnHit(bool newOnHit)
 	{
 		changeAction(ON_HIT);
 		vx = -50 * direction;
-		vy = -80;
+		vy = -50;
+		isCharging = false;
 	}
 
 	onHit = newOnHit;
@@ -223,6 +224,7 @@ void Rockman::die()
 		}
 		dx = 0;
 		dy = 0;
+		
 	}
 }
 
@@ -231,7 +233,7 @@ void Rockman::update()
 	
 	//Dieu kien de xuat hien boss khi vi tri rockman thuoc khu boss
 	//thi boss->appearHP else not appearHP
-	if (x > 4375 && !onAreaBoss)
+	if (x > 4377 && !onAreaBoss)
 	{
 		onAreaBoss = true;
 	}
@@ -244,29 +246,34 @@ void Rockman::update()
 	updateInvisible();
 	if (life <= 0)
 	{
-		alive = false;
+		timeDeath.canCreateFrame();
+		curFrame = 0;
 		changeAction(DIE);
+		alive = false;
 		die();
-		return;
+		if (timeDeath.isTerminated())
+			isDeath = true;
 	}
 
 	//if (!updatePause()) return;
-
+	if (pauseAnimation) return;
 	updateDirection();
 	updateChangeAnimation();
+	
 	MovableObject::update();
 }
 
 void Rockman::updateDirection()
 {
-	if (KEY->keyLeft && (curAnimation!=ON_HIT ))
+	if (KEY->keyLeft && (curAnimation!= ON_HIT))
 		direction = Left;
-	if (KEY->keyRight && curAnimation != ON_HIT)
+	if (KEY->keyRight && (curAnimation != ON_HIT))
 	{
 		direction = Right;
 	}
-	if (KEY->keyMove && ((curAnimation != JUMP_SHOT && curAnimation != SHOT && curAnimation != PUSHING_JUMP && curAnimation!=PUSHING) || !isOnGround))
+	if (KEY->keyMove && ((curAnimation != JUMP_SHOT && curAnimation != SHOT && curAnimation!=PUSHING) || !isOnGround))
 	{
+		
 		vx = ROCKMAN_VX_GO * direction;
 		if (curAnimation == APPEAR || curAnimation == ON_HIT) vx = 0;
 	}
@@ -278,6 +285,7 @@ void Rockman::updateDirection()
 
 void Rockman::updateChangeAnimation()
 {
+	if (pauseAnimation) return;
 	if (isOnGround)
 		{
 			if (KEY->keyJumpPress && curAnimation!=SLIDING)
@@ -301,7 +309,7 @@ void Rockman::updateChangeAnimation()
 					if (KEY->keyJumpPress && isSliding)
 					{
 						//changeAction(HIGH_JUMP);
-						vy = -190;
+						vy = -200;
 						
 					}
 
@@ -316,16 +324,20 @@ void Rockman::updateChangeAnimation()
 							timeCharging.canCreateFrame();
 							changeAction(RUN_SHOT);
 						}
-						else if (KEYBOARD->IskeyUp(DIK_Z) && isCharging)
+						else if (KEYBOARD->IskeyUp(DIK_Z))
 						{
-							isCharging = false;
-							if (RockButlet::getListBullet()->Count < 1)
+							timeCharging.curLoop = 0;
+
+							if (isCharging)
 							{
-								RockButlet* rb = new RockButlet(OF_STRONG_2_MEGAMAN);
-								RockButlet::getListBullet()->_Add(rb);
-							}
-							
-							timeCharging.start();
+								isCharging = false;
+								if (RockButlet::getListBullet()->Count < 1 && curAnimation != ON_HIT)
+								{
+									changeAction(RUN_SHOT);
+									RockButlet* rb = new RockButlet(OF_STRONG_2_MEGAMAN);
+									RockButlet::getListBullet()->_Add(rb);
+								}
+							}	
 						}
 					}
 					else
@@ -337,16 +349,20 @@ void Rockman::updateChangeAnimation()
 							timeCharging.canCreateFrame();
 							changeAction(SHOT);
 						}
-						else if (KEYBOARD->IskeyUp(DIK_Z) && isCharging)
+						else if (KEYBOARD->IskeyUp(DIK_Z))
 						{
-							isCharging = false;
-							if (RockButlet::getListBullet()->Count < 1)
-							{
-								RockButlet* rb = new RockButlet(OF_STRONG_2_MEGAMAN);
-								RockButlet::getListBullet()->_Add(rb);
-							}
+							timeCharging.curLoop = 0;
 
-							timeCharging.start();
+							if (isCharging)
+							{
+								isCharging = false;
+								if (RockButlet::getListBullet()->Count < 1 && curAnimation != ON_HIT)
+								{
+									changeAction(SHOT);
+									RockButlet* rb = new RockButlet(OF_STRONG_2_MEGAMAN);
+									RockButlet::getListBullet()->_Add(rb);
+								}
+							}
 							
 						}
 							
@@ -356,18 +372,23 @@ void Rockman::updateChangeAnimation()
 		}
 	else
 		{
-			if (KEYBOARD->IskeyUp(DIK_Z) && isCharging)
+			if (KEYBOARD->IskeyUp(DIK_Z) )
 			{
-				isCharging = false;
-				if (RockButlet::getListBullet()->Count < 1)
+				timeCharging.curLoop = 0;
+
+				if (isCharging)
 				{
-					RockButlet* rb = new RockButlet(OF_STRONG_2_MEGAMAN);
-					RockButlet::getListBullet()->_Add(rb);
+					isCharging = false;
+					if (RockButlet::getListBullet()->Count < 1 && curAnimation != ON_HIT)
+					{
+						changeAction(JUMP_SHOT);
+						RockButlet* rb = new RockButlet(OF_STRONG_2_MEGAMAN);
+						RockButlet::getListBullet()->_Add(rb);
+					}
 				}
 
-				timeCharging.start();
 			}
-			if (KEY->keyAttack && !isPushing && curAnimation != ON_HIT && !isCharging)
+			if (KEY->keyAttack && !isPushing && curAnimation != ON_HIT && !isCharging && curAnimation != ON_HIT)
 			{
 				timeCharging.canCreateFrame();
 				changeAction(JUMP_SHOT);
@@ -377,7 +398,7 @@ void Rockman::updateChangeAnimation()
 			{
 				if (isPushing && curAnimation != ON_HIT)
 				{
-					curFrame = 0;
+					//curFrame = 0;
 					changeAction(PUSHING);
 
 					if (KEY->keyJumpPress && KEY->keyMove && isPushing)
@@ -392,21 +413,29 @@ void Rockman::updateChangeAnimation()
 						timeCharging.canCreateFrame();
 						changeAction(PUSHING_SHOT);
 					}
-					else if (KEYBOARD->IskeyUp(DIK_Z) && isCharging)
+					else if (KEYBOARD->IskeyUp(DIK_Z))
 					{
-						isCharging = false;
-						if (RockButlet::getListBullet()->Count < 1)
-						{
-							RockButlet* rb = new RockButlet(OF_STRONG_2_MEGAMAN);
-							RockButlet::getListBullet()->_Add(rb);
-						}
+						timeCharging.curLoop = 0;
 
-						timeCharging.start();
+						if (isCharging)
+						{
+							isCharging = false;
+							if (RockButlet::getListBullet()->Count < 1 && curAnimation != ON_HIT)
+							{
+								changeAction(PUSHING_SHOT);
+								RockButlet* rb = new RockButlet(OF_STRONG_2_MEGAMAN);
+								RockButlet::getListBullet()->_Add(rb);
+							}
+						}
 					}
 				}
 				else
 				{
 					if (curAnimation == APPEAR) return;
+					/*if (curAnimation == PUSHING_JUMP)
+					{
+						return;
+					}*/
 					//co the doi animation hight jump o day
 					if (curAnimation != ON_HIT);
 					{
@@ -422,10 +451,12 @@ void Rockman::updateChangeAnimation()
 Rockman::Rockman()
 {
 	sprite = SPRITEMANAGER->sprites[SPR_MAIN];
-	//x = 110;
-	//y = 680;
-	x = 3530;
-	y = 375;
+	x = 110;
+	y = 680;
+	//x = 3530;
+	//y = 375;
+	//x = 1596;
+	//y = 579;
 	direction = Right;
 	width = 26;
 	height = 30;
@@ -445,6 +476,9 @@ Rockman::Rockman()
 	timeCharging.start();
 	timeCharging1.init(0.2, 5);
 	timeCharging1.start();
+	timeDeath.init(0.2, 10);
+	timeDeath.start();
+	NumberOfLife = 3;
 }
 
 

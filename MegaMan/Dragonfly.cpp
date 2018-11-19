@@ -31,7 +31,7 @@ void Dragonfly::update()
 	if (alive)
 	{
 		vx = direction * 40;
-		if (direction == Left && abs((ROCKMAN->x + ROCKMAN->width) - x) < 20 && abs((y + height) - ROCKMAN->y) < 20)
+		if (abs((ROCKMAN->x + ROCKMAN->width) - x) < 20)
 		{
 			vx = 0;
 			curAnimation = DRAGONFLY_SHOT;
@@ -46,9 +46,10 @@ void Dragonfly::update()
 		}
 		else curAnimation = DRAGONFLY_FLY;
 		dx = vx * TIME;
+		MovableObject::update();
 	}
 
-	MovableObject::update();
+	
 }
 
 void Dragonfly::onCollision(BaseObject * S, int nx, int ny)

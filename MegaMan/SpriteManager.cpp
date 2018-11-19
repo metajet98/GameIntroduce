@@ -31,6 +31,7 @@ SpriteManager::SpriteManager()
 	sprites[SPR_ENEMY_DIE] = new Sprite("Data\\Miscellaneous\\x3_explosions.png", "Data\\Miscellaneous\\enemy_die.txt");
 
 	sprites[SPR_RHINO] = new Sprite("Data\\BOSS\\tunnelrhino.png", "Data\\BOSS\\rhino.txt");
+	sprites[SPR_RHINO_BULLET] = new Sprite("Data\\BOSS\\tunnelrhino.png", "Data\\BOSS\\rhino_bullet.txt");
 	sprites[SPR_BOSS_DIE] = new Sprite("Data\\Miscellaneous\\x3_explosions.png", "Data\\Miscellaneous\\boss_die.txt");
 	sprites[SPR_HP_BAR_BOSS] = new Sprite("Data\\BOSS\\HP_bar_boss.png", "Data\\BOSS\\HP_bar_boss.txt");
 	

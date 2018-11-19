@@ -1,0 +1,210 @@
+﻿  Animate.cpp
+  BaseObject.cpp
+  BigHealth.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Box.cpp
+  Camera.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Caterkiller.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller.cpp(30): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller.cpp(36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller.cpp(50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller.cpp(51): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller.cpp(56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller.cpp(57): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller.cpp(92): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
+  Caterkiller_bullet.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller_bullet.cpp(16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller_bullet.cpp(17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller_bullet.cpp(21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller_bullet.cpp(22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller_bullet.cpp(31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller_bullet.cpp(32): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller_bullet.cpp(79): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller_bullet.cpp(80): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\caterkiller_bullet.cpp(84): warning C4305: 'argument': truncation from 'double' to 'float'
+  CollisionManager.cpp
+c:\users\ducpham\documents\github\gameintroduce\megaman\collisionmanager.cpp(98): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\collisionmanager.cpp(99): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\collisionmanager.cpp(103): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\collisionmanager.cpp(104): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\collisionmanager.cpp(111): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\collisionmanager.cpp(112): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\collisionmanager.cpp(116): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\collisionmanager.cpp(117): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  DeadLane.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  DieEffect.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\dieeffect.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dieeffect.cpp(19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dieeffect.cpp(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Door.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\door.cpp(25): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\door.cpp(72): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\door.cpp(73): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\door.cpp(74): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\door.cpp(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Dragonfly.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly.cpp(33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly.cpp(42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly.cpp(93): warning C4553: '==': result of expression not used; did you intend '='?
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly.cpp(94): warning C4305: 'argument': truncation from 'double' to 'float'
+  Dragonfly_bullet.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly_bullet.cpp(15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly_bullet.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly_bullet.cpp(24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly_bullet.cpp(30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly_bullet.cpp(74): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly_bullet.cpp(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\dragonfly_bullet.cpp(78): warning C4305: 'argument': truncation from 'double' to 'float'
+  DrawableObject.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\drawableobject.cpp(59): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\drawableobject.cpp(60): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\drawableobject.cpp(66): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Effect_Power.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\effect_power.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\effect_power.cpp(18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  Enermy.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\enermy.cpp(20): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\enermy.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\enermy.cpp(50): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\enermy.cpp(51): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\enermy.cpp(57): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\enermy.cpp(126): warning C4305: 'argument': truncation from 'double' to 'float'
+  GameTime.cpp
+  GameTimeLoop.cpp
+  Graphics.cpp
+c:\users\ducpham\documents\github\gameintroduce\megaman\graphics.cpp(90): warning C4267: 'argument': conversion from 'size_t' to 'INT', possible loss of data
+  Item.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Generating Code...
+  Compiling...
+  KeyBoard.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\keyboard.cpp(44): warning C4804: '>': unsafe use of type 'bool' in operation
+  KeyGame.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  HP_bar.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\hp_bar.cpp(18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\hp_bar.cpp(72): warning C4305: 'argument': truncation from 'double' to 'float'
+  Main.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Map.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\map.cpp(154): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\map.cpp(240): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  MegamanScene.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Mouse.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  MovableObject.cpp
+  NotoBanger_bullet.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\notobanger_bullet.cpp(15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\notobanger_bullet.cpp(27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\notobanger_bullet.cpp(28): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\notobanger_bullet.cpp(34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\notobanger_bullet.cpp(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\notobanger_bullet.cpp(76): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\notobanger_bullet.cpp(79): warning C4305: 'argument': truncation from 'double' to 'float'
+  NotorBanger.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\notorbanger.cpp(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\notorbanger.cpp(72): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\notorbanger.cpp(73): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\notorbanger.cpp(131): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\ducpham\documents\github\gameintroduce\megaman\notorbanger.cpp(136): warning C4305: 'argument': truncation from 'double' to 'float'
+  ObjectsCategory.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  OldRestore.cpp
+  Point.cpp
+  QuadNode.cpp
+  QuadTree.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  RectF.cpp
+c:\users\ducpham\documents\github\gameintroduce\megaman\rectf.cpp(48): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Rhino.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\rhino.cpp(36): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rhino.cpp(37): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rhino.cpp(43): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rhino.cpp(63): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rhino.cpp(86): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rhino.cpp(118): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rhino.cpp(146): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rhino.cpp(162): warning C4305: 'argument': truncation from 'double' to 'float'
+  RockButlet.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockbutlet.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockbutlet.cpp(18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockbutlet.cpp(24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockbutlet.cpp(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Rockman.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(72): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(73): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(79): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(104): warning C4390: ';': empty controlled statement found; is this the intent?
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(147): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(270): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(298): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(386): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(411): warning C4390: ';': empty controlled statement found; is this the intent?
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(438): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(444): warning C4305: 'argument': truncation from 'double' to 'float'
+c:\users\ducpham\documents\github\gameintroduce\megaman\rockman.cpp(446): warning C4305: 'argument': truncation from 'double' to 'float'
+  Scene.cpp
+  Generating Code...
+  Compiling...
+  SmallHealth.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Sprite.cpp
+  SpriteManager.cpp
+  Stage.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+  Texture.cpp
+  TileMap.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\ducpham\documents\github\gameintroduce\megaman\tilemap.cpp(23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\tilemap.cpp(24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\tilemap.cpp(26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\tilemap.cpp(27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\tilemap.cpp(31): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\ducpham\documents\github\gameintroduce\megaman\tilemap.cpp(32): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+  WindowGame.cpp
+  Generating Code...
+c:\users\ducpham\documents\github\gameintroduce\megaman\stage.cpp(18): warning C4715: 'Stage::update': not all control paths return a value
+Graphics.obj : error LNK2019: unresolved external symbol Direct3DCreate9 referenced in function "private: bool __cdecl Graphics::isInitDirectX(void)" (?isInitDirectX@Graphics@@AEAA_NXZ)
+Graphics.obj : error LNK2019: unresolved external symbol D3DXCreateSprite referenced in function "private: bool __cdecl Graphics::isInitSprite(void)" (?isInitSprite@Graphics@@AEAA_NXZ)
+Graphics.obj : error LNK2019: unresolved external symbol D3DXCreateFontA referenced in function "public: void __cdecl Graphics::PrintText(char const *,int,int,int,unsigned long)" (?PrintText@Graphics@@QEAAXPEBDHHHK@Z)
+KeyBoard.obj : error LNK2019: unresolved external symbol DirectInput8Create referenced in function "private: __cdecl KeyBoard::KeyBoard(struct HINSTANCE__ *,struct HWND__ *)" (??0KeyBoard@@AEAA@PEAUHINSTANCE__@@PEAUHWND__@@@Z)
+Mouse.obj : error LNK2001: unresolved external symbol DirectInput8Create
+KeyBoard.obj : error LNK2001: unresolved external symbol IID_IDirectInput8A
+Mouse.obj : error LNK2001: unresolved external symbol IID_IDirectInput8A
+KeyBoard.obj : error LNK2001: unresolved external symbol GUID_SysKeyboard
+KeyBoard.obj : error LNK2001: unresolved external symbol c_dfDIKeyboard
+Main.obj : error LNK2019: unresolved external symbol __imp_timeBeginPeriod referenced in function WinMain
+Main.obj : error LNK2019: unresolved external symbol __imp_timeEndPeriod referenced in function WinMain
+Mouse.obj : error LNK2001: unresolved external symbol GUID_SysMouse
+Mouse.obj : error LNK2001: unresolved external symbol c_dfDIMouse
+Texture.obj : error LNK2019: unresolved external symbol D3DXMatrixMultiply referenced in function "public: struct D3DXMATRIX __cdecl D3DXMATRIX::operator*(struct D3DXMATRIX const &)const " (??DD3DXMATRIX@@QEBA?AU0@AEBU0@@Z)
+Texture.obj : error LNK2019: unresolved external symbol D3DXMatrixTransformation2D referenced in function "public: void __cdecl Texture::render(struct ID3DXSprite *,struct tagRECT *,struct D3DXVECTOR2,struct D3DXVECTOR2,float,struct D3DXVECTOR2,float)" (?render@Texture@@QEAAXPEAUID3DXSprite@@PEAUtagRECT@@UD3DXVECTOR2@@2M2M@Z)
+Texture.obj : error LNK2019: unresolved external symbol D3DXGetImageInfoFromFileA referenced in function "public: void __cdecl Texture::Init(char const *,unsigned long)" (?Init@Texture@@QEAAXPEBDK@Z)
+Texture.obj : error LNK2019: unresolved external symbol D3DXCreateTextureFromFileExA referenced in function "public: void __cdecl Texture::Init(char const *,unsigned long)" (?Init@Texture@@QEAAXPEBDK@Z)
+TileMap.obj : error LNK2019: unresolved external symbol D3DXVec3Transform referenced in function "public: void __cdecl TileMap::convertToViewportPos(int,int,int &,int &)" (?convertToViewportPos@TileMap@@QEAAXHHAEAH0@Z)
+MSVCRTD.lib(exe_main.obj) : error LNK2019: unresolved external symbol main referenced in function "int __cdecl invoke_main(void)" (?invoke_main@@YAHXZ)
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\dinput8.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\dxguid.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3d9.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Program Files (x86)\Microsoft DirectX SDK (June 2010)\Lib\x86\d3dx9.lib : warning LNK4272: library machine type 'x86' conflicts with target machine type 'x64'
+C:\Users\DucPham\Documents\GitHub\GameIntroduce\x64\Debug\MegaMan.exe : fatal error LNK1120: 17 unresolved externals

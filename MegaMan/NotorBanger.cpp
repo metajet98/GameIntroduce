@@ -22,7 +22,7 @@ void NotorBanger::update()
 
 		return;
 	}
-
+	
 	if (alive)
 	{
 		// Use count jump to change direction

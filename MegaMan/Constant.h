@@ -5,8 +5,8 @@
 #define ANIMATE_DELAY_TIME_DEFAULT	0.1f
 #define SCREEN_WIDTH		800
 #define SCREEN_HEIGHT		600
-#define VIEWPORT_WIDTH		245
-#define VIEWPORT_HEIGHT		180
+#define VIEWPORT_WIDTH		240
+#define VIEWPORT_HEIGHT		200
 #define BACK_WIDTH			VIEWPORT_WIDTH
 #define BACK_HEIGHT			VIEWPORT_HEIGHT
 
@@ -22,10 +22,12 @@
 #define GRAVITY				300
 #define TIMEJUMP			60.0f/GRAVITY
 #define CAMERA				Camera::getInstance()
-//#define X_MAP				7
-//#define Y_MAP				603
-#define X_MAP				3436
-#define Y_MAP				300
+#define X_MAP				7
+#define Y_MAP				560
+//#define X_MAP				1544
+//#define Y_MAP				519
+//#define X_MAP				3436
+//#define Y_MAP				290
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 
@@ -50,6 +52,8 @@
 #define CATERKILLER_BULLET	Caterkiller_bullet::getListCaterkiller_bullet()
 
 #define RHINO				Rhino::getInstance()
+#define RHINO_BULLET		Rhino_bullet::getListBossBullet()
+#define HP_BOSS				HP_Boss::getInstance()
 
 enum ROCK_ACTION
 {
@@ -91,7 +95,6 @@ enum SPRITE_OBJECT
 {
 	SPR_MAIN,
 	SPR_BUTLET,
-	SPR_BULLET_STRONG,
 	SPR_DRAGONFLY,
 	SPR_DRAGONFLY_BULLET,
 	SPR_NOTORBANGER,
@@ -107,6 +110,8 @@ enum SPRITE_OBJECT
 	SPR_SMALL_HEALTH,
 	SPR_DOOR,
 	SPR_RHINO,
+	SPR_BULLET_STRONG,
+	SPR_RHINO_BULLET,
 	SPR_COUNT
 };
 enum CATEGORY_ENEMY

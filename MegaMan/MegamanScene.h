@@ -2,6 +2,7 @@
 #include"Scene.h"
 #include"Rockman.h"
 #include"Map.h"
+#include"HP_bar.h"
 class MegamanScene:public Scene
 {
 public:

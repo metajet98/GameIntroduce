@@ -1,5 +1,5 @@
 #include "Enermy.h"
-
+#include"HP_bar.h"
 
 
 void Enermy::update()
@@ -17,17 +17,20 @@ void Enermy::update()
 	}
 
 	if (alive)
+	{
 		vx = direction * 40;
+		MovableObject::update();
+	}
 
-	MovableObject::update();
+
 }
 
 void Enermy::draw()
 {
 	if (!alive)
 	{
-		vx = 0;
-		vy = 0;
+		dx = 0;
+		dy = 0;
 		ay = 0;
 		if (timeDeath.canCreateFrame())
 		{
@@ -42,7 +45,7 @@ void Enermy::draw()
 		int xInViewport, yInViewport;
 		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
 		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
-		
+		return;
 	}
 	if (alive)
 	{
@@ -97,8 +100,9 @@ void Enermy::onAABBCheck(BaseObject * other)
 			if (r->categoryBullet == OF_STRONG_MEGAMAN)
 				this->life -= 2;
 			else if(r->categoryBullet == OF_STRONG_2_MEGAMAN)
-				this->life -= 4;
+				this->life -= 3;
 			else this->life--;
+			
 			other->allowDelete = true;
 			//gameTimeLoop.start();
 		}

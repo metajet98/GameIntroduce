@@ -16,9 +16,13 @@ void QuadTree::removeObjectFromCamera()
 	for (int i = 0; i < nObject; i++)
 	{
 		BaseObject* obj = CAMERA->objectsInCamera.allObjects[i];
+		RectF r = obj->oldRect();
 		if (!COLLISION->AABBCheck(*CAMERA, *obj))
 		{
-		
+			if (obj->collisionType == CT_ENERMY || obj->collisionType == CT_ITEM)
+				if (!COLLISION->AABBCheck(*CAMERA, r))
+					obj->restore(obj);
+
 			CAMERA->objectsInCamera.remove(obj);
 			i--;
 			nObject--;
