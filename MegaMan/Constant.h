@@ -5,7 +5,7 @@
 #define ANIMATE_DELAY_TIME_DEFAULT	0.1f
 #define SCREEN_WIDTH		800
 #define SCREEN_HEIGHT		600
-#define VIEWPORT_WIDTH		240
+#define VIEWPORT_WIDTH		243
 #define VIEWPORT_HEIGHT		200
 #define BACK_WIDTH			VIEWPORT_WIDTH
 #define BACK_HEIGHT			VIEWPORT_HEIGHT
@@ -37,7 +37,7 @@
 #define MAX_FRAME_TIME		(1.0f/MIN_FRAME_TIME)
 
 #define ROCKMAN				Rockman::getInstance()
-#define ROCKMAN_VX_GO		75
+#define ROCKMAN_VX_GO		70
 #define ROCKBUTLET			RockButlet::getListBullet()
 #define EFFECT_POWER		Effect_Power::getInstance()
 #define HP_BAR				HP_bar::getInstance()

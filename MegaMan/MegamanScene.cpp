@@ -61,21 +61,21 @@ void MegamanScene::update()
 			Stage::curStage = Stage::curStages->at(3);
 			Stage::curStage->prev();
 		}
-		else if (Stage::curStage->index == 4)
+		else if (Stage::curStage->index == 4 || Stage::curStage->index==5)
 		{
 			ROCKMAN->x = 1821;
 			ROCKMAN->y = 616;
 			Stage::curStage = Stage::curStages->at(4);
 			Stage::curStage->prev();
 		}
-		else if (Stage::curStage->index == 5)
+		else if (Stage::curStage->index == 6)
 		{
 			ROCKMAN->x = 4017;
 			ROCKMAN->y = 390;
 			Stage::curStage = Stage::curStages->at(5);
 			Stage::curStage->prev();
 		}
-		else if (Stage::curStage->index == 6)
+		else if (Stage::curStage->index == 7)
 		{
 			ROCKMAN->x = 4017;
 			ROCKMAN->y = 390;

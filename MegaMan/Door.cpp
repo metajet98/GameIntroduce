@@ -22,7 +22,7 @@ void Door::update()
 	{
 		if (curAnimation == 0)
 		{
-			ROCKMAN->dx = ROCKMAN->direction;
+			ROCKMAN->x += ROCKMAN->direction;
 			pauseAnimation = true;
 			isClose = false;
 		}

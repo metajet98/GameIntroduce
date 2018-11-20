@@ -47,14 +47,12 @@ void Rockman::updateLocation()
 {
 	if (!alive)
 		return;
-
-	/*if (isCollisionCross && !isCollision)
+	if (x + dx < Stage::curStage->left() && dx < 0)
 	{
-		if (abs(dx) > abs(dy))
-			dy = 0;
-		else
-			dx = 0;
-	}*/
+		x = Stage::curStage->left();
+		dx = 0;
+	}
+
 	x += dx;
 	y += dy;
 }
@@ -256,6 +254,7 @@ void Rockman::update()
 	}
 
 	//if (!updatePause()) return;
+	if (Stage::updating) return;
 	if (pauseAnimation) return;
 	updateDirection();
 	updateChangeAnimation();

@@ -22,8 +22,8 @@ void Map::init(const char* tileSheetPath, const char* objectsPath, const char* q
 	doors[1]->id = -2;
 	doors[2] = new Door(4340, 376, 16, 40);
 	doors[2]->id = -2;
-	doors[3] = new Door(505, 392, 16, 48);
-	doors[3]->id = -2;
+	/*doors[3] = new Door(505, 392, 16, 48);
+	doors[3]->id = -2;*/
 }
 void Map::initStage(const char * stageInfoPath)
 {
@@ -49,26 +49,28 @@ void Map::update()
 		if (Stage::curStage->index == i) continue;
 		if (COLLISION->AABBCheck(*ROCKMAN, *stages[i]) && !ROCKMAN->onAreaBoss) //dung pahi
 		{
-			ROCKMAN->dx = 0;
+			ROCKMAN->dx = ROCKMAN->direction;
 			Stage::curStage = stages[i];
 			Stage::curStage->updating = true;
 			ROCKMAN->pauseAnimation = true;
-			
-			if (CAMERA->x >= Stage::curStage->right())
-			{
-				Stage::curStage->updating = false;
-				ROCKMAN->pauseAnimation = false;
-			}
 		}
 	}
 	CAMERA->update();
 	quadtree.update();
 	ROCKMAN->update();
+
+	if (CAMERA->x > Stage::curStage->left())
+	{
+		Stage::updating = false;
+		ROCKMAN->pauseAnimation = false;
+	}
+
 	List<BaseObject*>& groundsObject = CAMERA->objectsInCamera.grounds;
 	List<Enermy*>& enermyObject = CAMERA->objectsInCamera.enermies;
 	List<BaseObject*>& itemsObject = CAMERA->objectsInCamera.items;
 	List<BaseObject*>& trapsObject = CAMERA->objectsInCamera.traps;
 	List<BaseObject*>& preventcameraObject = CAMERA->objectsInCamera.preventMoveCameras;
+
 
 	#pragma region Update
 
@@ -129,6 +131,15 @@ void Map::update()
 #pragma endregion
 
 	#pragma region CheckCollision
+	for (List<RockButlet*>::Node* p = ROCKBUTLET->pHead; p; p = p->pNext)
+	{
+		RockButlet* bullet = p->m_value;
+		for (int i = 0; i < enermyObject.size(); i++)
+		{
+			COLLISION->checkCollision(bullet, enermyObject[i]);
+		}
+	}
+
 	for (int i = 0; i < groundsObject.size(); i++)
 	{
 		COLLISION->checkCollision(ROCKMAN, groundsObject[i]);
@@ -172,19 +183,19 @@ void Map::update()
 		COLLISION->checkCollision(ROCKMAN, RHINO_BULLET->at(i));
 	}
 	int doorIsOpen = -1;
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		if (COLLISION->AABBCheck(*doors[i], *ROCKMAN)&& !ROCKMAN->onAreaBoss)
 		{
 			doorIsOpen = i;
-			if (ROCKMAN->direction == Right && ROCKMAN->x <= doors[doorIsOpen]->right())
+			if (ROCKMAN->direction == Right && ROCKMAN->x < doors[doorIsOpen]->right())
 			{
 				
 				if (!doors[doorIsOpen]->isOpen)
 				{
 					ROCKMAN->dx = 0;
 					doors[doorIsOpen]->Open();
-					//CAMERA->dx = 3 * ROCKMAN->direction;
+					CAMERA->dx = 3 * ROCKMAN->direction;
 					ROCKMAN->pauseAnimation = true;
 				}
 			}
@@ -295,7 +306,7 @@ void Map::draw()
 
 	
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 3; i++)
 	{
 		doors[i]->draw();
 	}

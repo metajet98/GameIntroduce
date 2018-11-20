@@ -71,17 +71,17 @@ RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 	this->width = sprite->animates[curAnimation].frames[curFrame].width;
 	this->height = sprite->animates[curAnimation].frames[curFrame].height;
 	direction = ROCKMAN->direction;
-	x = ROCKMAN->x + ((direction==Right)?1:-2) * (ROCKMAN->width - 8);
+	x = ROCKMAN->x + ((direction==Right)?0:1) * (ROCKMAN->width - 8);
 	y = ROCKMAN->yCenter()- height/2;
-	if (ROCKMAN->curAnimation == PUSHING_SHOT)
+	if (ROCKMAN->curAnimation == PUSHING)
 	{
 		direction = ROCKMAN->direction == Right ? Left : Right;
-		x = ROCKMAN->x + ((direction == Right) ? 1 : -2) * (ROCKMAN->width - 8);
+		x = ROCKMAN->x + ((direction == Right) ? 1 : -2) * (ROCKMAN->width-8);
 		y = ROCKMAN->yCenter() - height / 3;
 	}
 	if (level == OF_MEGAMAN)
 	{
-		x = ROCKMAN->x + ((direction == Right) ? -1 : -2)*8;
+		x = ROCKMAN->x + ((direction == Right) ? -1 : -2)*6;
 		y = ROCKMAN->yCenter() - height / 2;
 		if (ROCKMAN->curAnimation == PUSHING_SHOT)
 		{
