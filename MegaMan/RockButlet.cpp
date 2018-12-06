@@ -15,7 +15,8 @@ void RockButlet::draw()
 	int xInViewport, yInViewport;
 	TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
 	int trucQuay = (xInViewport +ROCKMAN->width);
-	if (ROCKMAN->curAnimation == PUSHING && this->categoryBullet != OF_MEGAMAN) direction = ROCKMAN->direction == Right ? Left : Right;
+	/*if (ROCKMAN->curAnimation == PUSHING && this->categoryBullet != OF_MEGAMAN)
+		direction = ROCKMAN->direction == Right ? Left : Right;*/
 	if (direction != sprite->image->direction)
 	{
 		D3DXMATRIX mt;
@@ -60,6 +61,10 @@ void RockButlet::onAABBCheck(BaseObject * other)
 	}
 }
 
+void RockButlet::changeDirection(Direction dir)
+{
+}
+
 RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 {
 	categoryBullet = level;
@@ -70,19 +75,12 @@ RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 	curFrame = 0;
 	this->width = sprite->animates[curAnimation].frames[curFrame].width;
 	this->height = sprite->animates[curAnimation].frames[curFrame].height;
-	direction = ROCKMAN->direction;
-	x = ROCKMAN->x + ((direction==Right)?0:1) * (ROCKMAN->width - 8);
-	y = ROCKMAN->yCenter()- height/2;
-	if (ROCKMAN->curAnimation == PUSHING)
-	{
-		direction = ROCKMAN->direction == Right ? Left : Right;
-		x = ROCKMAN->x + ((direction == Right) ? 1 : -2) * (ROCKMAN->width-8);
-		y = ROCKMAN->yCenter() - height / 3;
-	}
+
 	if (level == OF_MEGAMAN)
 	{
-		x = ROCKMAN->x + ((direction == Right) ? -1 : -2)*6;
+		x = ROCKMAN->x + ((direction == Right) ? -1 : -2)*8;
 		y = ROCKMAN->yCenter() - height / 2;
+		direction = ROCKMAN->direction;
 		if (ROCKMAN->curAnimation == PUSHING_SHOT)
 		{
 			direction = ROCKMAN->direction == Right ? Left : Right;
@@ -90,6 +88,23 @@ RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 			y = ROCKMAN->yCenter() + height / 2;
 		}
 	}
+	else
+	{
+		direction = ROCKMAN->direction;
+		x = ROCKMAN->x + ((direction == Right) ? 0 : -1) * (ROCKMAN->width - 8);
+		y = ROCKMAN->yCenter() - height / 2;
+		if (ROCKMAN->isPushing)
+		{
+			direction = ROCKMAN->direction == Right ? Left : Right;
+			x = ROCKMAN->x + ((direction == Right) ? 1 : -2) * (ROCKMAN->width - 8);
+			y = ROCKMAN->yCenter() - height / 3;
+		}
+	}
+}
+
+RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level, Direction dir)
+{
+	
 }
 
 RockButlet::~RockButlet()

@@ -5,7 +5,7 @@
 #define ANIMATE_DELAY_TIME_DEFAULT	0.1f
 #define SCREEN_WIDTH		800
 #define SCREEN_HEIGHT		600
-#define VIEWPORT_WIDTH		243
+#define VIEWPORT_WIDTH		255
 #define VIEWPORT_HEIGHT		200
 #define BACK_WIDTH			VIEWPORT_WIDTH
 #define BACK_HEIGHT			VIEWPORT_HEIGHT
@@ -31,8 +31,8 @@
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 
-#define FRAME_RATE			(20.0f)  // Số frame load trên một giây (frame/giây)
-#define MIN_FRAME_RATE		(20.0f)
+#define FRAME_RATE			(40.0f)  // Số frame load trên một giây (frame/giây)
+#define MIN_FRAME_RATE		(40.0f)
 #define MIN_FRAME_TIME		(1.0f/FRAME_RATE)	// thời gian load một frame (giây/frame)
 #define MAX_FRAME_TIME		(1.0f/MIN_FRAME_TIME)
 

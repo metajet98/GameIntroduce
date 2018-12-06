@@ -32,7 +32,7 @@ void NotorBanger::update()
 			vx = 0;
 			curAnimation = NOTORBANGER_STAND;
 			timeStand.canCreateFrame();
-			if (timeStand.isTerminated() && curAnimation!=NOTORBANGER_JUMP)
+			if (timeStand.isTerminated() && curAnimation != NOTORBANGER_JUMP)
 			{
 				if (countJump >= 3)
 				{
@@ -44,11 +44,10 @@ void NotorBanger::update()
 				curAnimation = NOTORBANGER_JUMP;
 				countJump++;
 				timeStand.start();
-				
 			}
 		}
 		
-		if (abs(x - (ROCKMAN->x + ROCKMAN->width) <= 40) && curAnimation!=NOTORBANGER_JUMP)
+		if (abs(x - (ROCKMAN->x + ROCKMAN->width) <= 50) && curAnimation!=NOTORBANGER_JUMP)
 		{
 			if (ROCKMAN->x >= x + width)
 			{
@@ -59,7 +58,7 @@ void NotorBanger::update()
 			{
 				direction = Left;
 			}
-			curAnimation = NOTORBANGER_STAND;
+			curAnimation = NOTORBANGER_SHOT;
 			vx = 0;
 			vy = 0;
 			timeShot.canCreateFrame();
@@ -76,7 +75,6 @@ void NotorBanger::update()
 				timeShot.start();
 			}
 		}
-		
 		//isOnGround = false;
 		MovableObject::update();
 		

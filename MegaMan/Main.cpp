@@ -18,8 +18,8 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 {
 	WINDOW->initHandleWindows(hInstance, nCmdShow);
 
-	//MegamanScene::changeScene(new MegamanScene());
-	MegamanScene::changeScene(new MainMenu());
+	MegamanScene::changeScene(new MegamanScene());
+	//MegamanScene::changeScene(new MainMenu());
 
 	KeyBoard::Create(hInstance, WINDOW->getHandleWindow());
 	GAME_TIME->minFrameTime = MIN_FRAME_TIME;

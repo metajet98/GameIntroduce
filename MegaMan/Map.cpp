@@ -50,6 +50,7 @@ void Map::update()
 		if (COLLISION->AABBCheck(*ROCKMAN, *stages[i]) && !ROCKMAN->onAreaBoss) //dung pahi
 		{
 			ROCKMAN->dx = ROCKMAN->direction;
+			ROCKMAN->dy = 0;
 			Stage::curStage = stages[i];
 			Stage::curStage->updating = true;
 			ROCKMAN->pauseAnimation = true;
@@ -59,7 +60,7 @@ void Map::update()
 	quadtree.update();
 	ROCKMAN->update();
 
-	if (CAMERA->x > Stage::curStage->left())
+	if (CAMERA->x > Stage::curStage->x)
 	{
 		Stage::updating = false;
 		ROCKMAN->pauseAnimation = false;
@@ -185,6 +186,7 @@ void Map::update()
 	int doorIsOpen = -1;
 	for (int i = 0; i < 3; i++)
 	{
+		// bug o boss vi camera di qua nhieu
 		if (COLLISION->AABBCheck(*doors[i], *ROCKMAN)&& !ROCKMAN->onAreaBoss)
 		{
 			doorIsOpen = i;
@@ -195,7 +197,7 @@ void Map::update()
 				{
 					ROCKMAN->dx = 0;
 					doors[doorIsOpen]->Open();
-					CAMERA->dx = 3 * ROCKMAN->direction;
+					CAMERA->dx = 2 * ROCKMAN->direction;
 					ROCKMAN->pauseAnimation = true;
 				}
 			}

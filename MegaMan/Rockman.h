@@ -15,9 +15,9 @@
 class Rockman:public MovableObject
 {
 	int isCharging;
-	int isPushing;
+	Direction pushDirection;
 	int isSliding;
-	
+	GameTimeLoop timePushJump;
 	
 	bool lastStatusRunAttack;
 
@@ -31,6 +31,7 @@ public:
 	bool pauseAnimation;
 	bool onAreaBoss;
 	int NumberOfLife;
+	int isPushing;
 
 	GameTimeLoop timeCharging;
 	GameTimeLoop timeCharging1;

@@ -19,7 +19,9 @@ public:
 	void update();
 	void onCollision(BaseObject* S, int nx, int ny);
 	void onAABBCheck(BaseObject * other);
+	void changeDirection(Direction dir);
 	RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level);
+	RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level,Direction dir);
 	~RockButlet();
 };
 

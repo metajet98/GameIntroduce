@@ -12,13 +12,14 @@ List<NotoBanger_bullet*>* NotoBanger_bullet::getListnotobanger_bullet()
 void NotoBanger_bullet::update()
 {
 	timeShot.canCreateFrame();
-	vx = 50 * direction;
-	dx = vx * TIME;
+	vx = 30 * direction;
+	//dx = vx * TIME;
 	if (timeShot.isTerminated())
 	{
 		MovableObject::update();
 		timeShot.start();
 	}
+
 }
 
 void NotoBanger_bullet::draw()
@@ -76,8 +77,10 @@ NotoBanger_bullet::NotoBanger_bullet(int xNotobanger, int yNotobanger, Direction
 	this->y = yNotobanger + 2;
 	delayAnimation.minFrameTime = ANIMATE_DELAY_TIME_DEFAULT * 2;
 	delayAnimation.maxFrameTime = ANIMATE_DELAY_TIME_DEFAULT * 3;
-	timeShot.init(0.1,1);
+	timeShot.init(0.1,2);
 	timeShot.start();
+	ay = 3*GRAVITY;
+	vy = -90;
 }
 
 NotoBanger_bullet::NotoBanger_bullet()

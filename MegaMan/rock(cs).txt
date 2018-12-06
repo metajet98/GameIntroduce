@@ -21,7 +21,7 @@ void Rockman::onCollisionPush(BaseObject*S, int nx, int ny)
 		dotprod = -1.0f;
 	}
 	vx = dotprod * nx*magnitude;
-	vy = dotprod * ny*magnitude + 30;	
+	vy = dotprod * ny*magnitude + 10;	
 	isPushing = true;
 }
 void Rockman::onCollision(BaseObject*S, int nx, int ny)
@@ -154,7 +154,6 @@ void Rockman::setOnHit(bool newOnHit)
 		vx = -50 * direction;
 		vy = -50;
 		isCharging = false;
-		timePushJump.curLoop = 0;
 	}
 
 	onHit = newOnHit;
@@ -241,7 +240,7 @@ void Rockman::update()
 	
 	//Dieu kien de xuat hien boss khi vi tri rockman thuoc khu boss
 	//thi boss->appearHP else not appearHP
-	if (x > 4374 && !onAreaBoss)
+	if (x > 4377 && !onAreaBoss)
 	{
 		onAreaBoss = true;
 	}
@@ -307,16 +306,13 @@ void Rockman::updateChangeAnimation()
 			}
 			else
 			{
-				if (KEYBOARD->IskeyUp(DIK_X))
-				{
-					isSliding = true;
-				}
+				if (KEYBOARD->IskeyUp(DIK_X)) isSliding = true;
 
 				if (KEY->keySlide && isSliding)
 				{
 
 					changeAction(SLIDING);
-					vx = direction * ROCKMAN_VX_GO * 3;
+					vx = direction * ROCKMAN_VX_GO * 2;
 					if (curFrame == sprite->animates[SLIDING].nFrame - 1) isSliding = false;
 
 					if (KEY->keyJumpPress && isSliding)
@@ -435,14 +431,11 @@ void Rockman::updateChangeAnimation()
 					//curFrame = 0;
 					changeAction(PUSHING);
 
-					if (KEY->keyJum  && isPushing && direction!=pushDirection)
+					if (KEY->keyJumpPress && KEY->keyMove && isPushing && direction!=pushDirection)
 					{
-						if (KEY->keyMove)
-						{
-							changeAction(PUSHING_JUMP);
-							//vx = pushDirection * ROCKMAN_VX_GO - 50;
-							vy = -170;
-						}
+						changeAction(PUSHING_JUMP);
+						vx = direction * ROCKMAN_VX_GO - 50;
+						vy = -170;
 					}
 
 					if (KEY->keyAttack && !isCharging)
@@ -476,19 +469,10 @@ void Rockman::updateChangeAnimation()
 				else
 				{
 					if (curAnimation == APPEAR) return;
-					if (curAnimation == PUSHING_JUMP)
+					/*if (curAnimation == PUSHING_JUMP)
 					{
-						/*timePushJump.curLoop++;
-						if (timePushJump.curLoop >= 60)
-						{
-							changeAction(JUMP);
-							timePushJump.curLoop = 0;
-						}*/
-						
-						direction = pushDirection;
-						if (vy >= 0) changeAction(JUMP);
 						return;
-					}
+					}*/
 					//co the doi animation hight jump o day
 					if (curAnimation != ON_HIT);
 					{
@@ -531,7 +515,6 @@ Rockman::Rockman()
 	timeDeath.init(0.2, 15);
 	timeDeath.start();
 	NumberOfLife = 3;
-	timePushJump.curLoop = 0;
 }
 
 

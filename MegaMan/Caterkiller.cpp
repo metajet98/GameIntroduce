@@ -21,6 +21,12 @@ void Caterkiller::update()
 		damaged = false;
 		return;
 	}
+	if (!alive)
+	{
+		dx = 0;
+		dy = 0;
+		ay = 0;
+	}
 	if (x<CAMERA->x || x>(CAMERA->x + CAMERA->width)) isMove = false;
 	else isMove = true;
 	if (!isMove && alive)

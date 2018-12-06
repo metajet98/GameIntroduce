@@ -15,7 +15,7 @@ SpriteManager::SpriteManager()
 	sprites = new Sprite*[SPR_COUNT];
 	sprites[SPR_MAIN] = new Sprite("Data\\Rockman\\rock_x3.png", "Data\\Rockman\\rockman.txt");
 	sprites[SPR_BUTLET] = new Sprite("Data\\Rockman\\butlet.png", "Data\\Rockman\\butlet.txt");
-	sprites[SPR_BULLET_STRONG] = new Sprite("Data\\Rockman\\butlet.png","Data\\Miscellaneous\\efect_power_shoot.txt");
+	sprites[SPR_BULLET_STRONG] = new Sprite("Data\\Miscellaneous\\effect_megaman.png","Data\\Miscellaneous\\effect_megaman.txt");
 	sprites[SPR_ROCK_DIE] = new Sprite("Data\\Rockman\\die.png", "Data\\Rockman\\die.txt");
 	sprites[SPR_HP_BAR_MGM] = new Sprite("Data\\Rockman\\HP_bar_MGM.png","Data\\Rockman\\HP_bar_MGM.txt");
 

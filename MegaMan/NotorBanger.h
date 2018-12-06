@@ -7,6 +7,7 @@ enum NOTORBANGER_ACTIVITY
 {
 	NOTORBANGER_STAND,
 	NOTORBANGER_JUMP,
+	NOTORBANGER_SHOT,
 };
 
 class NotorBanger:public Enermy

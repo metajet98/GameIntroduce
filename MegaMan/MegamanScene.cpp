@@ -1,6 +1,7 @@
 #include "MegamanScene.h"
 #include"RockButlet.h"
 #include"TileMap.h"
+#include"MainMenu.h"
 
 MegamanScene* MegamanScene::megamanScene;
 
@@ -16,7 +17,7 @@ void MegamanScene::update()
 {
 	if (ROCKMAN->NumberOfLife==0)
 	{
-		//Scene gameover
+		Scene::changeScene(new MainMenu());
 		ROCKMAN->NumberOfLife = 3;
 		ROCKMAN->x = 110;
 		ROCKMAN->y = 680;
@@ -33,6 +34,9 @@ void MegamanScene::update()
 		ROCKMAN->life = 24;
 		ROCKMAN->onAreaBoss = false;
 		ROCKMAN->alive = true;
+		ROCKMAN->pauseAnimation = false;
+		ROCKMAN->isDeath = false;
+		ROCKMAN->timeDeath.start();
 		if (Stage::curStage->index == 0)
 		{
 			ROCKMAN->x = 110;
@@ -72,19 +76,15 @@ void MegamanScene::update()
 		{
 			ROCKMAN->x = 4017;
 			ROCKMAN->y = 390;
+			RHINO->restore(RHINO);
 			Stage::curStage = Stage::curStages->at(5);
-			Stage::curStage->prev();
-		}
-		else if (Stage::curStage->index == 7)
-		{
-			ROCKMAN->x = 4017;
-			ROCKMAN->y = 390;
-			Stage::curStage = Stage::curStages->at(6);
 			Stage::curStage->prev();
 		}
 		HP_BAR->x = CAMERA->x;
 		HP_BAR->y = CAMERA->y;
-		ROCKMAN->timeDeath.start();
+		HP_BOSS->curFrame = RHINO->life;
+		HP_BOSS->x = CAMERA->x + 220;
+		HP_BOSS->y = CAMERA->y;
 		return;
 	}
 	map.update();

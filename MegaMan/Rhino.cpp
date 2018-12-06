@@ -48,43 +48,7 @@ void Rhino::update()
 			direction = Left;
 		if (ROCKMAN->x > right()) direction = Right;
 
-		/*curAnimation = randomAnimation();
-		changeAction(curAnimation);
-
-		switch (curAnimation)
-		{
-		case RA_MOVE:
-			if (delta <= 10 && delta >= -10)
-			{
-				curAnimation = RA_ATT;
-				changeAction(curAnimation);
-			}
-			else
-			{
-				vx = delta==0?0:direction * 50;
-			}
-			break;
-		case RA_ATT:
-			DrawableObject::update();
-			break;
-		default:
-			dx = 0;
-			curAnimation = RA_SHOT;
-			changeAction(curAnimation);
-
-			if (RHINO_BULLET->Count < 1 && curFrame == 5)
-			{
-				Rhino_bullet* rb;
-				if (direction == Left)
-				{
-					rb = new Rhino_bullet(this->x, this->y, this->direction);
-				}
-				else rb = new Rhino_bullet(this->x + this->width, this->y, this->direction);
-				RHINO_BULLET->_Add(rb);
-			}
-
-			break;
-		}*/
+		
 		if (life >= 12)
 		{
 			changeAction(RA_MOVE);
@@ -181,6 +145,14 @@ void Rhino::die()
 
 void Rhino::restore(BaseObject * obj)
 {
+	alive = true;
+	x = 4509;
+	y = 380;
+	curAnimation = RA_STAND;
+	curFrame = 0;
+	life = 24;
+	HP_BOSS->curAnimation = 0;
+	HP_BOSS->curFrame = life;
 }
 void Rhino::changeAction(int newAction)
 {
