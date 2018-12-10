@@ -153,6 +153,8 @@
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BigHealth.h" />
     <ClInclude Include="Box.h" />
+    <ClInclude Include="Byte.h" />
+    <ClInclude Include="Byte_bullet.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Caterkiller.h" />
     <ClInclude Include="Caterkiller_bullet.h" />
@@ -171,6 +173,7 @@
     <ClInclude Include="GameOver.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameTimeLoop.h" />
+    <ClInclude Include="Genjibo.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="HP_Boss.h" />
     <ClInclude Include="Item.h" />
@@ -210,6 +213,8 @@
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="BigHealth.cpp" />
     <ClCompile Include="Box.cpp" />
+    <ClCompile Include="Byte.cpp" />
+    <ClCompile Include="Byte_bullet.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Caterkiller.cpp" />
     <ClCompile Include="Caterkiller_bullet.cpp" />
@@ -226,6 +231,7 @@
     <ClCompile Include="GameOver.cpp" />
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GameTimeLoop.cpp" />
+    <ClCompile Include="Genjibo.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="HP_Boss.cpp" />
     <ClCompile Include="Item.cpp" />

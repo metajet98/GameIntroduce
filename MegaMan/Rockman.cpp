@@ -56,7 +56,11 @@ void Rockman::updateLocation()
 		x = Stage::curStage->left();
 		dx = 0;
 	}
-
+	if (x + dx > Stage::curStage->right() && dx > 0)
+	{
+		x = Stage::curStage->right();
+		dx = 0;
+	}
 	x += dx;
 	y += dy;
 }
@@ -264,7 +268,6 @@ void Rockman::update()
 			isDeath = true;
 	}
 
-	//if (!updatePause()) return;
 	if (Stage::updating) return;
 	if (pauseAnimation) return; 
 	updateDirection();
@@ -435,12 +438,11 @@ void Rockman::updateChangeAnimation()
 					//curFrame = 0;
 					changeAction(PUSHING);
 
-					if (KEY->keyJum  && isPushing && direction!=pushDirection)
+					if (KEY->keyJum  && isPushing && direction != pushDirection)
 					{
 						if (KEY->keyMove)
 						{
 							changeAction(PUSHING_JUMP);
-							//vx = pushDirection * ROCKMAN_VX_GO - 50;
 							vy = -170;
 						}
 					}
@@ -504,10 +506,10 @@ void Rockman::updateChangeAnimation()
 Rockman::Rockman()
 {
 	sprite = SPRITEMANAGER->sprites[SPR_MAIN];
-	x = 110;
-	y = 680;
-	//x = 3530;
-	//y = 375;
+	//x = 110;
+	//y = 680;
+	x = 3530;
+	y = 375;
 	//x = 1596;
 	//y = 579;
 	direction = Right;

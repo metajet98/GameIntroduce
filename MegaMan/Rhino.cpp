@@ -10,6 +10,7 @@ Rhino * Rhino::getInstance()
 
 void Rhino::draw()
 {
+	if (!allowDraw) return;
 	Enermy::draw();
 }
 
@@ -27,45 +28,100 @@ void Rhino::update()
 	}
 	if (damaged && alive)
 	{
-			damagedTime.canCreateFrame();
-			if (damagedTime.isTerminated())
-			{
-				setOnHit(false);
-				damaged = false;
-				if (life >= 12) changeAction(RA_MOVE);
-				else changeAction(RA_SHOT);
-				damagedTime.start();
-			}
+		if (damagedTime.canCreateFrame())
+			allowDraw = !allowDraw;
+		if (damagedTime.isTerminated())
+		{
+			setOnHit(false);
+			damaged = false;
+			if (life >= 12) changeAction(RA_MOVE);
+			else changeAction(RA_SHOT);
+			allowDraw = true;
+			damagedTime.start();
+		}
 
 		return;
 	}
 	//update direction
+	//if (alive && isOnGround)
+	//{
+	//	int delta = ROCKMAN->xCenter() - xCenter();
+	//	//direction = delta < 0 ? Left : Right;
+	//	if (ROCKMAN->right() < x)
+	//		direction = Left;
+	//	if (ROCKMAN->x > right()) direction = Right;
+
+
+	//	if (life >= 12)
+	//	{
+	//		changeAction(RA_MOVE);
+	//		if (abs(delta) <= ROCKMAN->width / 2 + this->width / 2)
+	//		{
+	//			dx = 0;
+	//			changeAction(RA_ATT);
+	//		}
+	//		else
+	//		{
+	//			changeAction(RA_MOVE);
+	//			vx = direction * 50;
+	//		}
+	//	}
+	//	else if (life < 12)
+	//	{
+	//		changeAction(RA_SHOT);
+	//		dx = 0;
+	//		if (RHINO_BULLET->Count < 1)
+	//		{
+	//			Rhino_bullet* rb;
+	//			if (direction == Left)
+	//			{
+	//				rb = new Rhino_bullet(this->x, this->y, this->direction);
+	//			}
+	//			else rb = new Rhino_bullet(this->x + this->width, this->y, this->direction);
+	//			RHINO_BULLET->_Add(rb);
+	//		}
+	//	}
+	//}
+	//mech 2
 	if (alive && isOnGround)
 	{
-		int delta = ROCKMAN->xCenter() - xCenter();
-		//direction = delta < 0 ? Left : Right;
-		if (ROCKMAN->right() < x)
-			direction = Left;
-		if (ROCKMAN->x > right()) direction = Right;
-
-		
-		if (life >= 12)
+		timePerAnimation.curLoop++;
+		if (life >= 18)
 		{
-			changeAction(RA_MOVE);
-			if (abs(delta) <= ROCKMAN->width/2 + this->width/2)
+			changeAction(RA_STAND);
+			if (timePerAnimation.curLoop >= 50)
 			{
-				dx = 0;
-				changeAction(RA_ATT);
-				
-			}
-			else
-			{
+				vx += 7 * direction;
 				changeAction(RA_MOVE);
-				vx = direction * 50;
 			}
 		}
-		else if (life < 12)
+		else if (life < 18 && life>9)
 		{
+			//changeAction(RA_STAND);
+			if (timePerAnimation.curLoop >= 50)
+			{
+				int delta = ROCKMAN->xCenter() - xCenter();
+				vx += 7 * direction;
+				changeAction(RA_MOVE);
+				if (abs(delta) <= ROCKMAN->width / 2 + this->width / 2)
+				{
+					dx = 0;
+					changeAction(RA_ATT);
+				}
+				if (abs(vx) >= 200)
+				{
+					vx = 0;
+					direction = direction == Left ? Right : Left;
+					timePerAnimation.curLoop = 0;
+				}
+			}
+		}
+		else if (life <= 9)
+		{
+			int delta = ROCKMAN->xCenter() - xCenter();
+			if (ROCKMAN->right() < x)
+				direction = Left;
+			if (ROCKMAN->x > right()) direction = Right;
 			changeAction(RA_SHOT);
 			dx = 0;
 			if (RHINO_BULLET->Count < 1)
@@ -80,13 +136,53 @@ void Rhino::update()
 			}
 		}
 	}
+	updateMove();
+}
 
-	MovableObject::update();
+void Rhino::updateMove()
+{
+	isOnGround = false;
+	updateVerlocity();
+	if (!alive) return;
+
+	BaseObject::update();
+	if (!pauseAnimation)
+	{
+		if (curAnimation == RA_ATT || curAnimation == RA_STAND)
+		{
+			delayAnimation.minFrameTime = 4 * animation_dalaytime;
+			delayAnimation.maxFrameTime = 5 * animation_dalaytime;
+		}
+		else
+		{
+			delayAnimation.minFrameTime = ANIMATE_DELAY_TIME_DEFAULT;
+			delayAnimation.maxFrameTime = 2 * ANIMATE_DELAY_TIME_DEFAULT;
+		}
+		if (delayAnimation.canCreateFrame())
+		{
+			if (curFrame == sprite->animates[curAnimation].nFrame - 1)
+			{
+				if (curAnimation == RA_ATT)
+				{
+					curFrame = sprite->animates[curAnimation].nFrame - 1;
+					return;
+				}
+				curFrame = 0;
+			}
+			else sprite->animates[curAnimation].next(curFrame);
+		}
+	}
 }
 
 void Rhino::onCollision(BaseObject * other, int nx, int ny)
 {
 	MovableObject::onCollision(other, nx, ny);
+	if (nx != 0 && other->collisionType == CT_GROUND && life > 9)
+	{
+		vx = 0;
+		direction = direction == Left ? Right : Left;
+		timePerAnimation.curLoop = 0;
+	}
 }
 void Rhino::onAABBCheck(BaseObject * other)
 {
@@ -120,9 +216,10 @@ void Rhino::onAABBCheck(BaseObject * other)
 			//gameTimeLoop.start();
 		}
 
-		if (life <= 0) 
-		{ 
+		if (life <= 0)
+		{
 			this->alive = false;
+			ROCKMAN->onAreaBoss = false;
 		}
 	}
 }
@@ -147,7 +244,7 @@ void Rhino::restore(BaseObject * obj)
 {
 	alive = true;
 	x = 4509;
-	y = 380;
+	y = 340;
 	curAnimation = RA_STAND;
 	curFrame = 0;
 	life = 24;
@@ -178,20 +275,19 @@ Rhino::Rhino()
 	alive = true;
 	sprite = SPRITEMANAGER->sprites[SPR_RHINO];
 	curAnimation = RA_STAND;
+	animation_dalaytime = 0.2f;
 	curFrame = 0;
 	life = 24;
-	BlinkTime.init(0.01, 20);
-	BlinkTime.start();
 	direction = Left;
 	appearHP = false;
-	isBlink = false;
+	invisible = false;
 	allowDraw = true;
 	width = 87;
 	height = 45;
 	onHit = false;
-	damagedTime.init(0.2, 10);
+	damagedTime.init(0.01, 30);
 	damagedTime.start();
-	timePerAnimation.init(0.2, 4);
+	timePerAnimation.init(0.2, 10);
 	timePerAnimation.start();
 	damage = 2;
 }

@@ -11,6 +11,7 @@ enum RHINO_ACTION
 	RA_ATT,
 	RA_SHOT,
 	RA_IsDAMAGED,
+	RA_MOVE_ATT
 };
 class Rhino:public Enermy
 {
@@ -18,16 +19,17 @@ class Rhino:public Enermy
 public:
 	static Rhino* getInstance();
 	bool appearHP;
-	bool isBlink;
+	bool invisible;
 	bool allowDraw;
 	bool onHit;
+	float animation_dalaytime;
 	bool isDeath;
-	GameTimeLoop BlinkTime;
 	GameTimeLoop damagedTime;
 	GameTimeLoop timePerAnimation;
 
 	void draw();
 	void update();
+	void updateMove();
 	void onCollision(BaseObject* other, int nx, int ny);
 	void onAABBCheck(BaseObject* other);
 	void setOnHit(bool newOnHit);;

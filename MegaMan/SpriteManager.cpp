@@ -39,7 +39,10 @@ SpriteManager::SpriteManager()
 	sprites[SPR_SMALL_HEALTH] = new Sprite("Data\\Miscellaneous\\GameObject\\Items\\items.png", "Data\\Miscellaneous\\GameObject\\Items\\small_health.txt");
 	sprites[SPR_DOOR] = new Sprite("Data\\Miscellaneous\\door.png", "Data\\Miscellaneous\\door.txt");
 
-	
+	sprites[SPR_GENJIBO] = new Sprite("Data\\SubBoss\\genjibo.png", "Data\\SubBoss\\genjibo.txt");
+
+	sprites[SPR_BYTE] = new Sprite("Data\\SubBoss\\byte.png", "Data\\SubBoss\\byte.txt");
+	sprites[SPR_BYTE_BULLET] = new Sprite("Data\\SubBoss\\byte.png", "Data\\SubBoss\\byte_bullet.txt");
 }
 
 

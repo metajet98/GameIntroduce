@@ -7,6 +7,8 @@
 #include"SmallHealth.h"
 #include "DeadLane.h"
 #include"Rhino.h"
+#include "Genjibo.h"
+#include "Byte.h"
 
 TileMap* TileMap::curMap = 0;
 TileMap::TileMap()
@@ -86,6 +88,12 @@ void TileMap::initObjects(const char* objectsPath)
 		case -3:
 			objects[i] = new BaseObject();
 			objects[i]->collisionType = CT_PREVENTMOVECAMERA;
+			break;
+		case SPR_GENJIBO:
+			objects[i] = new Genjibo();
+			break;
+		case SPR_BYTE:
+			objects[i] = new Byte();
 			break;
 		default:
 			objects[i] = new BaseObject();

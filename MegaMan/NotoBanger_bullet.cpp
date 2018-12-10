@@ -80,7 +80,7 @@ NotoBanger_bullet::NotoBanger_bullet(int xNotobanger, int yNotobanger, Direction
 	timeShot.init(0.1,2);
 	timeShot.start();
 	ay = 3*GRAVITY;
-	vy = -90;
+	vy = -80;
 }
 
 NotoBanger_bullet::NotoBanger_bullet()

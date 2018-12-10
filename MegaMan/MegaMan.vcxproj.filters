@@ -66,6 +66,12 @@
     <Filter Include="Enermy\Rhino">
       <UniqueIdentifier>{b680b64c-b98d-4688-82ea-02ae8b8b5f69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enermy\Genjibo">
+      <UniqueIdentifier>{0bd24e4e-1c5a-43f9-a968-11ec15ddf993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\Byte">
+      <UniqueIdentifier>{0825c00e-1d06-4e73-bc55-39e4e5fd611e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animate.h">
@@ -233,6 +239,15 @@
     <ClInclude Include="GameOver.h">
       <Filter>Scene</Filter>
     </ClInclude>
+    <ClInclude Include="Genjibo.h">
+      <Filter>Enermy\Genjibo</Filter>
+    </ClInclude>
+    <ClInclude Include="Byte.h">
+      <Filter>Enermy\Byte</Filter>
+    </ClInclude>
+    <ClInclude Include="Byte_bullet.h">
+      <Filter>Enermy\Byte</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -393,6 +408,15 @@
     </ClCompile>
     <ClCompile Include="GameOver.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Genjibo.cpp">
+      <Filter>Enermy\Genjibo</Filter>
+    </ClCompile>
+    <ClCompile Include="Byte.cpp">
+      <Filter>Enermy\Byte</Filter>
+    </ClCompile>
+    <ClCompile Include="Byte_bullet.cpp">
+      <Filter>Enermy\Byte</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

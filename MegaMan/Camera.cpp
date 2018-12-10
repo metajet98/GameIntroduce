@@ -39,7 +39,7 @@ void Camera::update()
 		dx = ROCKMAN->dx;
 	else
 		dx = 0;
-	if ((ROCKMAN->y + ROCKMAN->dy < yCenter() && ROCKMAN->dy < 0 && !Stage::updating) || (ROCKMAN->y + ROCKMAN->dy > yCenter() && ROCKMAN->dy > 0 && !Stage::updating))
+	if ((ROCKMAN->y + ROCKMAN->dy < yCenter() + 10 && ROCKMAN->dy < 0 && !Stage::updating) || (ROCKMAN->y + ROCKMAN->dy > yCenter()+10 && ROCKMAN->dy > 0 && !Stage::updating))
 		dy = ROCKMAN->dy;
 	else
 		dy = 0;

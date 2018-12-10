@@ -6,7 +6,7 @@
 #define SCREEN_WIDTH		800
 #define SCREEN_HEIGHT		600
 #define VIEWPORT_WIDTH		255
-#define VIEWPORT_HEIGHT		200
+#define VIEWPORT_HEIGHT		230
 #define BACK_WIDTH			VIEWPORT_WIDTH
 #define BACK_HEIGHT			VIEWPORT_HEIGHT
 
@@ -22,12 +22,12 @@
 #define GRAVITY				300
 #define TIMEJUMP			60.0f/GRAVITY
 #define CAMERA				Camera::getInstance()
-#define X_MAP				7
-#define Y_MAP				560
+//#define X_MAP				7
+//#define Y_MAP				530
 //#define X_MAP				1544
 //#define Y_MAP				519
-//#define X_MAP				3436
-//#define Y_MAP				290
+#define X_MAP				3436
+#define Y_MAP				290
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 
@@ -54,6 +54,11 @@
 #define RHINO				Rhino::getInstance()
 #define RHINO_BULLET		Rhino_bullet::getListBossBullet()
 #define HP_BOSS				HP_Boss::getInstance()
+
+#define GENJIBO				Genjibo::getInstance()
+
+#define BOSS_BYTE			Byte::getInstance()
+#define BYTE_BULLET			Byte_bullet::getInstance()
 
 enum ROCK_ACTION
 {
@@ -112,6 +117,9 @@ enum SPRITE_OBJECT
 	SPR_RHINO,
 	SPR_BULLET_STRONG,
 	SPR_RHINO_BULLET,
+	SPR_GENJIBO,
+	SPR_BYTE,
+	SPR_BYTE_BULLET,
 	SPR_COUNT
 };
 enum CATEGORY_ENEMY

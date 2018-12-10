@@ -16,7 +16,7 @@ void HP_Boss::draw()
 	int xInViewport, yInViewport;
 	TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
 
-	if (ROCKMAN->onAreaBoss)
+	if (ROCKMAN->onAreaBoss && RHINO->alive)
 	{
 		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
 	}

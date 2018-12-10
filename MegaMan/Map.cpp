@@ -9,6 +9,7 @@
 #include"DeadLane.h"
 #include"Rhino_bullet.h"
 #include"HP_Boss.h"
+#include "Byte_bullet.h"
 
 void Map::init(const char* tileSheetPath, const char* objectsPath, const char* quadtreePath)
 {
@@ -74,10 +75,6 @@ void Map::update()
 
 
 	#pragma region Update
-
-	
-
-
 	for (int i = 0; i < itemsObject.size(); i++)
 	{
 		itemsObject[i]->update();
@@ -128,6 +125,10 @@ void Map::update()
 	{
 		RHINO_BULLET->at(i)->update();
 		//RHINO_BULLET->at(i)->updateLocation();
+	}
+	for (int i = 0; i < BYTE_BULLET->size(); i++)
+	{
+		BYTE_BULLET->at(i)->update();
 	}
 #pragma endregion
 
@@ -182,6 +183,10 @@ void Map::update()
 	for (int i = 0; i < RHINO_BULLET->size(); i++)
 	{
 		COLLISION->checkCollision(ROCKMAN, RHINO_BULLET->at(i));
+	}
+	for (int i = 0; i < BYTE_BULLET->size(); i++)
+	{
+		COLLISION->checkCollision(ROCKMAN, BYTE_BULLET->at(i));
 	}
 	int doorIsOpen = -1;
 	for (int i = 0; i < 3; i++)
@@ -289,6 +294,16 @@ void Map::update()
 			delete rb;
 		}
 	}
+	for (int i = 0; i < BYTE_BULLET->size(); i++)
+	{
+		BYTE_BULLET->at(i)->updateLocation();
+		if ((!COLLISION->AABBCheck(*BYTE_BULLET->at(i), *CAMERA) || BYTE_BULLET->at(i)->allowDelete))
+		{
+			Byte_bullet* bb = BYTE_BULLET->at(i);
+			BYTE_BULLET->_Remove(bb);
+			delete bb;
+		}
+	}
 #pragma endregion
 
 	HP_BAR->update();
@@ -339,6 +354,10 @@ void Map::draw()
 	for (int i = 0; i < RHINO_BULLET->size(); i++)
 	{
 		RHINO_BULLET->at(i)->draw();
+	}
+	for (int i = 0; i < BYTE_BULLET->size(); i++)
+	{
+		BYTE_BULLET->at(i)->draw();
 	}
 	for (int i = 0; i < DieEffect::getList()->size(); i++)
 	{
