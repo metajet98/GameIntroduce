@@ -1,6 +1,7 @@
 #pragma once
 #include "Enermy.h"
 #include "Byte_bullet.h"
+#include "DoorCanMove.h"
 enum BYTE_ACTION
 {
 	BYTE_STAND,

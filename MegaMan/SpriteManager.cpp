@@ -43,6 +43,8 @@ SpriteManager::SpriteManager()
 
 	sprites[SPR_BYTE] = new Sprite("Data\\SubBoss\\byte.png", "Data\\SubBoss\\byte.txt");
 	sprites[SPR_BYTE_BULLET] = new Sprite("Data\\SubBoss\\byte.png", "Data\\SubBoss\\byte_bullet.txt");
+
+	sprites[SPR_DOOR_CAN_MOVE] = new Sprite("Data\\Miscellaneous\\doorCanMove.png", "Data\\Miscellaneous\\doorCanMove.txt");
 }
 
 

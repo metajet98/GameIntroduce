@@ -88,6 +88,7 @@ void Caterkiller::onCollision(BaseObject * S, int nx, int ny)
 	}
 }
 
+
 void Caterkiller::restore(BaseObject * obj)
 {
 	alive = true;
@@ -105,8 +106,6 @@ Caterkiller::Caterkiller(int _direction)
 	curFrame = 0;
 	life = 2;
 	collisionType = CT_ENERMY;
-	width = 40;
-	height = 51;
 }
 
 Caterkiller::Caterkiller()

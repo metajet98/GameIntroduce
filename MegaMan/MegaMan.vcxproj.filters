@@ -248,6 +248,12 @@
     <ClInclude Include="Byte_bullet.h">
       <Filter>Enermy\Byte</Filter>
     </ClInclude>
+    <ClInclude Include="Effect.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="DoorCanMove.h">
+      <Filter>Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -417,6 +423,12 @@
     </ClCompile>
     <ClCompile Include="Byte_bullet.cpp">
       <Filter>Enermy\Byte</Filter>
+    </ClCompile>
+    <ClCompile Include="Effect.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="DoorCanMove.cpp">
+      <Filter>Item</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -22,12 +22,12 @@
 #define GRAVITY				300
 #define TIMEJUMP			60.0f/GRAVITY
 #define CAMERA				Camera::getInstance()
-//#define X_MAP				7
-//#define Y_MAP				530
+#define X_MAP				7
+#define Y_MAP				530
 //#define X_MAP				1544
 //#define Y_MAP				519
-#define X_MAP				3436
-#define Y_MAP				290
+//#define X_MAP				3436
+//#define Y_MAP				280
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 
@@ -37,7 +37,7 @@
 #define MAX_FRAME_TIME		(1.0f/MIN_FRAME_TIME)
 
 #define ROCKMAN				Rockman::getInstance()
-#define ROCKMAN_VX_GO		70
+#define ROCKMAN_VX_GO		75
 #define ROCKBUTLET			RockButlet::getListBullet()
 #define EFFECT_POWER		Effect_Power::getInstance()
 #define HP_BAR				HP_bar::getInstance()
@@ -56,9 +56,11 @@
 #define HP_BOSS				HP_Boss::getInstance()
 
 #define GENJIBO				Genjibo::getInstance()
+#define LIFE_GENJIBO		27
 
 #define BOSS_BYTE			Byte::getInstance()
 #define BYTE_BULLET			Byte_bullet::getInstance()
+#define LIFE_BYTE			18
 
 enum ROCK_ACTION
 {
@@ -94,6 +96,7 @@ enum COLLISION_TYPE
 	CT_ITEM,
 	CT_DOOR,
 	CT_DEAD_LANE,
+	CT_DOOR_CAN_MOVE,
 	CT_NONE,
 };
 enum SPRITE_OBJECT
@@ -120,6 +123,7 @@ enum SPRITE_OBJECT
 	SPR_GENJIBO,
 	SPR_BYTE,
 	SPR_BYTE_BULLET,
+	SPR_DOOR_CAN_MOVE,
 	SPR_COUNT
 };
 enum CATEGORY_ENEMY

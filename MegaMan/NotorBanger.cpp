@@ -74,6 +74,7 @@ void NotorBanger::update()
 				}
 				timeShot.start();
 			}
+			countJump = 0;
 		}
 		//isOnGround = false;
 		MovableObject::update();

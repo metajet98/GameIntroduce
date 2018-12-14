@@ -10,12 +10,57 @@ Genjibo * Genjibo::getInstance()
 
 void Genjibo::draw()
 {
-	Enermy::draw();
+	if (!alive)
+	{
+		dx = 0;
+		dy = 0;
+		ay = 0;
+		if (timeDeath.canCreateFrame())
+		{
+			sprite = SPRITEMANAGER->sprites[SPR_BOSS_DIE];
+			curAnimation = 0;
+			curFrame = (curFrame + 1) % 6;
+		}
+
+		if (timeDeath.isTerminated())
+			return;
+
+		int xInViewport, yInViewport;
+		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
+		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+		return;
+	}
+	if (alive)
+	{
+		int deltaX = width - sprite->animates[curAnimation].frames[curFrame].width;
+		int deltaY = height - sprite->animates[curAnimation].frames[curFrame].height;
+		int xInViewport, yInViewport;
+		TileMap::curMap->convertToViewportPos(x + deltaX / 2, y + deltaY / 2, xInViewport, yInViewport);
+		int trucQuay = xInViewport + width / 2;
+
+		if (direction != sprite->image->direction && curAnimation!= GENJIBO_ROLATE)
+		{
+			D3DXMATRIX mt;
+			D3DXMatrixIdentity(&mt);
+			mt._41 = 2 * trucQuay;
+			mt._11 = -1;
+			GRAPHICS->GetSprite()->SetTransform(&mt);
+		}
+
+		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+
+		if (direction != sprite->image->direction && curAnimation != GENJIBO_ROLATE)
+		{
+			D3DXMATRIX mt;
+			D3DXMatrixIdentity(&mt);
+			GRAPHICS->GetSprite()->SetTransform(&mt);
+		}
+	}
 }
 
 void Genjibo::update()
 {
-	if (!ROCKMAN->onAreaBoss) return;
+	if (!ROCKMAN->onAreaBossSub) return;
 	if (!ROCKMAN->alive)
 	{
 		changeAction(GENJIBO_STAND);
@@ -25,52 +70,28 @@ void Genjibo::update()
 	{
 		setOnHit(false);
 		damaged = false;
-		changeAction(GENJIBO_MOVE);
+		if(life>=LIFE_GENJIBO/2)
+			changeAction(GENJIBO_MOVE);
+		else changeAction(GENJIBO_ROLATE);
 		return;
 	}
+	//mech();
 	if (alive)
 	{
-		timePerAnimation.curLoop++;
-		if (timePerAnimation.curLoop >= 50)
+		// co animation appear can lam` appear xong run mech()
+		if (appear)
 		{
-			if (life >= 9)
+			changeAction(GENJIBO_APPEAR);
+			if (curFrame == sprite->animates[curAnimation].nFrame - 1)
 			{
-				if (isOnGround)
-				{
-					changeAction(GENJIBO_MOVE);
-					vx = 120 * direction;
-					timeJump.canCreateFrame();
-					if (timeJump.isTerminated())
-					{
-						vy = -260;
-						isOnGround = false;
-						timeJump.start();
-					}
-				}
-				else
-				{
-					//vy += ay * TIME;
-				}
+				appear = false;
 			}
-			else
-			{
-				if (isOnGround)
-				{
-					changeAction(GENJIBO_MOVE);
-					vx = 100 * direction;
-					timeJump.canCreateFrame();
-					if (timeJump.isTerminated())
-					{
-						vy = -250;
-						isOnGround = false;
-						timeJump.start();
-					}
-				}
-				else
-				{
-					vy += ay * TIME;
-				}
-			}
+			ROCKMAN->pauseAnimation = appear;
+			ROCKMAN->dx = 0;
+		}
+		else
+		{
+			mech();
 		}
 	}
 	updateMove();
@@ -86,19 +107,152 @@ void Genjibo::updateMove()
 	{
 		if (curFrame == sprite->animates[curAnimation].nFrame - 1)
 		{
-			curFrame = 0;
+			if (curAnimation == GENJIBO_APPEAR)
+				curFrame = sprite->animates[curAnimation].nFrame - 1;
+			else curFrame = 0;
 		}
 		else sprite->animates[curAnimation].next(curFrame);
 	}
 }
 
+void Genjibo::mech()
+{
+	/*timePerAnimation.curLoop++;
+	if (timePerAnimation.curLoop >= 50)
+	{
+		if (life >= 9)
+		{
+			if (isOnGround)
+			{
+				changeAction(GENJIBO_MOVE);
+				vx = 120 * direction;
+				timeJump.canCreateFrame();
+				if (timeJump.isTerminated())
+				{
+					vy = -260;
+					isOnGround = false;
+					timeJump.start();
+				}
+			}
+		}
+		else
+		{
+			if (isOnGround)
+			{
+				changeAction(GENJIBO_ROLATE);
+				vx = 100 * direction;
+				timeJump.canCreateFrame();
+				if (timeJump.isTerminated())
+				{
+					vy = -200;
+					isOnGround = false;
+					timeJump.start();
+				}
+			}
+		}
+	}*/
+	if (countJump < 3)
+	{
+		ay = GRAVITY;
+		timePerAnimation.curLoop++;
+		if (timePerAnimation.curLoop >= 30)
+		{
+			if (isOnGround)
+			{
+				changeAction(GENJIBO_MOVE);
+				vx = 120 * direction;
+				timeJump.canCreateFrame();
+				if (timeJump.isTerminated())
+				{
+					vy = -260;
+					isOnGround = false;
+					timeJump.start();
+				}
+			}
+		}
+	}
+	else if(countJump < 6)
+	{
+		ay = GRAVITY;
+		timeJump.init(0.2, 3);
+		timePerAnimation.curLoop++;
+		if (timePerAnimation.curLoop >= 40)
+		{
+			if (isOnGround)
+			{
+				changeAction(GENJIBO_ROLATE);
+				vx = 80 * direction;
+				timeJump.canCreateFrame();
+				if (timeJump.isTerminated())
+				{
+					vy = -200;
+					isOnGround = false;
+					timeJump.start();
+				}
+			}
+		}
+	}
+	else
+	{
+		if (isOnGround)
+		{
+			timePerAnimation.curLoop++;
+			if (timePerAnimation.curLoop >= 80)
+			{
+				changeAction(GENJIBO_STAND);
+				ay = 0;
+				vx = 100 * direction * upDown;
+				//if (canMoveOnWall)
+				//{
+				//	vy = upDown * 100;
+				//}
+				vy = upDown * 100;	
+			}
+		}
+	}
+}
+void Genjibo::onLastFrameAnimation(GENJIBO_ACTION ga)
+{
+
+}
+
 void Genjibo::onCollision(BaseObject * other, int nx, int ny)
 {
 	MovableObject::onCollision(other, nx, ny);
-	if (nx != 0 && other->collisionType == CT_GROUND)
+	if (nx != 0 && (other->collisionType == CT_GROUND || other->collisionType == CT_DOOR || other->collisionType == CT_DOOR_CAN_MOVE))
 	{
+		
 		direction = (Direction)nx;
-		vx = direction * 120;
+		if(curAnimation != GENJIBO_ROLATE)
+			vx = direction * 120;
+		else vx = direction * 80;
+		canMoveOnWall = true;
+		upDown = direction == Left ? Right : Left;
+		
+		timeJump.curLoop=0;
+	}
+	if (nx == -1 && (other->collisionType == CT_GROUND || other->collisionType == CT_DOOR || other->collisionType == CT_DOOR_CAN_MOVE))
+	{
+		if(countJump<=7)
+			countJump++;
+		if(curAnimation!=GENJIBO_ROLATE)
+			vx = 0;
+		if (curAnimation != GENJIBO_ROLATE && countJump == 3)
+		{
+			timePerAnimation.curLoop = 0;
+		}
+		if (curAnimation == GENJIBO_ROLATE && countJump >= 6)
+		{
+			vx = 0;
+			timePerAnimation.curLoop = 0;
+		}
+		if (curAnimation == GENJIBO_STAND)
+			direction = Right;
+	}
+	
+	if (ny == 1 && other->collisionType == CT_GROUND)
+	{
+		direction = upDown;
 	}
 }
 
@@ -117,7 +271,7 @@ void Genjibo::onAABBCheck(BaseObject * other)
 	if (other->collisionType == CT_BUTLET)
 	{
 		RockButlet* r = (RockButlet*)other;
-		if (!damaged)
+		if (!damaged && !appear)
 		{
 			damaged = true;
 			if (r->categoryBullet == OF_STRONG_MEGAMAN)
@@ -126,7 +280,7 @@ void Genjibo::onAABBCheck(BaseObject * other)
 			{
 				this->life -= 3;
 				dx = 0;
-				
+
 			}
 			else this->life--;
 			setOnHit(true);
@@ -137,7 +291,8 @@ void Genjibo::onAABBCheck(BaseObject * other)
 		if (life <= 0)
 		{
 			this->alive = false;
-			ROCKMAN->onAreaBoss = false;
+			DoorCanMove::getInstance()->at(0)->alive = false;
+			ROCKMAN->onAreaBossSub = false;
 		}
 	}
 }
@@ -154,13 +309,20 @@ void Genjibo::setOnHit(bool newOnHit)
 
 void Genjibo::restore(BaseObject * obj)
 {
+	if (ROCKMAN->onAreaBossSub) return;
 	alive = true;
 	life = 16;
 	direction = Left;
-	curAnimation = GENJIBO_MOVE;
+	curAnimation = GENJIBO_APPEAR;
 	curFrame = 0;
-	x = 4509;
-	y = 350;
+	/*x = 4509;
+	y = 350;*/
+	x = 417;
+	y = 380;
+	damagedTime.start();
+	timePerAnimation.curLoop = 0;
+	timeJump.start();
+	countJump = 0;
 }
 
 void Genjibo::changeAction(int newAction)
@@ -174,25 +336,30 @@ void Genjibo::changeAction(int newAction)
 Genjibo::Genjibo()
 {
 	alive = true;
-	life = 16;
+	life = LIFE_GENJIBO;
 	sprite = SPRITEMANAGER->sprites[SPR_GENJIBO];
 	direction = Left;
+	upDown = Left;
 	curFrame = 0;
-	curAnimation = GENJIBO_STAND;
+	curAnimation = GENJIBO_APPEAR;
 	onHit = false;
 	damaged = false;
 	damagedTime.init(0.2, 3);
 	damagedTime.start();
 	timePerAnimation.curLoop = 0;
-	timeJump.init(0.2,5);
+	timeJump.init(0.2, 5);
 	timeJump.start();
 	animation_delaytime = 0.1f;
 	damage = 2;
 	ay = GRAVITY;
-	x = 4509;
-	y = 350;
+	/*x = 4509;
+	y = 350;*/
+	x = 417;
+	y = 380;
 	width = 49;
 	height = 49;
+	appear = true;
+	countJump = 0;
 }
 
 

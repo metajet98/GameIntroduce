@@ -93,7 +93,10 @@ void Enermy::onAABBCheck(BaseObject * other)
 	}
 	else if (other->collisionType == CT_BUTLET)
 	{
+		
 		RockButlet* r = (RockButlet*)other;
+		if (r->categoryBullet != OF_STRONG_2_MEGAMAN)
+			other->allowDelete = true;
 		if (!damaged)
 		{
 			damaged = true;
@@ -103,11 +106,13 @@ void Enermy::onAABBCheck(BaseObject * other)
 				this->life -= 3;
 			else this->life--;
 			
-			other->allowDelete = true;
 			//gameTimeLoop.start();
 		}
 
-		if (life <= 0) this->alive = false;
+		if (life <= 0)
+		{
+			this->alive = false;
+		}
 	}
 }
 

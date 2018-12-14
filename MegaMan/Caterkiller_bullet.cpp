@@ -27,8 +27,10 @@ void Caterkiller_bullet::update()
 
 void Caterkiller_bullet::draw()
 {
+	int deltaX = width - sprite->animates[curAnimation].frames[curFrame].width;
+	int deltaY = height - sprite->animates[curAnimation].frames[curFrame].height;
 	int xInViewport, yInViewport;
-	TileMap::curMap->convertToViewportPos(this->x, this->y, xInViewport, yInViewport);
+	TileMap::curMap->convertToViewportPos(x + deltaX / 2, y + deltaY / 2, xInViewport, yInViewport);
 	int trucQuay = xInViewport + width / 2;
 
 	/*if (direction != sprite->image->direction)

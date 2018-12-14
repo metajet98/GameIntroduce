@@ -30,6 +30,8 @@ public:
 	bool isDeath;
 	bool pauseAnimation;
 	bool onAreaBoss;
+	bool onAreaBossSub;
+	int doorCollision;
 	int NumberOfLife;
 	int isPushing;
 

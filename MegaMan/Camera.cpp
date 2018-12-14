@@ -21,7 +21,7 @@ void Camera::update()
 	if (Stage::updating)
 	{
 		if (Stage::curStage->x - CAMERA->x > 0)
-			dx = (Stage::curStage->x - CAMERA->x)*GAME_TIME->frameTime*1.5f +5;
+			dx = (Stage::curStage->x - CAMERA->x)*GAME_TIME->frameTime*1.5f+3;
 		else
 		{
 			dx = 2;
@@ -30,7 +30,12 @@ void Camera::update()
 			dy = (Stage::curStage->y - CAMERA->y)*GAME_TIME->frameTime * 10;
 		else
 		{
-			dy = 2;
+				dy = 1;
+		}
+		if (right() + dx > Stage::curStage->right() && dx > 0)
+		{
+			//x = Stage::curStage->right() - width;
+			dx = 2;
 		}
 		return;
 	}
@@ -39,7 +44,7 @@ void Camera::update()
 		dx = ROCKMAN->dx;
 	else
 		dx = 0;
-	if ((ROCKMAN->y + ROCKMAN->dy < yCenter() + 10 && ROCKMAN->dy < 0 && !Stage::updating) || (ROCKMAN->y + ROCKMAN->dy > yCenter()+10 && ROCKMAN->dy > 0 && !Stage::updating))
+	if ((ROCKMAN->y + ROCKMAN->dy < yCenter() + 40 && ROCKMAN->dy < 0 && !Stage::updating) || (ROCKMAN->y + ROCKMAN->dy > yCenter()+40 && ROCKMAN->dy > 0 && !Stage::updating))
 		dy = ROCKMAN->dy;
 	else
 		dy = 0;

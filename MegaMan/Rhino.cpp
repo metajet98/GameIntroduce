@@ -1,4 +1,5 @@
 #include "Rhino.h"
+#include "MainMenu.h"
 Rhino* Rhino::instance = 0;
 Rhino * Rhino::getInstance()
 {
@@ -11,7 +12,50 @@ Rhino * Rhino::getInstance()
 void Rhino::draw()
 {
 	if (!allowDraw) return;
-	Enermy::draw();
+	if (!alive)
+	{
+		dx = 0;
+		dy = 0;
+		ay = 0;
+		if (timeDeath.canCreateFrame())
+		{
+			sprite = SPRITEMANAGER->sprites[SPR_BOSS_DIE];
+			curAnimation = 0;
+			curFrame = (curFrame + 1) % 6;
+		}
+
+		if (timeDeath.isTerminated())
+			return;
+
+		int xInViewport, yInViewport;
+		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
+		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+		return;
+	}
+	if (alive)
+	{
+		int xInViewport, yInViewport;
+		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
+		int trucQuay = xInViewport + width / 2;
+
+		if (direction != sprite->image->direction)
+		{
+			D3DXMATRIX mt;
+			D3DXMatrixIdentity(&mt);
+			mt._41 = 2 * trucQuay;
+			mt._11 = -1;
+			GRAPHICS->GetSprite()->SetTransform(&mt);
+		}
+
+		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+
+		if (direction != sprite->image->direction)
+		{
+			D3DXMATRIX mt;
+			D3DXMatrixIdentity(&mt);
+			GRAPHICS->GetSprite()->SetTransform(&mt);
+		}
+	}
 }
 
 void Rhino::update()
@@ -24,7 +68,7 @@ void Rhino::update()
 	}
 	if (!alive)
 	{
-
+		isDeath = true;
 	}
 	if (damaged && alive)
 	{
@@ -112,6 +156,7 @@ void Rhino::update()
 				{
 					vx = 0;
 					direction = direction == Left ? Right : Left;
+					changeAction(RA_ATT);
 					timePerAnimation.curLoop = 0;
 				}
 			}
@@ -177,7 +222,7 @@ void Rhino::updateMove()
 void Rhino::onCollision(BaseObject * other, int nx, int ny)
 {
 	MovableObject::onCollision(other, nx, ny);
-	if (nx != 0 && other->collisionType == CT_GROUND && life > 9)
+	if (nx != 0 && other->collisionType == CT_GROUND)
 	{
 		vx = 0;
 		direction = direction == Left ? Right : Left;
@@ -211,7 +256,7 @@ void Rhino::onAABBCheck(BaseObject * other)
 				setOnHit(true);
 			}
 			else this->life--;
-			HP_BOSS->curFrame = (life < 0) ? 0 : life;
+			HP_BOSS->curFrame = (life < 0) ? 0 : life; // (life_curent/life_total) * nframes
 			other->allowDelete = true;
 			//gameTimeLoop.start();
 		}

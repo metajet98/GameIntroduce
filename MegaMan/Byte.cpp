@@ -12,7 +12,7 @@ Byte::Byte()
 	damaged = false;
 	damage = 2;
 	allowDraw = true;
-	life = 18;
+	life = LIFE_BYTE;
 	damagedTime.init(0.01, 20);
 	damagedTime.start();
 	timePerAnimation.init(0.2, 10);
@@ -37,13 +37,56 @@ Byte * Byte::getInstance()
 void Byte::draw()
 {
 	if (!allowDraw) return;
-	updateHeight();
-	Enermy::draw();
+	if (!alive)
+	{
+		dx = 0;
+		dy = 0;
+		ay = 0;
+		if (timeDeath.canCreateFrame())
+		{
+			sprite = SPRITEMANAGER->sprites[SPR_BOSS_DIE];
+			curAnimation = 0;
+			curFrame = (curFrame + 1) % 6;
+		}
+
+		if (timeDeath.isTerminated())
+			return;
+
+		int xInViewport, yInViewport;
+		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
+		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+		return;
+	}
+	if (alive)
+	{
+		int xInViewport, yInViewport;
+		int deltaY = height - sprite->animates[curAnimation].frames[curFrame].height;
+		TileMap::curMap->convertToViewportPos(x, y + deltaY, xInViewport, yInViewport);
+		int trucQuay = xInViewport + width / 2;
+
+		if (direction != sprite->image->direction)
+		{
+			D3DXMATRIX mt;
+			D3DXMatrixIdentity(&mt);
+			mt._41 = 2 * trucQuay;
+			mt._11 = -1;
+			GRAPHICS->GetSprite()->SetTransform(&mt);
+		}
+
+		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+
+		if (direction != sprite->image->direction)
+		{
+			D3DXMATRIX mt;
+			D3DXMatrixIdentity(&mt);
+			GRAPHICS->GetSprite()->SetTransform(&mt);
+		}
+	}
 }
 
 void Byte::update()
 {
-	if (!ROCKMAN->onAreaBoss) return;
+	if (!ROCKMAN->onAreaBossSub) return;
 	if (!ROCKMAN->alive)
 	{
 		changeAction(BYTE_STAND);
@@ -116,6 +159,16 @@ void Byte::updateMove()
 		{
 			delayAnimation.minFrameTime = ANIMATE_DELAY_TIME_DEFAULT;
 			delayAnimation.maxFrameTime = 2 * ANIMATE_DELAY_TIME_DEFAULT;
+			if (curAnimation == BYTE_ATT)
+			{
+				delayAnimation.minFrameTime = 0;
+				delayAnimation.maxFrameTime = 0;
+			}
+			else
+			{
+				delayAnimation.minFrameTime = ANIMATE_DELAY_TIME_DEFAULT;
+				delayAnimation.maxFrameTime = 2 * ANIMATE_DELAY_TIME_DEFAULT;
+			}
 		}
 		if (delayAnimation.canCreateFrame())
 		{
@@ -198,7 +251,7 @@ void Byte::updateHeight()
 void Byte::onCollision(BaseObject * other, int nx, int ny)
 {
 	MovableObject::onCollision(other, nx, ny);
-	if (nx != 0 && other->collisionType == CT_GROUND)
+	if (nx != 0 && (other->collisionType == CT_GROUND || other->collisionType==CT_DOOR || other->collisionType==CT_DOOR_CAN_MOVE))
 	{
 		vx = 0;
 		direction = direction == Left ? Right : Left;
@@ -215,7 +268,15 @@ void Byte::onAABBCheck(BaseObject * other)
 	{
 		if (!ROCKMAN->onHit && !ROCKMAN->invisible)
 		{
+			changeAction(BYTE_ATT);
+			timePerAnimation.curLoop = 0;
+			vx = 0;
 			ROCKMAN->changeAction(ON_HIT);
+			if (curAnimation == BYTE_ATT && curFrame == sprite->animates[curAnimation].nFrame - 1)
+			{
+				ROCKMAN->vx = direction * 200;
+				
+			}
 			ROCKMAN->setOnHit(true);
 			ROCKMAN->life -= damage;
 			ROCKMAN->gameTimeLoop.start();
@@ -242,17 +303,21 @@ void Byte::onAABBCheck(BaseObject * other)
 		if (life <= 0)
 		{
 			this->alive = false;
-			ROCKMAN->onAreaBoss = false;
+			ROCKMAN->onAreaBossSub = false;
+			DoorCanMove::getInstance()->at(1)->alive = false;
 		}
 	}
 }
 
 void Byte::restore(BaseObject * obj)
 {
+	if (ROCKMAN->onAreaBoss) return;
+	life = 18;
 	alive = true;
 	direction = Left;
 	curAnimation = BYTE_STAND;
 	curFrame = 0;
+	// cap nhat lai x,y
 }
 
 void Byte::changeAction(int newAction)

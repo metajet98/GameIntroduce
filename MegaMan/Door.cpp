@@ -9,27 +9,41 @@ void Door::draw()
 
 void Door::update()
 {
+	if (!updating)
+		return;
+
+	if (ROCKMAN->x >= this->right())
+	{
+		Close();
+	}
+}
+
+void Door::updateFrame()
+{
 	if (sprite == 0) return;
 
 	if (!pauseAnimation)
 	{
 		if (delayAnimation.canCreateFrame())
 		{
-			sprite->animates[curAnimation].next(curFrame);
+			if (curFrame == sprite->animates[curAnimation].nFrame - 1)
+			{
+				curFrame == sprite->animates[curAnimation].nFrame - 1;
+			}
+			else sprite->animates[curAnimation].next(curFrame);
 		}
 	}
 	if (curFrame == sprite->animates[curAnimation].nFrame - 1)
 	{
 		if (curAnimation == 0)
 		{
-			ROCKMAN->x += ROCKMAN->direction;
+			ROCKMAN->x += 2*ROCKMAN->direction;
 			pauseAnimation = true;
 			isClose = false;
 		}
 		if (curAnimation == 1)
 		{
 			isClose = true;
-			//isOpen = false;
 		}
 		//pauseAnimation = true;
 	}
@@ -38,7 +52,7 @@ void Door::update()
 void Door::Open()
 {
 	curAnimation = 0;
-	update();
+	updateFrame();
 }
 
 void Door::Close()
@@ -46,16 +60,30 @@ void Door::Close()
 	curAnimation = 1;
 	pauseAnimation = false;
 	ROCKMAN->pauseAnimation = false;
-	update();
+	updateFrame();
 }
 
 void Door::onCollision(BaseObject * S, int nx, int ny)
 {
-	
+	MovableObject::onCollision(S, nx, ny);
 }
 void Door::onAABBCheck(BaseObject * other)
 {
-	
+	if (other == ROCKMAN)
+	{
+		updating = true;
+		ROCKMAN->pauseAnimation = true;
+		if (ROCKMAN->direction == Right)
+		{
+			ROCKMAN->dx = 0;
+			Open();
+		}
+		else
+		{
+			ROCKMAN->dx = 0;
+			COLLISION->preventMove(other, this);
+		}
+	}
 }
 
 Door::Door()

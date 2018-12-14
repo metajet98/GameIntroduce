@@ -22,7 +22,7 @@ void MovableObject::draw()
 
 void MovableObject::onCollision(BaseObject * other, int nx, int ny)
 {
-	if (other->collisionType == CT_GROUND)
+	if (other->collisionType == CT_GROUND || other->collisionType == CT_DOOR || other->collisionType == CT_DOOR_CAN_MOVE)
 	{
 		if (ny == -1)
 			isOnGround = true;

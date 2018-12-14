@@ -11,38 +11,85 @@ List<Byte_bullet*>* Byte_bullet::getInstance()
 
 void Byte_bullet::update()
 {
-	vx = direction * 110;
+	vx = direction * 120;
 	dx = vx * TIME;
-	DrawableObject::update();
+	updateFrame();
+}
+
+void Byte_bullet::updateFrame()
+{
+	if (!alive) return;
+
+	BaseObject::update();
+	if (!pauseAnimation)
+	{
+		if (delayAnimation.canCreateFrame())
+		{
+			if (curFrame == sprite->animates[curAnimation].nFrame - 1)
+			{
+				if (curAnimation == 1)
+				{
+					curFrame = sprite->animates[curAnimation].nFrame - 1;
+					return;
+				}
+				curFrame = 0;
+			}
+			else sprite->animates[curAnimation].next(curFrame);
+		}
+	}
 }
 
 void Byte_bullet::draw()
 {
-	int xInViewport, yInViewport;
-	TileMap::curMap->convertToViewportPos(this->x, this->y, xInViewport, yInViewport);
-	int trucQuay = xInViewport + width / 2;
-
-	if (direction == sprite->image->direction)
+	if (!alive)
 	{
-		D3DXMATRIX mt;
-		D3DXMatrixIdentity(&mt);
-		mt._41 = 2 * trucQuay;
-		mt._11 = -1;
-		GRAPHICS->GetSprite()->SetTransform(&mt);
+		dx = 0;
+		dy = 0;
+		ay = 0;
+		if (timeDeath.canCreateFrame())
+		{
+			sprite = SPRITEMANAGER->sprites[SPR_ENEMY_DIE];
+			curAnimation = 0;
+			curFrame = (curFrame + 1) % 6;
+		}
+
+		if (timeDeath.isTerminated())
+			return;
+
+		int xInViewport, yInViewport;
+		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
+		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+		return;
 	}
-
-	sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
-
-	if (direction == sprite->image->direction)
+	if (alive)
 	{
-		D3DXMATRIX mt;
-		D3DXMatrixIdentity(&mt);
-		GRAPHICS->GetSprite()->SetTransform(&mt);
+		int xInViewport, yInViewport;
+		TileMap::curMap->convertToViewportPos(this->x, this->y, xInViewport, yInViewport);
+		int trucQuay = xInViewport + width / 2;
+
+		if (direction == sprite->image->direction)
+		{
+			D3DXMATRIX mt;
+			D3DXMatrixIdentity(&mt);
+			mt._41 = 2 * trucQuay;
+			mt._11 = -1;
+			GRAPHICS->GetSprite()->SetTransform(&mt);
+		}
+
+		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
+
+		if (direction == sprite->image->direction)
+		{
+			D3DXMATRIX mt;
+			D3DXMatrixIdentity(&mt);
+			GRAPHICS->GetSprite()->SetTransform(&mt);
+		}
 	}
 }
 
 void Byte_bullet::onCollision(BaseObject * S, int nx, int ny)
 {
+	
 }
 
 void Byte_bullet::onAABBCheck(BaseObject * other)

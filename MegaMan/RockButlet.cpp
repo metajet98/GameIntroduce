@@ -42,8 +42,22 @@ void RockButlet::update()
 {		
 	
 	vx = direction * 120;
-	dx = vx * TIME;
-	DrawableObject::update();
+	isOnGround = false;
+	updateVerlocity();
+	if (!alive) return;
+
+	BaseObject::update();
+	if (!pauseAnimation)
+	{
+		if (delayAnimation.canCreateFrame())
+		{
+			if (curFrame == sprite->animates[curAnimation].nFrame - 1)
+			{
+				curFrame = 0;
+			}
+			else sprite->animates[curAnimation].next(curFrame);
+		}
+	}
 }
 
 void RockButlet::onCollision(BaseObject * S, int nx, int ny)
@@ -53,12 +67,7 @@ void RockButlet::onCollision(BaseObject * S, int nx, int ny)
 
 void RockButlet::onAABBCheck(BaseObject * other)
 {
-	if (other->collisionType == CT_ENERMY)
-	{
-		dx = 0;
-		dy = 0;
-		allowDelete = true;
-	}
+	
 }
 
 void RockButlet::changeDirection(Direction dir)
@@ -75,7 +84,7 @@ RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 	curFrame = 0;
 	this->width = sprite->animates[curAnimation].frames[curFrame].width;
 	this->height = sprite->animates[curAnimation].frames[curFrame].height;
-
+	ay = 0;
 	if (level == OF_MEGAMAN)
 	{
 		x = ROCKMAN->x + ((direction == Right) ? -1 : -2)*8;

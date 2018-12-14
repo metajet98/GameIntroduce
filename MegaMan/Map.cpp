@@ -15,16 +15,23 @@ void Map::init(const char* tileSheetPath, const char* objectsPath, const char* q
 {
 	TileMap::init(tileSheetPath, objectsPath);
 	quadtree.init(quadtreePath, objects);
-	doors = new Door*[3];
+	doors = new Door*[4];
 	//neu doors sai id luc' dau la -3
-	doors[0] = new Door(3575, 376, 16, 48);
+	//doors[0] = new Door(3575, 376, 16, 48);
+	doors[0] = new Door(261, 391, 16, 48);
 	doors[0]->id = -2;
 	doors[1] = new Door(3960, 376, 16, 40);
 	doors[1]->id = -2;
-	doors[2] = new Door(4340, 376, 16, 40);
+	doors[2] = new Door(4357, 376, 16, 40);
 	doors[2]->id = -2;
-	/*doors[3] = new Door(505, 392, 16, 48);
-	doors[3]->id = -2;*/
+	doors[3] = new Door(773, 136, 16, 40);
+	doors[3]->id = -2;
+	
+	doorCanMoves = new DoorCanMove*[2];
+	doorCanMoves[0] = new DoorCanMove(502, 392, 16, 48);
+	doorCanMoves[0]->id = -10;
+	doorCanMoves[1] = new DoorCanMove(1014, 136, 16, 48);
+	doorCanMoves[1]->id = -10;
 }
 void Map::initStage(const char * stageInfoPath)
 {
@@ -101,10 +108,10 @@ void Map::update()
 	{
 		RockButlet* bullet = p->m_value;
 		bullet->update();
-		for (int i = 0; i < enermyObject.size(); i++)
+		/*for (int i = 0; i < enermyObject.size(); i++)
 		{
 			COLLISION->checkCollision(bullet, enermyObject[i]);
-		}
+		}*/
 		bullet->updateLocation();
 	}
 
@@ -130,17 +137,17 @@ void Map::update()
 	{
 		BYTE_BULLET->at(i)->update();
 	}
-#pragma endregion
-
-	#pragma region CheckCollision
 	for (List<RockButlet*>::Node* p = ROCKBUTLET->pHead; p; p = p->pNext)
 	{
 		RockButlet* bullet = p->m_value;
-		for (int i = 0; i < enermyObject.size(); i++)
-		{
-			COLLISION->checkCollision(bullet, enermyObject[i]);
-		}
+		//bullet->updateLocation();
 	}
+
+	for (int i = 0; i < 2; i++)
+		doorCanMoves[i]->update();
+#pragma endregion
+
+	#pragma region CheckCollision
 
 	for (int i = 0; i < groundsObject.size(); i++)
 	{
@@ -149,8 +156,9 @@ void Map::update()
 		for (int j = 0; j < enermyObject.size(); j++)
 			COLLISION->checkCollision(enermyObject[j], groundsObject[i]);
 		for (int j1 = 0; j1 < itemsObject.size(); j1++)
-			COLLISION->checkCollision(itemsObject[j1], groundsObject[i]);
+			COLLISION->checkCollision(itemsObject[j1], groundsObject[i]);		
 	}
+	
 	for (int i = 0; i < preventcameraObject.size(); i++)
 	{
 		COLLISION->checkCollision(CAMERA, preventcameraObject[i]);
@@ -160,14 +168,25 @@ void Map::update()
 		COLLISION->checkCollision(ROCKMAN, enermyObject[i]);
 		for (int j = 0; j < groundsObject.size(); j++)
 			COLLISION->checkCollision(enermyObject[i], groundsObject[j]);
+		for (int j1 = 0; j1 < 4; j1++)
+			COLLISION->checkCollision(enermyObject[i], doors[j1]);
+		//checkCollision voi door can move
+		for (int j2 = 0; j2 < 2; j2++)
+			COLLISION->checkCollision(enermyObject[i], doorCanMoves[j2]);
 		enermyObject[i]->updateLocation();
 	}
-
+	for (List<RockButlet*>::Node* p = ROCKBUTLET->pHead; p; p = p->pNext)
+	{
+		RockButlet* bullet = p->m_value;
+		for (int i = 0; i < enermyObject.size(); i++)
+		{
+			COLLISION->checkCollision(bullet, enermyObject[i]);
+		}
+	}
 	for (int i = 0; i < itemsObject.size(); i++)
 	{
 		COLLISION->checkCollision(ROCKMAN, itemsObject[i]);
 	}
-
 	for (int i = 0; i < DRAGONFLY_BULLET->size(); i++)
 	{
 		COLLISION->checkCollision(ROCKMAN, DRAGONFLY_BULLET->at(i));
@@ -189,11 +208,15 @@ void Map::update()
 		COLLISION->checkCollision(ROCKMAN, BYTE_BULLET->at(i));
 	}
 	int doorIsOpen = -1;
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		// bug o boss vi camera di qua nhieu
-		if (COLLISION->AABBCheck(*doors[i], *ROCKMAN)&& !ROCKMAN->onAreaBoss)
+		doors[i]->update();
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		/*if (COLLISION->AABBCheck(*doors[i], *ROCKMAN) && !ROCKMAN->onAreaBoss)
 		{
+			
 			doorIsOpen = i;
 			if (ROCKMAN->direction == Right && ROCKMAN->x < doors[doorIsOpen]->right())
 			{
@@ -205,29 +228,38 @@ void Map::update()
 					CAMERA->dx = 2 * ROCKMAN->direction;
 					ROCKMAN->pauseAnimation = true;
 				}
-			}
-			else
-			{
-				doors[doorIsOpen]->isOpen = true;
-				ROCKMAN->x -= ROCKMAN->dx;
+				else
+				{
+					doors[doorIsOpen]->isOpen = true;
+					ROCKMAN->x -= ROCKMAN->dx;
+				}
 			}
 		}
 		else if(!doors[i]->isClose && ROCKMAN->x>doors[i]->right() && ROCKMAN->direction != Left && !doors[i]->isOpen)
 		{
-			
 			doors[i]->Close();
 			doors[i]->curFrame = doors[i]->sprite->animates[0].nFrame - 1;
 			if (doorIsOpen >= 0)
 			{
 				doors[doorIsOpen]->isOpen = true;
 			}
-		}
-
+		}*/
+		COLLISION->checkCollision(ROCKMAN, doors[i]);
+		//COLLISION->AABBCheck(*ROCKMAN, *doors[i]);
 	}
 
 	for (int i = 0; i < trapsObject.size(); i++)
 	{
 		COLLISION->checkCollision(ROCKMAN, trapsObject[i]);
+	}
+
+	for (int i = 0; i < 2; i++)
+	{
+		COLLISION->checkCollision(doorCanMoves[i], ROCKMAN);
+		for (int i1 = 0; i1 < enermyObject.size(); i1++)
+		{
+			COLLISION->checkCollision(enermyObject[i1], doorCanMoves[i]);
+		}
 	}
 #pragma endregion
 
@@ -323,11 +355,14 @@ void Map::draw()
 
 	
 
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 4; i++)
 	{
 		doors[i]->draw();
 	}
-
+	for (int i = 0; i < 2; i++)
+	{
+		doorCanMoves[i]->draw();
+	}
 	List<Enermy*> enermyObject = CAMERA->objectsInCamera.enermies;
 	List<BaseObject*>& itemsObject = CAMERA->objectsInCamera.items;
 

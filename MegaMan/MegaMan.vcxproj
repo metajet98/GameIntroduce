@@ -164,9 +164,11 @@
     <ClInclude Include="DeadLane.h" />
     <ClInclude Include="DieEffect.h" />
     <ClInclude Include="Door.h" />
+    <ClInclude Include="DoorCanMove.h" />
     <ClInclude Include="Dragonfly.h" />
     <ClInclude Include="Dragonfly_bullet.h" />
     <ClInclude Include="DrawableObject.h" />
+    <ClInclude Include="Effect.h" />
     <ClInclude Include="Effect_Power.h" />
     <ClInclude Include="Enermy.h" />
     <ClInclude Include="FixedPoint8.h" />
@@ -223,9 +225,11 @@
     <ClCompile Include="DeadLane.cpp" />
     <ClCompile Include="DieEffect.cpp" />
     <ClCompile Include="Door.cpp" />
+    <ClCompile Include="DoorCanMove.cpp" />
     <ClCompile Include="Dragonfly.cpp" />
     <ClCompile Include="Dragonfly_bullet.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
+    <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Effect_Power.cpp" />
     <ClCompile Include="Enermy.cpp" />
     <ClCompile Include="GameOver.cpp" />
