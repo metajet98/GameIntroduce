@@ -374,7 +374,6 @@ void Map::draw()
 	for (int i = 0; i < enermyObject.size(); i++)
 	{
 		enermyObject[i]->draw();
-		
 	}
 	HP_BAR->draw();
 	HP_BOSS->draw();

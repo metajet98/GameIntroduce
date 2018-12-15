@@ -71,6 +71,11 @@ void DoorCanMove::onAABBCheck(BaseObject * other)
 {
 }
 
+void DoorCanMove::restore(BaseObject * obj)
+{
+	alive = true;
+}
+
 DoorCanMove::DoorCanMove()
 {
 }

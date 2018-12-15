@@ -57,6 +57,7 @@
 
 #define GENJIBO				Genjibo::getInstance()
 #define LIFE_GENJIBO		27
+#define GENJIBO_SP			Genjibo_sp::getInstance()
 
 #define BOSS_BYTE			Byte::getInstance()
 #define BYTE_BULLET			Byte_bullet::getInstance()
@@ -124,6 +125,7 @@ enum SPRITE_OBJECT
 	SPR_BYTE,
 	SPR_BYTE_BULLET,
 	SPR_DOOR_CAN_MOVE,
+	SPR_GENJIBO_SP,
 	SPR_COUNT
 };
 enum CATEGORY_ENEMY

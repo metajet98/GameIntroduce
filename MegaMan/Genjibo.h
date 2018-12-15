@@ -2,6 +2,8 @@
 #include "Enermy.h"
 #include "Map.h"
 #include "DoorCanMove.h"
+#include "Genjibo_sp.h"
+
 enum GENJIBO_ACTION
 {
 	GENJIBO_APPEAR,
@@ -20,12 +22,14 @@ public:
 	bool canMoveOnWall;
 	bool appear;
 	Direction upDown;
+	static bool updating;
 
 	float animation_delaytime;
 	GameTimeLoop damagedTime;
 	GameTimeLoop timePerAnimation;
 	GameTimeLoop timeJump;
 	int countJump;
+	int countAround;
 
 	void draw();
 	void update();

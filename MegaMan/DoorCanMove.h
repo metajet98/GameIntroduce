@@ -14,6 +14,7 @@ public:
 	void update();
 	void onCollision(BaseObject*S, int nx, int ny);
 	void onAABBCheck(BaseObject* other);
+	void restore(BaseObject* obj);
 	DoorCanMove();
 	DoorCanMove(int _x,int _y,int w,int h);
 	~DoorCanMove();

@@ -1,18 +1,20 @@
 ﻿  Genjibo.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(29): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(35): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(36): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(39): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(45): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(167): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(181): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(188): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(208): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(213): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(231): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(232): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(351): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(354): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(40): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(44): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(50): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(135): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(148): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(155): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(176): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(179): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(199): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(200): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(237): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(243): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(345): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(348): warning C4305: 'argument': truncation from 'double' to 'float'
   MegaMan.vcxproj -> D:\Study\Visual Project\megaman\MegaMan\Debug\MegaMan.exe

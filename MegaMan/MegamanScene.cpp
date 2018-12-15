@@ -15,14 +15,23 @@ void MegamanScene::init()
 
 void MegamanScene::update()
 {
-	if (ROCKMAN->NumberOfLife==0)
+	if (ROCKMAN->NumberOfLife==0) //boss die
 	{
+		for (int i = 0; i < CAMERA->objectsInCamera.allObjects.size(); i++)
+		{
+			BaseObject* obj = CAMERA->objectsInCamera.allObjects[i];
+			CAMERA->objectsInCamera.remove(obj);
+			i--;
+		}
+		DoorCanMove::getInstance()->Clear();
 		Scene::changeScene(new MainMenu());
 		ROCKMAN->NumberOfLife = 3;
 		ROCKMAN->x = 110;
 		ROCKMAN->y = 680;
 		Stage::curStage = Stage::curStages->at(0);
 		Stage::curStage->prev();
+		//Xoá list doorsCanmove
+		
 		return;
 	}
 	if (!ROCKMAN->alive && ROCKMAN->isDeath)

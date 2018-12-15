@@ -1,6 +1,9 @@
 #include "Genjibo.h"
+#include "Scene.h"
+#include "MainMenu.h"
 
 Genjibo* Genjibo::instance = 0;
+bool Genjibo::updating = false;
 Genjibo * Genjibo::getInstance()
 {
 	if (instance == 0)
@@ -23,7 +26,9 @@ void Genjibo::draw()
 		}
 
 		if (timeDeath.isTerminated())
+		{
 			return;
+		}
 
 		int xInViewport, yInViewport;
 		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
@@ -70,9 +75,10 @@ void Genjibo::update()
 	{
 		setOnHit(false);
 		damaged = false;
-		if(life>=LIFE_GENJIBO/2)
+		if(countJump<3)
 			changeAction(GENJIBO_MOVE);
-		else changeAction(GENJIBO_ROLATE);
+		else  if (countJump<6) changeAction(GENJIBO_ROLATE);
+		else changeAction(GENJIBO_STAND);
 		return;
 	}
 	//mech();
@@ -117,40 +123,6 @@ void Genjibo::updateMove()
 
 void Genjibo::mech()
 {
-	/*timePerAnimation.curLoop++;
-	if (timePerAnimation.curLoop >= 50)
-	{
-		if (life >= 9)
-		{
-			if (isOnGround)
-			{
-				changeAction(GENJIBO_MOVE);
-				vx = 120 * direction;
-				timeJump.canCreateFrame();
-				if (timeJump.isTerminated())
-				{
-					vy = -260;
-					isOnGround = false;
-					timeJump.start();
-				}
-			}
-		}
-		else
-		{
-			if (isOnGround)
-			{
-				changeAction(GENJIBO_ROLATE);
-				vx = 100 * direction;
-				timeJump.canCreateFrame();
-				if (timeJump.isTerminated())
-				{
-					vy = -200;
-					isOnGround = false;
-					timeJump.start();
-				}
-			}
-		}
-	}*/
 	if (countJump < 3)
 	{
 		ay = GRAVITY;
@@ -161,8 +133,7 @@ void Genjibo::mech()
 			{
 				changeAction(GENJIBO_MOVE);
 				vx = 120 * direction;
-				timeJump.canCreateFrame();
-				if (timeJump.isTerminated())
+				if (x<=380)
 				{
 					vy = -260;
 					isOnGround = false;
@@ -201,12 +172,13 @@ void Genjibo::mech()
 			{
 				changeAction(GENJIBO_STAND);
 				ay = 0;
-				vx = 100 * direction * upDown;
-				//if (canMoveOnWall)
-				//{
-				//	vy = upDown * 100;
-				//}
-				vy = upDown * 100;	
+				//run around
+				vx = direction*100;
+				if (vy > 0 && y >= 375)
+				{
+					vx = 120 * direction;
+					countJump = 0;
+				}
 			}
 		}
 	}
@@ -219,21 +191,22 @@ void Genjibo::onLastFrameAnimation(GENJIBO_ACTION ga)
 void Genjibo::onCollision(BaseObject * other, int nx, int ny)
 {
 	MovableObject::onCollision(other, nx, ny);
-	if (nx != 0 && (other->collisionType == CT_GROUND || other->collisionType == CT_DOOR || other->collisionType == CT_DOOR_CAN_MOVE))
+	if (nx != 0 && (other->collisionType == CT_GROUND || other->collisionType == CT_DOOR || other->collisionType == CT_DOOR_CAN_MOVE) && curAnimation!=GENJIBO_STAND)
 	{
-		
-		direction = (Direction)nx;
+		if(curAnimation!= GENJIBO_STAND)
+			direction = (Direction)nx;
 		if(curAnimation != GENJIBO_ROLATE)
 			vx = direction * 120;
 		else vx = direction * 80;
-		canMoveOnWall = true;
-		upDown = direction == Left ? Right : Left;
+		//if (curAnimation == GENJIBO_STAND) vx = 0;
+		//canMoveOnWall = true;
+		//upDown = direction == Left ? Right : Left;
 		
 		timeJump.curLoop=0;
 	}
-	if (nx == -1 && (other->collisionType == CT_GROUND || other->collisionType == CT_DOOR || other->collisionType == CT_DOOR_CAN_MOVE))
+	if (nx == -1 && (other->collisionType == CT_GROUND || other->collisionType == CT_DOOR || other->collisionType == CT_DOOR_CAN_MOVE) && curAnimation != GENJIBO_STAND)
 	{
-		if(countJump<=7)
+		if(countJump<7)
 			countJump++;
 		if(curAnimation!=GENJIBO_ROLATE)
 			vx = 0;
@@ -246,13 +219,37 @@ void Genjibo::onCollision(BaseObject * other, int nx, int ny)
 			vx = 0;
 			timePerAnimation.curLoop = 0;
 		}
-		if (curAnimation == GENJIBO_STAND)
-			direction = Right;
+		/*if (curAnimation == GENJIBO_STAND)
+			direction = Right;*/
 	}
 	
-	if (ny == 1 && other->collisionType == CT_GROUND)
+	/*if (ny == 1 && (other->collisionType == CT_GROUND || other->collisionType == CT_DOOR || other->collisionType == CT_DOOR_CAN_MOVE))
 	{
 		direction = upDown;
+	}*/
+
+	if ((other->collisionType == CT_GROUND || other->collisionType == CT_DOOR || other->collisionType == CT_DOOR_CAN_MOVE) && curAnimation == GENJIBO_STAND)
+	{
+		if (nx == 1 && upDown == Right)
+		{
+			vx = 0;
+			upDown = Left;
+			vy = upDown * 100;
+		}
+		else if (nx == -1 && upDown == Left)
+		{
+			vx = 0;
+			upDown = Right;
+			vy = upDown * 100;
+		}
+		if (ny == 1)
+		{
+			direction = Right;
+		}
+		else if (ny == -1)
+		{
+			direction = Left;
+		}
 	}
 }
 
@@ -323,6 +320,7 @@ void Genjibo::restore(BaseObject * obj)
 	timePerAnimation.curLoop = 0;
 	timeJump.start();
 	countJump = 0;
+	updating = false;
 }
 
 void Genjibo::changeAction(int newAction)
@@ -339,7 +337,7 @@ Genjibo::Genjibo()
 	life = LIFE_GENJIBO;
 	sprite = SPRITEMANAGER->sprites[SPR_GENJIBO];
 	direction = Left;
-	upDown = Left;
+	upDown = Right;
 	curFrame = 0;
 	curAnimation = GENJIBO_APPEAR;
 	onHit = false;
@@ -360,6 +358,7 @@ Genjibo::Genjibo()
 	height = 49;
 	appear = true;
 	countJump = 0;
+	countAround = 0;
 }
 
 

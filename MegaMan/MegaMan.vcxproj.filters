@@ -254,6 +254,9 @@
     <ClInclude Include="DoorCanMove.h">
       <Filter>Item</Filter>
     </ClInclude>
+    <ClInclude Include="Genjibo_sp.h">
+      <Filter>Enermy\Genjibo</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -429,6 +432,9 @@
     </ClCompile>
     <ClCompile Include="DoorCanMove.cpp">
       <Filter>Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Genjibo_sp.cpp">
+      <Filter>Enermy\Genjibo</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@
 #include"QuadTree.h"
 #include"Stage.h"
 #include "DoorCanMove.h"
+#include "Genjibo.h"
 
 class Map:public TileMap
 {

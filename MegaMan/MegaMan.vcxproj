@@ -176,6 +176,7 @@
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="GameTimeLoop.h" />
     <ClInclude Include="Genjibo.h" />
+    <ClInclude Include="Genjibo_sp.h" />
     <ClInclude Include="Graphics.h" />
     <ClInclude Include="HP_Boss.h" />
     <ClInclude Include="Item.h" />
@@ -236,6 +237,7 @@
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GameTimeLoop.cpp" />
     <ClCompile Include="Genjibo.cpp" />
+    <ClCompile Include="Genjibo_sp.cpp" />
     <ClCompile Include="Graphics.cpp" />
     <ClCompile Include="HP_Boss.cpp" />
     <ClCompile Include="Item.cpp" />
