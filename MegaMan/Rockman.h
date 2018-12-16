@@ -12,6 +12,7 @@
 #include"Stage.h"
 #include"Scene.h"
 
+
 class Rockman:public MovableObject
 {
 	int isCharging;

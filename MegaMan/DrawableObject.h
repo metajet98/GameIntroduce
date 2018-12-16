@@ -19,6 +19,7 @@ public:
 
 	void setSprite();
 	void setPauseAnimation(bool pauseAnimation, int frameIndex);
+	void setPauseAnimation(bool pauseAnimation);
 	virtual void changeAction(int newAction);
 	virtual void update();
 	virtual void draw();

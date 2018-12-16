@@ -42,6 +42,7 @@ void MegamanScene::update()
 		ROCKMAN->NumberOfLife--;
 		ROCKMAN->life = 24;
 		ROCKMAN->onAreaBoss = false;
+		ROCKMAN->onAreaBossSub = false;
 		ROCKMAN->alive = true;
 		ROCKMAN->pauseAnimation = false;
 		ROCKMAN->isDeath = false;
@@ -92,7 +93,7 @@ void MegamanScene::update()
 		}
 		HP_BAR->x = CAMERA->x;
 		HP_BAR->y = CAMERA->y;
-		HP_BOSS->curFrame = RHINO->life;
+		//HP_BOSS->curFrame = RHINO->life;
 		HP_BOSS->x = CAMERA->x + 220;
 		HP_BOSS->y = CAMERA->y;
 		return;

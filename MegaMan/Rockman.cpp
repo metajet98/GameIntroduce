@@ -260,13 +260,15 @@ void Rockman::update()
 	{
 		onAreaBossSub = true;
 	}
+	
+
 	if (onHit)
 	{
 		MovableObject::update();
 		return;
 	}
 	updateInvisible();
-	if (life <= 0)
+	if (life <= 0 && !onHit)
 	{
 		timeDeath.canCreateFrame();
 		curFrame = 0;

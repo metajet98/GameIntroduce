@@ -1,6 +1,6 @@
 #pragma once
 #include "Enermy.h"
-//#include "Genjibo.h"
+#include "Genjibo.h"
 class Genjibo_sp: public Enermy
 {
 	static Genjibo_sp* instance;

@@ -56,7 +56,7 @@
 #define HP_BOSS				HP_Boss::getInstance()
 
 #define GENJIBO				Genjibo::getInstance()
-#define LIFE_GENJIBO		27
+#define LIFE_GENJIBO		24
 #define GENJIBO_SP			Genjibo_sp::getInstance()
 
 #define BOSS_BYTE			Byte::getInstance()

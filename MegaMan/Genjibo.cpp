@@ -65,7 +65,8 @@ void Genjibo::draw()
 
 void Genjibo::update()
 {
-	if (!ROCKMAN->onAreaBossSub) return;
+	if (!updating) return;
+	//if (!ROCKMAN->onAreaBossSub) return;
 	if (!ROCKMAN->alive)
 	{
 		changeAction(GENJIBO_STAND);
@@ -94,6 +95,7 @@ void Genjibo::update()
 			}
 			ROCKMAN->pauseAnimation = appear;
 			ROCKMAN->dx = 0;
+			ROCKMAN->dy = 1;
 		}
 		else
 		{
@@ -308,7 +310,7 @@ void Genjibo::restore(BaseObject * obj)
 {
 	if (ROCKMAN->onAreaBossSub) return;
 	alive = true;
-	life = 16;
+	life = LIFE_GENJIBO;
 	direction = Left;
 	curAnimation = GENJIBO_APPEAR;
 	curFrame = 0;
@@ -318,9 +320,12 @@ void Genjibo::restore(BaseObject * obj)
 	y = 380;
 	damagedTime.start();
 	timePerAnimation.curLoop = 0;
-	timeJump.start();
+	timeJump.curLoop = 0;
 	countJump = 0;
 	updating = false;
+	appear = true;
+	vx = 0;
+	vy = 0;
 }
 
 void Genjibo::changeAction(int newAction)

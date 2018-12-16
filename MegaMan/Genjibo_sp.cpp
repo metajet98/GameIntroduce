@@ -41,21 +41,40 @@ void Genjibo_sp::draw()
 
 void Genjibo_sp::update()
 {
-	/*if (!ROCKMAN->onAreaBossSub) return;
+	if (!ROCKMAN->onAreaBossSub) return;
 	
+	if (!GENJIBO->updating)
+	{
+		ROCKMAN->dx = 0;
+		ROCKMAN->dy = 1;
+	}
 	
+	vy = direction * 50;
 	if (bottom() >= 390)
 	{
 		vy = 0;
-		isActive = true;
+		timeStand.canCreateFrame();
+		if (timeStand.isTerminated())
+		{
+			GENJIBO->updating = true;
+			direction = Left;
+			vy = direction * 50;
+		}
 	}
-	else vy = direction * 50;
-	updateMove();*/
+	 
+	updateMove();
 }
 
 void Genjibo_sp::restore(BaseObject * obj)
 {
-
+	if (ROCKMAN->onAreaBossSub && GENJIBO->alive) return;
+	x = 431;
+	y = 289;
+	alive = true;
+	direction = Right;
+	curAnimation = 0;
+	curFrame = 0;
+	timeStand.start();
 }
 
 void Genjibo_sp::updateMove()
@@ -80,7 +99,7 @@ Genjibo_sp::Genjibo_sp()
 	direction = Right;
 	curAnimation = 0;
 	curFrame = 0;
-	timeStand.init(0.2, 50);
+	timeStand.init(0.2, 5);
 	timeStand.start();
 	isActive = false;
 	ay = 0;
