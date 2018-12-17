@@ -2,7 +2,7 @@
 #define CLASS_NAME "Megaman"
 #define TITLE_STR "Game Megaman"
 
-#define ANIMATE_DELAY_TIME_DEFAULT	0.1f
+#define ANIMATE_DELAY_TIME_DEFAULT	0.1f //co the sua thanh 0.08f
 #define SCREEN_WIDTH		800
 #define SCREEN_HEIGHT		600
 #define VIEWPORT_WIDTH		255
@@ -31,8 +31,8 @@
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 
-#define FRAME_RATE			(40.0f)  // Số frame load trên một giây (frame/giây)
-#define MIN_FRAME_RATE		(40.0f)
+#define FRAME_RATE			(40.0f)  // Số frame load trên một giây (frame/giây) //nang len 100 test
+#define MIN_FRAME_RATE		(40.0f) nang len 90 test
 #define MIN_FRAME_TIME		(1.0f/FRAME_RATE)	// thời gian load một frame (giây/frame)
 #define MAX_FRAME_TIME		(1.0f/MIN_FRAME_TIME)
 
