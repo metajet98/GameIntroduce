@@ -172,7 +172,7 @@ void Genjibo::mech()
 			timePerAnimation.curLoop++;
 			if (timePerAnimation.curLoop >= 80)
 			{
-				changeAction(GENJIBO_STAND);
+				changeAction(GENJIBO_MOVE);
 				ay = 0;
 				//run around
 				vx = direction*100;
