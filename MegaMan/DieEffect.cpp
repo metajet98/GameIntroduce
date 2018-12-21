@@ -48,6 +48,10 @@ DieEffect::DieEffect(AFFECT_CATEGORY category)
 	{
 		sprite = SPRITEMANAGER->sprites[SPR_ROCK_DIE];
 	}
+	else if (category == BOSS_DIE)
+	{
+		sprite = SPRITEMANAGER->sprites[SPR_BOSS_DIE];
+	}
 	vy = 0;
 	vx = 0;
 	ay = 0;

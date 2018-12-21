@@ -2,7 +2,7 @@
 #define CLASS_NAME "Megaman"
 #define TITLE_STR "Game Megaman"
 
-#define ANIMATE_DELAY_TIME_DEFAULT	0.1f //co the sua thanh 0.08f
+#define ANIMATE_DELAY_TIME_DEFAULT	0.08f
 #define SCREEN_WIDTH		800
 #define SCREEN_HEIGHT		600
 #define VIEWPORT_WIDTH		255
@@ -22,17 +22,17 @@
 #define GRAVITY				300
 #define TIMEJUMP			60.0f/GRAVITY
 #define CAMERA				Camera::getInstance()
-#define X_MAP				7
-#define Y_MAP				530
+//#define X_MAP				7
+//#define Y_MAP				530
 //#define X_MAP				1544
 //#define Y_MAP				519
-//#define X_MAP				3436
-//#define Y_MAP				280
+#define X_MAP				3946
+#define Y_MAP				282
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 
-#define FRAME_RATE			(40.0f)  // Số frame load trên một giây (frame/giây) //nang len 100 test
-#define MIN_FRAME_RATE		(40.0f) nang len 90 test
+#define FRAME_RATE			(40.0f)  // Số frame load trên một giây (frame/giây)
+#define MIN_FRAME_RATE		(40.0f)
 #define MIN_FRAME_TIME		(1.0f/FRAME_RATE)	// thời gian load một frame (giây/frame)
 #define MAX_FRAME_TIME		(1.0f/MIN_FRAME_TIME)
 
@@ -62,6 +62,15 @@
 #define BOSS_BYTE			Byte::getInstance()
 #define BYTE_BULLET			Byte_bullet::getInstance()
 #define LIFE_BYTE			18
+
+#define BLASHHORNET			BlashHornet::getInstance()
+#define BLASHHORNET_WING	BlashHornet_Wing::getInstance()
+#define BLASHHORNET_Life	24 // (curLife / totalLife) * 24
+#define HORNET				Hornet::getInstance()
+#define BLASHHORNET_POINT	BlashHornet_Point::getInstance()
+#define BLASHHORNET_VY		70
+
+
 
 enum ROCK_ACTION
 {
@@ -126,6 +135,11 @@ enum SPRITE_OBJECT
 	SPR_BYTE_BULLET,
 	SPR_DOOR_CAN_MOVE,
 	SPR_GENJIBO_SP,
+	SPR_BLASHHORNET,
+	SPR_HORNET,
+	SPR_BLASHHORNET_WING,
+	SPR_BLASHHORNET_POINT,
+	SPR_HORNET_DIE,
 	SPR_COUNT
 };
 enum CATEGORY_ENEMY

@@ -62,7 +62,7 @@ void MainMenu::draw()
 	if (isDraw)
 	{
 		chooseBullet->animates[0].next(curFrameBULLET);
-		chooseBullet->draw(x += 10, y, 0, curFrameBULLET);
+		chooseBullet->draw(x += 7, y, 0, curFrameBULLET);
 		if (curFrameBULLET == chooseBullet->animates[0].nFrame - 1)
 		{
 			curFrameBULLET = 0;

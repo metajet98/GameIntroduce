@@ -97,7 +97,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalDependencies>winmm.lib;dinput8.lib;dxguid.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>dxerr.lib;dsound.lib;winmm.lib;dinput8.lib;dxguid.lib;d3d9.lib;d3dx9.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -152,6 +152,9 @@
     <ClInclude Include="Animate.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BigHealth.h" />
+    <ClInclude Include="BlashHornet.h" />
+    <ClInclude Include="BlashHornet_Point.h" />
+    <ClInclude Include="BlashHornet_Wing.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="Byte.h" />
     <ClInclude Include="Byte_bullet.h" />
@@ -168,6 +171,8 @@
     <ClInclude Include="Dragonfly.h" />
     <ClInclude Include="Dragonfly_bullet.h" />
     <ClInclude Include="DrawableObject.h" />
+    <ClInclude Include="dsutil.h" />
+    <ClInclude Include="dxutil.h" />
     <ClInclude Include="Effect.h" />
     <ClInclude Include="Effect_Power.h" />
     <ClInclude Include="Enermy.h" />
@@ -178,6 +183,7 @@
     <ClInclude Include="Genjibo.h" />
     <ClInclude Include="Genjibo_sp.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Hornet.h" />
     <ClInclude Include="HP_Boss.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="KeyBoard.h" />
@@ -215,6 +221,9 @@
     <ClCompile Include="Animate.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="BigHealth.cpp" />
+    <ClCompile Include="BlashHornet.cpp" />
+    <ClCompile Include="BlashHornet_Point.cpp" />
+    <ClCompile Include="BlashHornet_Wing.cpp" />
     <ClCompile Include="Box.cpp" />
     <ClCompile Include="Byte.cpp" />
     <ClCompile Include="Byte_bullet.cpp" />
@@ -230,6 +239,7 @@
     <ClCompile Include="Dragonfly.cpp" />
     <ClCompile Include="Dragonfly_bullet.cpp" />
     <ClCompile Include="DrawableObject.cpp" />
+    <ClCompile Include="dsutil.cpp" />
     <ClCompile Include="Effect.cpp" />
     <ClCompile Include="Effect_Power.cpp" />
     <ClCompile Include="Enermy.cpp" />
@@ -239,6 +249,7 @@
     <ClCompile Include="Genjibo.cpp" />
     <ClCompile Include="Genjibo_sp.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Hornet.cpp" />
     <ClCompile Include="HP_Boss.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="KeyBoard.cpp" />

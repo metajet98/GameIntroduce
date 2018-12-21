@@ -16,7 +16,7 @@ void HP_Boss::draw()
 	int xInViewport, yInViewport;
 	TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);
 
-	if (ROCKMAN->onAreaBoss && RHINO->alive)
+	if (ROCKMAN->onAreaBoss && BLASHHORNET->alive)
 	{
 		sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
 	}
@@ -24,11 +24,11 @@ void HP_Boss::draw()
 
 void HP_Boss::update()
 {
-	/*if (ROCKMAN->onAreaBoss)
+	if (ROCKMAN->onAreaBoss)
 	{
-		if (RHINO->life > 0)
+		if (BLASHHORNET->lifeBoss > 0)
 		{
-			int healthPoint1 = RHINO->life;
+			int healthPoint1 = BLASHHORNET->lifeBoss;
 			if (healthPoint1 > curFrame)
 			{
 				curFrame++;
@@ -39,7 +39,7 @@ void HP_Boss::update()
 			}
 		}
 		else { curFrame = 0; }
-	}*/
+	}
 }
 
 void HP_Boss::updateLocation()
@@ -52,7 +52,8 @@ HP_Boss::HP_Boss()
 {
 	sprite = SPRITEMANAGER->sprites[SPR_HP_BAR_BOSS];
 	curAnimation = 0;
-	curFrame = RHINO->life;
+	curFrame = BLASHHORNET->lifeBoss; // (curLife/totalLife)*nFrames(24)
+	//curFrame = 0;
 	x = CAMERA->x + 220;
 	y = CAMERA->y;
 }

@@ -135,7 +135,7 @@ void Genjibo::mech()
 			{
 				changeAction(GENJIBO_MOVE);
 				vx = 120 * direction;
-				if (x<=380)
+				if (x<=360)
 				{
 					vy = -260;
 					isOnGround = false;

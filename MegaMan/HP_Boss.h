@@ -2,7 +2,7 @@
 #include"DrawableObject.h"
 #include"Map.h"
 #include"Constant.h"
-#include"Rhino.h"
+#include"BlashHornet.h"
 class HP_Boss:public DrawableObject
 {
 	static HP_Boss* instance;

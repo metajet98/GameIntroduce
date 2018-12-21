@@ -15,7 +15,7 @@ void MegamanScene::init()
 
 void MegamanScene::update()
 {
-	if (ROCKMAN->NumberOfLife==0) //boss die
+	if (ROCKMAN->NumberOfLife==0 || BLASHHORNET->isDeath) //boss die
 	{
 		for (int i = 0; i < CAMERA->objectsInCamera.allObjects.size(); i++)
 		{
@@ -30,6 +30,7 @@ void MegamanScene::update()
 		ROCKMAN->y = 680;
 		Stage::curStage = Stage::curStages->at(0);
 		Stage::curStage->prev();
+		BLASHHORNET->isDeath = false;
 		//Xoá list doorsCanmove
 		
 		return;
@@ -105,6 +106,7 @@ void MegamanScene::update()
 void MegamanScene::draw()
 {
 	map.draw();
+
 	ROCKMAN->draw();
 	for (List<RockButlet*>::Node* p = ROCKBUTLET->pHead; p; p = p->pNext)
 	{

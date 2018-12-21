@@ -10,6 +10,8 @@
 #include"Rhino_bullet.h"
 #include"HP_Boss.h"
 #include "Byte_bullet.h"
+#include "Hornet.h"
+#include "BlashHornet_Point.h"
 
 void Map::init(const char* tileSheetPath, const char* objectsPath, const char* quadtreePath)
 {
@@ -46,8 +48,8 @@ void Map::initStage(const char * stageInfoPath)
 
 	if (Stage::curStage == NULL)
 	{
-		Stage::curStage = stages[0];
-		Stage::curStage->index = 0;
+		Stage::curStage = stages[5];
+		Stage::curStage->index = 5;
 	}
 }
 void Map::update()
@@ -58,7 +60,7 @@ void Map::update()
 		if (COLLISION->AABBCheck(*ROCKMAN, *stages[i]) && !ROCKMAN->onAreaBoss) //dung pahi
 		{
 			ROCKMAN->dx = ROCKMAN->direction;
-			ROCKMAN->dy = 0;
+			ROCKMAN->dy = 1;
 			Stage::curStage = stages[i];
 			Stage::curStage->updating = true;
 			ROCKMAN->pauseAnimation = true;
@@ -145,6 +147,15 @@ void Map::update()
 
 	for (int i = 0; i < 2; i++)
 		doorCanMoves[i]->update();
+
+	BLASHHORNET_WING->update();
+
+	for (int i = 0; i < HORNET->size(); i++)
+		HORNET->at(i)->update();
+	for (int i = 0; i < BLASHHORNET_POINT->size(); i++)
+	{
+		BLASHHORNET_POINT->at(i)->update();
+	}
 #pragma endregion
 
 	#pragma region CheckCollision
@@ -152,11 +163,15 @@ void Map::update()
 	for (int i = 0; i < groundsObject.size(); i++)
 	{
 		COLLISION->checkCollision(ROCKMAN, groundsObject[i]);
-
+		COLLISION->checkCollision(BLASHHORNET_WING, groundsObject[i]);
 		for (int j = 0; j < enermyObject.size(); j++)
 			COLLISION->checkCollision(enermyObject[j], groundsObject[i]);
 		for (int j1 = 0; j1 < itemsObject.size(); j1++)
 			COLLISION->checkCollision(itemsObject[j1], groundsObject[i]);		
+		for (int j2 = 0; j2 < HORNET->size(); j2++)
+		{
+			COLLISION->checkCollision(HORNET->at(j2), groundsObject[i]);
+		}
 	}
 	
 	for (int i = 0; i < preventcameraObject.size(); i++)
@@ -181,6 +196,10 @@ void Map::update()
 		for (int i = 0; i < enermyObject.size(); i++)
 		{
 			COLLISION->checkCollision(bullet, enermyObject[i]);
+		}
+		for (int i1 = 0; i1 < HORNET->size(); i1++)
+		{
+			COLLISION->checkCollision(bullet, HORNET->at(i1));
 		}
 	}
 	for (int i = 0; i < itemsObject.size(); i++)
@@ -207,6 +226,10 @@ void Map::update()
 	{
 		COLLISION->checkCollision(ROCKMAN, BYTE_BULLET->at(i));
 	}
+	for (int i = 0; i < HORNET->size(); i++)
+	{
+		COLLISION->checkCollision(ROCKMAN, HORNET->at(i));
+	}
 	int doorIsOpen = -1;
 	for (int i = 0; i < 4; i++)
 	{
@@ -214,38 +237,13 @@ void Map::update()
 	}
 	for (int i = 0; i < 4; i++)
 	{
-		/*if (COLLISION->AABBCheck(*doors[i], *ROCKMAN) && !ROCKMAN->onAreaBoss)
-		{
-			
-			doorIsOpen = i;
-			if (ROCKMAN->direction == Right && ROCKMAN->x < doors[doorIsOpen]->right())
-			{
-				
-				if (!doors[doorIsOpen]->isOpen)
-				{
-					ROCKMAN->dx = 0;
-					doors[doorIsOpen]->Open();
-					CAMERA->dx = 2 * ROCKMAN->direction;
-					ROCKMAN->pauseAnimation = true;
-				}
-				else
-				{
-					doors[doorIsOpen]->isOpen = true;
-					ROCKMAN->x -= ROCKMAN->dx;
-				}
-			}
-		}
-		else if(!doors[i]->isClose && ROCKMAN->x>doors[i]->right() && ROCKMAN->direction != Left && !doors[i]->isOpen)
-		{
-			doors[i]->Close();
-			doors[i]->curFrame = doors[i]->sprite->animates[0].nFrame - 1;
-			if (doorIsOpen >= 0)
-			{
-				doors[doorIsOpen]->isOpen = true;
-			}
-		}*/
+		
 		COLLISION->checkCollision(ROCKMAN, doors[i]);
-		//COLLISION->AABBCheck(*ROCKMAN, *doors[i]);
+		for (int j2 = 0; j2 < HORNET->size(); j2++)
+		{
+			COLLISION->checkCollision(HORNET->at(j2), doors[i]);
+		}
+
 	}
 
 	for (int i = 0; i < trapsObject.size(); i++)
@@ -260,6 +258,10 @@ void Map::update()
 		{
 			COLLISION->checkCollision(enermyObject[i1], doorCanMoves[i]);
 		}
+	}
+	for (int i = 0; i < BLASHHORNET_POINT->size(); i++)
+	{
+		COLLISION->checkCollision(ROCKMAN, BLASHHORNET_POINT->at(i));
 	}
 #pragma endregion
 
@@ -336,7 +338,18 @@ void Map::update()
 			delete bb;
 		}
 	}
+	for (int i = 0; i < HORNET->size(); i++)
+	{
+		HORNET->at(i)->updateLocation();
+		if ((!COLLISION->AABBCheck(*HORNET->at(i), *CAMERA) || HORNET->at(i)->allowDelete))
+		{
+			Hornet* hn = HORNET->at(i);
+			HORNET->_Remove(hn);
+			delete hn;
+		}
+	}
 #pragma endregion
+
 
 	HP_BAR->update();
 	HP_BOSS->update();
@@ -400,6 +413,12 @@ void Map::draw()
 	for (int i = 0; i < CATERKILLER_BULLET->size(); i++)
 	{
 		CATERKILLER_BULLET->at(i)->draw();
+	}
+	for (int i = 0; i < HORNET->size(); i++)
+		HORNET->at(i)->draw();
+	for (int i = 0; i < BLASHHORNET_POINT->size(); i++)
+	{
+		BLASHHORNET_POINT->at(i)->draw();
 	}
 }
 void Map::restoreAllObject()

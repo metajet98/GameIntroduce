@@ -147,6 +147,7 @@ void Rockman::draw()
 
 void Rockman::changeAction(int newAction)
 {
+	
 	if(curAnimation!=newAction)
 		curAnimation = newAction;
 	
@@ -450,10 +451,9 @@ void Rockman::updateChangeAnimation()
 				{
 					//curFrame = 0;
 					changeAction(PUSHING);
-
-					if (KEY->keyJum  && isPushing && direction != pushDirection)
+					if (KEY->keyJum  && isPushing )
 					{
-						if (KEY->keyMove)
+						if (KEY->keyMove && direction != pushDirection)
 						{
 							changeAction(PUSHING_JUMP);
 							vy = -170;
@@ -490,8 +490,8 @@ void Rockman::updateChangeAnimation()
 				}
 				else
 				{
-					if (curAnimation == APPEAR) return;
-					if (curAnimation == PUSHING_JUMP)
+					if (curAnimation == APPEAR && curAnimation != DIE) return;
+					if (curAnimation == PUSHING_JUMP&& curAnimation != DIE)
 					{
 						/*timePushJump.curLoop++;
 						if (timePushJump.curLoop >= 60)
@@ -505,8 +505,8 @@ void Rockman::updateChangeAnimation()
 						return;
 					}
 					//co the doi animation hight jump o day
-					if (curAnimation == HIGH_JUMP) return;
-					if (curAnimation != ON_HIT);
+					if (curAnimation == HIGH_JUMP && curAnimation != DIE) return;
+					if (curAnimation != ON_HIT && curAnimation != DIE);
 					{
 						changeAction(JUMP); 
 					}
@@ -520,10 +520,10 @@ void Rockman::updateChangeAnimation()
 Rockman::Rockman()
 {
 	sprite = SPRITEMANAGER->sprites[SPR_MAIN];
-	x = 110;
-	y = 680;
-	//x = 3530;
-	//y = 375;
+	//x = 110;
+	//y = 680;
+	x = 3964;
+	y = 385;
 	//x = 1596;
 	//y = 579;
 	direction = Right;

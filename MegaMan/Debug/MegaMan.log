@@ -1,14 +1,33 @@
-﻿  Camera.cpp
+﻿  BlashHornet.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Genjibo_sp.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(52): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(61): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(102): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(24): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(26): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(28): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(38): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(45): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(46): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(91): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(92): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(109): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(116): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(117): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(118): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(119): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(125): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(178): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(179): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(180): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(181): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(182): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(186): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(187): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(188): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(189): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(190): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(203): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(208): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(215): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(220): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(440): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(441): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   MegaMan.vcxproj -> D:\Study\Visual Project\megaman\MegaMan\Debug\MegaMan.exe

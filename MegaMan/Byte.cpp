@@ -272,12 +272,12 @@ void Byte::onAABBCheck(BaseObject * other)
 			timePerAnimation.curLoop = 0;
 			vx = 0;
 			ROCKMAN->changeAction(ON_HIT);
+			ROCKMAN->setOnHit(true);
 			if (curAnimation == BYTE_ATT && curFrame == sprite->animates[curAnimation].nFrame - 1)
 			{
-				ROCKMAN->vx = direction * 200;
-				
+				ROCKMAN->vx = direction * 500;
+
 			}
-			ROCKMAN->setOnHit(true);
 			ROCKMAN->life -= damage;
 			ROCKMAN->gameTimeLoop.start();
 		}
@@ -326,17 +326,5 @@ void Byte::changeAction(int newAction)
 	{
 		curFrame = 0;
 		curAnimation = newAction;
-		/*switch (curAnimation)
-		{
-		case BYTE_STAND:
-			frameType = HEIGHT_84;
-			break;
-		case BYTE_MOVE: case BYTE_SHOT:
-			frameType = HEIGHT_74;
-			break;
-		case BYTE_ATT:
-			frameType = HEIGHT_80;
-			break;
-		}*/
 	}
 }

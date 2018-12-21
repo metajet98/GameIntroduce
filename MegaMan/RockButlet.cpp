@@ -67,7 +67,8 @@ void RockButlet::onCollision(BaseObject * S, int nx, int ny)
 
 void RockButlet::onAABBCheck(BaseObject * other)
 {
-	
+	if (this->categoryBullet != OF_STRONG_2_MEGAMAN)
+		this->allowDelete = true;
 }
 
 void RockButlet::changeDirection(Direction dir)
@@ -82,8 +83,6 @@ RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 	sprite = SPRITEMANAGER->sprites[SPR_BUTLET];
 	curAnimation = level;
 	curFrame = 0;
-	this->width = sprite->animates[curAnimation].frames[curFrame].width;
-	this->height = sprite->animates[curAnimation].frames[curFrame].height;
 	ay = 0;
 	if (level == OF_MEGAMAN)
 	{
@@ -108,6 +107,20 @@ RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 			x = ROCKMAN->x + ((direction == Right) ? 1 : -2) * (ROCKMAN->width - 8);
 			y = ROCKMAN->yCenter() - height / 3;
 		}
+	}
+	if (categoryBullet == OF_MEGAMAN)
+	{
+		width = height = 8;
+	}
+	else if (categoryBullet == OF_STRONG_MEGAMAN)
+	{
+		width = 38;
+		height = 21;
+	}
+	else if (categoryBullet == OF_STRONG_2_MEGAMAN)
+	{
+		width = 46;
+		height = 31;
 	}
 }
 

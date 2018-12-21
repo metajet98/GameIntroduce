@@ -30,7 +30,11 @@ void Camera::update()
 			dy = (Stage::curStage->y - CAMERA->y)*GAME_TIME->frameTime * 10;
 		else
 		{
+			if (Stage::curStage->index == 1)
 				dy = 1;
+			else if (Stage::curStage->index == 6)
+				dy = 8;
+			else dy = 0;
 		}
 		if (right() + dx > Stage::curStage->right() && dx > 0)
 		{

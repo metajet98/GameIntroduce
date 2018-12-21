@@ -10,6 +10,7 @@
 #include "Genjibo.h"
 #include "Byte.h"
 #include "Genjibo_sp.h"
+#include "BlashHornet.h"
 
 TileMap* TileMap::curMap = 0;
 TileMap::TileMap()
@@ -98,6 +99,9 @@ void TileMap::initObjects(const char* objectsPath)
 			break;
 		case SPR_GENJIBO_SP:
 			objects[i] = new Genjibo_sp();
+			break;
+		case SPR_BLASHHORNET:
+			objects[i] = new BlashHornet();
 			break;
 		default:
 			objects[i] = new BaseObject();

@@ -46,6 +46,12 @@ SpriteManager::SpriteManager()
 	sprites[SPR_BYTE_BULLET] = new Sprite("Data\\SubBoss\\byte.png", "Data\\SubBoss\\byte_bullet.txt");
 
 	sprites[SPR_DOOR_CAN_MOVE] = new Sprite("Data\\Miscellaneous\\doorCanMove.png", "Data\\Miscellaneous\\doorCanMove.txt");
+
+	sprites[SPR_BLASHHORNET] = new Sprite("Data\\BOSS\\blasthornet\\BlashHornet.png", "Data\\BOSS\\blasthornet\\blashhornet.txt");
+	sprites[SPR_BLASHHORNET_WING] = new Sprite("Data\\BOSS\\blasthornet\\BlashHornet.png", "Data\\BOSS\\blasthornet\\blashhornet_wing.txt");
+	sprites[SPR_BLASHHORNET_POINT] = new Sprite("Data\\BOSS\\blasthornet\\BlashHornet.png", "Data\\BOSS\\blasthornet\\blashhornet_point.txt");
+	sprites[SPR_HORNET] = new Sprite("Data\\BOSS\\blasthornet\\BlashHornet.png", "Data\\BOSS\\blasthornet\\hornet.txt");
+	sprites[SPR_HORNET_DIE] = new Sprite("Data\\BOSS\\blasthornet\\BlashHornet.png", "Data\\BOSS\\blasthornet\\hornet_die.txt");
 }
 
 

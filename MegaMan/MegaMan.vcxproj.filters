@@ -8,34 +8,6 @@
     <Filter Include="Resources File">
       <UniqueIdentifier>{1fb4fb12-18b9-471f-b30b-f247d0d88045}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FrameWord">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="FrameWord\Framework">
-      <UniqueIdentifier>{38c3c538-9a19-4008-86ff-66fa5d195fad}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FrameWord\Framework\Animation">
-      <UniqueIdentifier>{1b9ea408-c45b-4b47-af54-de466ad5a17b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FrameWord\Framework\Collision">
-      <UniqueIdentifier>{19516702-0edb-43cf-bcd4-c81eb3dbb5d9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FrameWord\Framework\GameTime">
-      <UniqueIdentifier>{6614f72d-aad9-4803-9ae3-0be78eebfa4a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FrameWord\Framework\Graphics">
-      <UniqueIdentifier>{f403fe3c-2003-427c-bcd5-034ac8169b30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FrameWord\Framework\KeyBoard">
-      <UniqueIdentifier>{b23dcfc1-7f5d-4c95-bfe7-9289e87f2954}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FrameWord\Framework\Mouse">
-      <UniqueIdentifier>{129b9140-5891-423d-afbf-ea269d16d10b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="FrameWord\Framework\Object">
-      <UniqueIdentifier>{02dc5787-ee06-476d-9d5f-eaffb2caa0df}</UniqueIdentifier>
-    </Filter>
     <Filter Include="X">
       <UniqueIdentifier>{de1b55fb-e9eb-4bef-b96f-a8a9b78790c3}</UniqueIdentifier>
     </Filter>
@@ -72,67 +44,101 @@
     <Filter Include="Enermy\Byte">
       <UniqueIdentifier>{0825c00e-1d06-4e73-bc55-39e4e5fd611e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Enermy\BlashHornet">
+      <UniqueIdentifier>{5a0d252c-ea27-4338-8cc2-572901529285}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\FrameWord">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Enermy\FrameWord\Framework">
+      <UniqueIdentifier>{38c3c538-9a19-4008-86ff-66fa5d195fad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\FrameWord\Framework\Animation">
+      <UniqueIdentifier>{1b9ea408-c45b-4b47-af54-de466ad5a17b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\FrameWord\Framework\Collision">
+      <UniqueIdentifier>{19516702-0edb-43cf-bcd4-c81eb3dbb5d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\FrameWord\Framework\GameTime">
+      <UniqueIdentifier>{6614f72d-aad9-4803-9ae3-0be78eebfa4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\FrameWord\Framework\Graphics">
+      <UniqueIdentifier>{f403fe3c-2003-427c-bcd5-034ac8169b30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\FrameWord\Framework\KeyBoard">
+      <UniqueIdentifier>{b23dcfc1-7f5d-4c95-bfe7-9289e87f2954}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\FrameWord\Framework\Mouse">
+      <UniqueIdentifier>{129b9140-5891-423d-afbf-ea269d16d10b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\FrameWord\Framework\Object">
+      <UniqueIdentifier>{02dc5787-ee06-476d-9d5f-eaffb2caa0df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Enermy\FrameWord\Framework\Sound">
+      <UniqueIdentifier>{5d54d5d2-8fa3-491b-b6da-1c648d66049c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animate.h">
-      <Filter>FrameWord\Framework\Animation</Filter>
+      <Filter>Enermy\FrameWord\Framework\Animation</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
-      <Filter>FrameWord\Framework\Animation</Filter>
+      <Filter>Enermy\FrameWord\Framework\Animation</Filter>
     </ClInclude>
     <ClInclude Include="SpriteManager.h">
-      <Filter>FrameWord\Framework\Animation</Filter>
+      <Filter>Enermy\FrameWord\Framework\Animation</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>FrameWord\Framework\Animation</Filter>
+      <Filter>Enermy\FrameWord\Framework\Animation</Filter>
     </ClInclude>
     <ClInclude Include="GameTime.h">
-      <Filter>FrameWord\Framework\GameTime</Filter>
+      <Filter>Enermy\FrameWord\Framework\GameTime</Filter>
     </ClInclude>
     <ClInclude Include="GameTimeLoop.h">
-      <Filter>FrameWord\Framework\GameTime</Filter>
+      <Filter>Enermy\FrameWord\Framework\GameTime</Filter>
     </ClInclude>
     <ClInclude Include="Graphics.h">
-      <Filter>FrameWord\Framework\Graphics</Filter>
+      <Filter>Enermy\FrameWord\Framework\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="KeyBoard.h">
-      <Filter>FrameWord\Framework\KeyBoard</Filter>
+      <Filter>Enermy\FrameWord\Framework\KeyBoard</Filter>
     </ClInclude>
     <ClInclude Include="KeyGame.h">
-      <Filter>FrameWord\Framework\KeyBoard</Filter>
+      <Filter>Enermy\FrameWord\Framework\KeyBoard</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>FrameWord\Framework\Mouse</Filter>
+      <Filter>Enermy\FrameWord\Framework\Mouse</Filter>
     </ClInclude>
     <ClInclude Include="BaseObject.h">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClInclude>
     <ClInclude Include="Box.h">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClInclude>
     <ClInclude Include="DrawableObject.h">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClInclude>
     <ClInclude Include="OldRestore.h">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClInclude>
     <ClInclude Include="RectF.h">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClInclude>
     <ClInclude Include="Constant.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
-      <Filter>FrameWord\Framework\Collision</Filter>
+      <Filter>Enermy\FrameWord\Framework\Collision</Filter>
     </ClInclude>
     <ClInclude Include="WindowGame.h">
-      <Filter>FrameWord\Framework</Filter>
+      <Filter>Enermy\FrameWord\Framework</Filter>
     </ClInclude>
     <ClInclude Include="MovableObject.h">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClInclude>
     <ClInclude Include="Point.h">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClInclude>
     <ClInclude Include="Rockman.h">
       <Filter>X</Filter>
@@ -159,13 +165,13 @@
       <Filter>Scene</Filter>
     </ClInclude>
     <ClInclude Include="List.h">
-      <Filter>FrameWord</Filter>
+      <Filter>Enermy\FrameWord</Filter>
     </ClInclude>
     <ClInclude Include="ObjectsCategory.h">
       <Filter>Map</Filter>
     </ClInclude>
     <ClInclude Include="FixedPoint8.h">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClInclude>
     <ClInclude Include="RockButlet.h">
       <Filter>X</Filter>
@@ -221,9 +227,6 @@
     <ClInclude Include="Rhino.h">
       <Filter>Enermy\Rhino</Filter>
     </ClInclude>
-    <ClInclude Include="HP_Boss.h">
-      <Filter>Enermy\Rhino</Filter>
-    </ClInclude>
     <ClInclude Include="MainMenu.h">
       <Filter>Scene</Filter>
     </ClInclude>
@@ -257,67 +260,88 @@
     <ClInclude Include="Genjibo_sp.h">
       <Filter>Enermy\Genjibo</Filter>
     </ClInclude>
+    <ClInclude Include="BlashHornet.h">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClInclude>
+    <ClInclude Include="Hornet.h">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClInclude>
+    <ClInclude Include="BlashHornet_Point.h">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClInclude>
+    <ClInclude Include="BlashHornet_Wing.h">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClInclude>
+    <ClInclude Include="HP_Boss.h">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClInclude>
+    <ClInclude Include="dsutil.h">
+      <Filter>Enermy\FrameWord\Framework\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="dxutil.h">
+      <Filter>Enermy\FrameWord\Framework\Sound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
-      <Filter>FrameWord\Framework\Animation</Filter>
+      <Filter>Enermy\FrameWord\Framework\Animation</Filter>
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
-      <Filter>FrameWord\Framework\Animation</Filter>
+      <Filter>Enermy\FrameWord\Framework\Animation</Filter>
     </ClCompile>
     <ClCompile Include="SpriteManager.cpp">
-      <Filter>FrameWord\Framework\Animation</Filter>
+      <Filter>Enermy\FrameWord\Framework\Animation</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
-      <Filter>FrameWord\Framework\Animation</Filter>
+      <Filter>Enermy\FrameWord\Framework\Animation</Filter>
     </ClCompile>
     <ClCompile Include="GameTime.cpp">
-      <Filter>FrameWord\Framework\GameTime</Filter>
+      <Filter>Enermy\FrameWord\Framework\GameTime</Filter>
     </ClCompile>
     <ClCompile Include="GameTimeLoop.cpp">
-      <Filter>FrameWord\Framework\GameTime</Filter>
+      <Filter>Enermy\FrameWord\Framework\GameTime</Filter>
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
-      <Filter>FrameWord\Framework\Graphics</Filter>
+      <Filter>Enermy\FrameWord\Framework\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="KeyBoard.cpp">
-      <Filter>FrameWord\Framework\KeyBoard</Filter>
+      <Filter>Enermy\FrameWord\Framework\KeyBoard</Filter>
     </ClCompile>
     <ClCompile Include="KeyGame.cpp">
-      <Filter>FrameWord\Framework\KeyBoard</Filter>
+      <Filter>Enermy\FrameWord\Framework\KeyBoard</Filter>
     </ClCompile>
     <ClCompile Include="Mouse.cpp">
-      <Filter>FrameWord\Framework\Mouse</Filter>
+      <Filter>Enermy\FrameWord\Framework\Mouse</Filter>
     </ClCompile>
     <ClCompile Include="BaseObject.cpp">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClCompile>
     <ClCompile Include="Box.cpp">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClCompile>
     <ClCompile Include="DrawableObject.cpp">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClCompile>
     <ClCompile Include="OldRestore.cpp">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClCompile>
     <ClCompile Include="RectF.cpp">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
-      <Filter>FrameWord\Framework\Collision</Filter>
+      <Filter>Enermy\FrameWord\Framework\Collision</Filter>
     </ClCompile>
     <ClCompile Include="WindowGame.cpp">
-      <Filter>FrameWord\Framework</Filter>
+      <Filter>Enermy\FrameWord\Framework</Filter>
     </ClCompile>
     <ClCompile Include="MovableObject.cpp">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClCompile>
     <ClCompile Include="Point.cpp">
-      <Filter>FrameWord\Framework\Object</Filter>
+      <Filter>Enermy\FrameWord\Framework\Object</Filter>
     </ClCompile>
     <ClCompile Include="Rockman.cpp">
       <Filter>X</Filter>
@@ -400,9 +424,6 @@
     <ClCompile Include="Rhino.cpp">
       <Filter>Enermy\Rhino</Filter>
     </ClCompile>
-    <ClCompile Include="HP_Boss.cpp">
-      <Filter>Enermy\Rhino</Filter>
-    </ClCompile>
     <ClCompile Include="MainMenu.cpp">
       <Filter>Scene</Filter>
     </ClCompile>
@@ -435,6 +456,24 @@
     </ClCompile>
     <ClCompile Include="Genjibo_sp.cpp">
       <Filter>Enermy\Genjibo</Filter>
+    </ClCompile>
+    <ClCompile Include="BlashHornet.cpp">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClCompile>
+    <ClCompile Include="Hornet.cpp">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClCompile>
+    <ClCompile Include="BlashHornet_Point.cpp">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClCompile>
+    <ClCompile Include="BlashHornet_Wing.cpp">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClCompile>
+    <ClCompile Include="HP_Boss.cpp">
+      <Filter>Enermy\BlashHornet</Filter>
+    </ClCompile>
+    <ClCompile Include="dsutil.cpp">
+      <Filter>Enermy\FrameWord\Framework\Sound</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
