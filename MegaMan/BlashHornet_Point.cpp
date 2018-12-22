@@ -12,6 +12,7 @@ void BlashHornet_Point::draw()
 	if (!alive)
 	{
 		BlashHornet_Point::getInstance()->_Remove(this);
+		ROCKMAN->isFollowing = false;
 		return;
 	}
 
@@ -31,8 +32,8 @@ void BlashHornet_Point::update()
 	
 	if (isCollision)
 	{
-		x = ROCKMAN->x;
-		y = ROCKMAN->y;
+		x = ROCKMAN->x+2;
+		y = ROCKMAN->y+2;
 		vx = ROCKMAN->vx;
 		vy = ROCKMAN->vy;
 	}
@@ -65,6 +66,7 @@ BlashHornet_Point::BlashHornet_Point(int xBoss, int yBoss, Direction dir)
 	timeDie.curLoop = 0;
 	BlashHornet_Point::getInstance()->_Add(this);
 	ay = 0;
+	collisionType = CT_FOLLOWING;
 }
 
 BlashHornet_Point::BlashHornet_Point()

@@ -11,6 +11,7 @@
 #include"Effect_Power.h"
 #include"Stage.h"
 #include"Scene.h"
+#include "BlashHornet_Point.h"
 
 
 class Rockman:public MovableObject
@@ -35,6 +36,7 @@ public:
 	int doorCollision;
 	int NumberOfLife;
 	int isPushing;
+	bool isFollowing;
 
 	GameTimeLoop timeCharging;
 	GameTimeLoop timeCharging1;

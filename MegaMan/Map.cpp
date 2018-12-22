@@ -416,9 +416,12 @@ void Map::draw()
 	}
 	for (int i = 0; i < HORNET->size(); i++)
 		HORNET->at(i)->draw();
-	for (int i = 0; i < BLASHHORNET_POINT->size(); i++)
+	if (!ROCKMAN->isFollowing)
 	{
-		BLASHHORNET_POINT->at(i)->draw();
+		for (int i = 0; i < BLASHHORNET_POINT->size(); i++)
+		{
+			BLASHHORNET_POINT->at(i)->draw();
+		}
 	}
 }
 void Map::restoreAllObject()

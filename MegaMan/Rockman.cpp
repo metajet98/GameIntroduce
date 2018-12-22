@@ -50,7 +50,7 @@ void Rockman::onCollision(BaseObject*S, int nx, int ny)
 		setOnHit(false);
 		vx = 0;
 	}
-
+	if (S->collisionType == CT_FOLLOWING) isFollowing = true;
 }
 
 void Rockman::updateLocation()
@@ -134,6 +134,13 @@ void Rockman::draw()
 			 EFFECT_POWER->curAnimation = 0;
 		 EFFECT_POWER->draw();
 		 EFFECT_POWER->update();
+	 }
+	 if (isFollowing)
+	 {
+		 for (int i = 0; i < BLASHHORNET_POINT->size(); i++)
+		 {
+			 BLASHHORNET_POINT->at(i)->draw();
+		 }
 	 }
 	 // co the ve hieu ung sliding or pushing
 	if (direction == sprite->image->direction)

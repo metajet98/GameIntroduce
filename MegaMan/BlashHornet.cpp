@@ -28,7 +28,7 @@ BlashHornet::BlashHornet()
 	timeDeath.init(0.2, 20);
 	timeDeath.start();
 	timePerAnimation.curLoop = 0;
-	damage = 2;
+	damage = 1;
 	damaged = false;
 	x = 4509;
 	y = 295;
@@ -226,7 +226,12 @@ void BlashHornet::spawnChildAndFollow()
 void BlashHornet::update()
 {
 	if (!ROCKMAN->onAreaBoss) return;
-	if (BlashHornet::lifeBoss <= 0) return;
+	if (BlashHornet::lifeBoss <= 0)
+	{
+		dx = 0;
+		changeAction(BLASHHORNET_DIE);
+		return;
+	}
 	if (damaged && alive)
 	{
 		if (damagedTime.canCreateFrame())
@@ -272,18 +277,17 @@ void BlashHornet::update()
 		//mech1
 		typeATT = 1;
 	}
+	//else if (BlashHornet::lifeBoss >= BLASHHORNET_Life / 3)
+	//{
+	//	//mech2
+	//	typeATT = 1;
+	//}
 	else if (BlashHornet::lifeBoss >= BLASHHORNET_Life / 3)
-	{
-		//mech2
-		typeATT = 1;
-	}
-	else if (BlashHornet::lifeBoss >= BLASHHORNET_Life / 6)
 	{
 		//mech3
 
 		typeATT = 3;
 	}
-
 	
 	/*x += direction*(sqrt(2)*cosf(time)) / (sinf(time)*sinf(time) + 1);
 	int d = (3 * sqrt(2)*cosf(time)*sinf(time)) / (sinf(time)*sinf(time) + 1);
@@ -340,12 +344,17 @@ void BlashHornet::onCollision(BaseObject * other, int nx, int ny)
 	{
 		MovableObject::onCollision(other, nx, ny);
 
-		if (ny == -1)
+		if ((ny == -1 || nx != 0) && curAnimation != BLASHHORNET_DIE)
 		{
 			changeAction(BLASHHORNET_FLY);
 			vy = -BLASHHORNET_VY;
 		}
 		/*if (nx != 0) direction = (Direction)nx;*/
+	}
+	if ((ny == -1 || nx != 0) && other->collisionType == CT_PLAYER && curAnimation!=BLASHHORNET_DIE)
+	{
+		changeAction(BLASHHORNET_FLY);
+		vy = -BLASHHORNET_VY;
 	}
 }
 

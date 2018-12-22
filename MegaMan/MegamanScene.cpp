@@ -47,6 +47,7 @@ void MegamanScene::update()
 		ROCKMAN->alive = true;
 		ROCKMAN->pauseAnimation = false;
 		ROCKMAN->isDeath = false;
+		ROCKMAN->isFollowing = false;
 		ROCKMAN->timeDeath.start();
 		DieEffect::getList()->Clear();
 		if (Stage::curStage->index == 0 || Stage::curStage->index == 1)
