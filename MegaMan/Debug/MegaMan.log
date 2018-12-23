@@ -1,8 +1,4 @@
-﻿  Animate.cpp
-  BaseObject.cpp
-  BigHealth.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  BlashHornet.cpp
+﻿  BlashHornet.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(24): warning C4305: 'argument': truncation from 'double' to 'float'
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(26): warning C4305: 'argument': truncation from 'double' to 'float'
@@ -12,322 +8,31 @@ d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(45): warning C42
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(46): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(91): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(92): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(109): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(116): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(117): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(118): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(112): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(119): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(125): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(178): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(179): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(180): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(120): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(121): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(122): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(128): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(181): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(182): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(186): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(187): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(188): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(183): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(184): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(185): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(189): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
 d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(190): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(203): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(208): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(215): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(220): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(449): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(450): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  BlashHornet_Point.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\blashhornet_point.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet_point.cpp(63): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\blashhornet_point.cpp(64): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  BlashHornet_Wing.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\blashhornet_wing.cpp(24): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Box.cpp
-  Byte.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(16): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(18): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(56): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(63): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(65): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(71): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(114): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(125): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(129): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte.cpp(278): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Byte_bullet.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\byte_bullet.cpp(14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte_bullet.cpp(60): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte_bullet.cpp(67): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte_bullet.cpp(68): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte_bullet.cpp(74): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte_bullet.cpp(122): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\byte_bullet.cpp(123): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Camera.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Caterkiller.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\caterkiller.cpp(36): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller.cpp(44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller.cpp(58): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller.cpp(59): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller.cpp(64): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller.cpp(65): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller.cpp(103): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
-  Caterkiller_bullet.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(16): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(17): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(30): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(31): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(33): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(34): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(82): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\caterkiller_bullet.cpp(86): warning C4305: 'argument': truncation from 'double' to 'float'
-  ChangeScene.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  CollisionManager.cpp
-d:\study\visual project\megaman\megaman\megaman\collisionmanager.cpp(98): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\collisionmanager.cpp(99): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\collisionmanager.cpp(103): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\collisionmanager.cpp(104): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\collisionmanager.cpp(111): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\collisionmanager.cpp(112): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\collisionmanager.cpp(116): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\collisionmanager.cpp(117): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  DeadLane.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  DieEffect.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\dieeffect.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dieeffect.cpp(19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dieeffect.cpp(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Door.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\door.cpp(31): warning C4553: '==': result of expression not used; did you intend '='?
-d:\study\visual project\megaman\megaman\megaman\door.cpp(101): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\door.cpp(102): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\door.cpp(103): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\door.cpp(104): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  DoorCanMove.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\doorcanmove.cpp(30): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\doorcanmove.cpp(37): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\doorcanmove.cpp(38): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\doorcanmove.cpp(44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\doorcanmove.cpp(85): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\doorcanmove.cpp(87): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\doorcanmove.cpp(88): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\doorcanmove.cpp(89): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\doorcanmove.cpp(90): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Dragonfly.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\dragonfly.cpp(33): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dragonfly.cpp(42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dragonfly.cpp(94): warning C4553: '==': result of expression not used; did you intend '='?
-d:\study\visual project\megaman\megaman\megaman\dragonfly.cpp(95): warning C4305: 'argument': truncation from 'double' to 'float'
-  Dragonfly_bullet.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\dragonfly_bullet.cpp(15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dragonfly_bullet.cpp(23): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dragonfly_bullet.cpp(24): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dragonfly_bullet.cpp(30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dragonfly_bullet.cpp(74): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dragonfly_bullet.cpp(75): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\dragonfly_bullet.cpp(78): warning C4305: 'argument': truncation from 'double' to 'float'
-  Generating Code...
-  Compiling...
-  DrawableObject.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\drawableobject.cpp(74): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\drawableobject.cpp(75): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\drawableobject.cpp(81): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  dsutil.cpp
-  Effect.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\effect.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\effect.cpp(19): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\effect.cpp(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Effect_Power.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\effect_power.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\effect_power.cpp(18): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Enermy.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\enermy.cpp(21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\enermy.cpp(46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\enermy.cpp(53): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\enermy.cpp(54): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\enermy.cpp(60): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\enermy.cpp(135): warning C4305: 'argument': truncation from 'double' to 'float'
-  GameOver.cpp
-  GameTime.cpp
-  GameTimeLoop.cpp
-  Genjibo.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(40): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(41): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(43): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(44): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(50): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(137): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(150): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(157): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(178): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(181): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(201): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(202): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(239): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(245): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(350): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\genjibo.cpp(353): warning C4305: 'argument': truncation from 'double' to 'float'
-  Genjibo_sp.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(16): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(19): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(20): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(26): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(52): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(61): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\genjibo_sp.cpp(102): warning C4305: 'argument': truncation from 'double' to 'float'
-  Graphics.cpp
-  Hornet.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\hornet.cpp(32): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\hornet.cpp(39): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\hornet.cpp(40): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\hornet.cpp(46): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\hornet.cpp(137): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\hornet.cpp(138): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\hornet.cpp(141): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\hornet.cpp(142): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  HP_Boss.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\hp_boss.cpp(17): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Item.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  KeyBoard.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\keyboard.cpp(44): warning C4804: '>': unsafe use of type 'bool' in operation
-  KeyGame.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  HP_bar.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\hp_bar.cpp(18): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\hp_bar.cpp(76): warning C4305: 'argument': truncation from 'double' to 'float'
-  Main.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(191): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(192): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(193): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(206): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(211): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(218): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(223): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(457): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+d:\study\visual project\megaman\megaman\megaman\blashhornet.cpp(458): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   MainMenu.cpp
   c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\mainmenu.cpp(79): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\mainmenu.cpp(81): warning C4305: 'argument': truncation from 'double' to 'float'
-  Map.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\map.cpp(62): warning C4244: '=': conversion from 'Direction' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\map.cpp(366): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
-  Compiling...
-  MegamanScene.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Mouse.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  MovableObject.cpp
-  NotoBanger_bullet.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\notobanger_bullet.cpp(15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\notobanger_bullet.cpp(28): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\notobanger_bullet.cpp(29): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\notobanger_bullet.cpp(35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\notobanger_bullet.cpp(76): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\notobanger_bullet.cpp(77): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\notobanger_bullet.cpp(80): warning C4305: 'argument': truncation from 'double' to 'float'
-  NotorBanger.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\notorbanger.cpp(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\notorbanger.cpp(71): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\notorbanger.cpp(72): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\notorbanger.cpp(130): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\notorbanger.cpp(135): warning C4305: 'argument': truncation from 'double' to 'float'
-  ObjectsCategory.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  OldRestore.cpp
-  Point.cpp
-  QuadNode.cpp
-  QuadTree.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  RectF.cpp
-d:\study\visual project\megaman\megaman\megaman\rectf.cpp(48): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Rhino.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(31): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(38): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(39): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(45): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(147): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(166): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(177): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(179): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(309): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(333): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\rhino.cpp(335): warning C4305: 'argument': truncation from 'double' to 'float'
-  Rhino_bullet.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\rhino_bullet.cpp(14): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino_bullet.cpp(22): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino_bullet.cpp(23): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino_bullet.cpp(29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino_bullet.cpp(67): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rhino_bullet.cpp(68): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  RockButlet.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\rockbutlet.cpp(16): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockbutlet.cpp(17): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockbutlet.cpp(24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockbutlet.cpp(44): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Rockman.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(82): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(83): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(89): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(115): warning C4390: ';': empty controlled statement found; is this the intent?
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(169): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(311): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(313): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(516): warning C4390: ';': empty controlled statement found; is this the intent?
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(545): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(551): warning C4305: 'argument': truncation from 'double' to 'float'
-d:\study\visual project\megaman\megaman\megaman\rockman.cpp(554): warning C4305: 'argument': truncation from 'double' to 'float'
-  Scene.cpp
-  SmallHealth.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-  Sprite.cpp
-  SpriteManager.cpp
-  Stage.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\stage.cpp(28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\stage.cpp(29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\stage.cpp(30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\stage.cpp(31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-  Generating Code...
-d:\study\visual project\megaman\megaman\megaman\stage.cpp(19): warning C4715: 'Stage::update': not all control paths return a value
-  Compiling...
-  Texture.cpp
-  TileMap.cpp
-  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
-d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(27): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(28): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(31): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(35): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
-d:\study\visual project\megaman\megaman\megaman\tilemap.cpp(36): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
-  WindowGame.cpp
-  WinGame.cpp
+d:\study\visual project\megaman\megaman\megaman\mainmenu.cpp(85): warning C4305: 'argument': truncation from 'double' to 'float'
+d:\study\visual project\megaman\megaman\megaman\mainmenu.cpp(87): warning C4305: 'argument': truncation from 'double' to 'float'
   Generating Code...
   MegaMan.vcxproj -> D:\Study\Visual Project\megaman\MegaMan\Debug\MegaMan.exe

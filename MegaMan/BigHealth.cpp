@@ -11,6 +11,7 @@ void BigHealth::onAABBCheck(BaseObject * other)
 		ROCKMAN->life += 8;
 		if (ROCKMAN->life >= 24) ROCKMAN->life = 24;
 		//audio
+		AudioManager::getInstance()->Play(AUDIO_ROCK_PICKUP);
 	}
 }
 

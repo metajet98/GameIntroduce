@@ -28,7 +28,11 @@ void BlashHornet_Point::draw()
 void BlashHornet_Point::update()
 {
 	timeDie.curLoop++;
-	if (timeDie.curLoop >= 300) alive = false;
+	if (timeDie.curLoop >= 300)
+	{
+		alive = false;
+		ROCKMAN->isFollowing = false;
+	}
 	
 	if (isCollision)
 	{

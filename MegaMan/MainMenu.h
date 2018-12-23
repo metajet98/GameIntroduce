@@ -7,6 +7,7 @@
 #include "Constant.h"
 #include "TileMap.h"
 #include "MegamanScene.h"
+#include "AudioManager.h"
 class MainMenu: public Scene
 {
 public:

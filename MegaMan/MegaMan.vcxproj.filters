@@ -281,6 +281,12 @@
     <ClInclude Include="dxutil.h">
       <Filter>Enermy\FrameWord\Framework\Sound</Filter>
     </ClInclude>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Enermy\FrameWord\Framework\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound.h">
+      <Filter>Enermy\FrameWord\Framework\Sound</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp">
@@ -473,6 +479,12 @@
       <Filter>Enermy\BlashHornet</Filter>
     </ClCompile>
     <ClCompile Include="dsutil.cpp">
+      <Filter>Enermy\FrameWord\Framework\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Enermy\FrameWord\Framework\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound.cpp">
       <Filter>Enermy\FrameWord\Framework\Sound</Filter>
     </ClCompile>
   </ItemGroup>

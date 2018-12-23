@@ -23,6 +23,7 @@ void Genjibo::draw()
 			sprite = SPRITEMANAGER->sprites[SPR_BOSS_DIE];
 			curAnimation = 0;
 			curFrame = (curFrame + 1) % 6;
+			AudioManager::getInstance()->Play(AUDIO_BOSS_DIE);
 		}
 
 		if (timeDeath.isTerminated())

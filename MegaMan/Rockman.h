@@ -12,6 +12,7 @@
 #include"Stage.h"
 #include"Scene.h"
 #include "BlashHornet_Point.h"
+#include "AudioManager.h"
 
 
 class Rockman:public MovableObject

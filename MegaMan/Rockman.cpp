@@ -99,6 +99,7 @@ void Rockman::draw()
 		 {
 			 RockButlet *butlet = new RockButlet(OF_MEGAMAN);
 			 RockButlet::getListBullet()->_Add(butlet);
+			 AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 		 }
 		 if (timeCharging.isTerminated())
 		 {
@@ -134,6 +135,7 @@ void Rockman::draw()
 			 EFFECT_POWER->curAnimation = 0;
 		 EFFECT_POWER->draw();
 		 EFFECT_POWER->update();
+		 AudioManager::getInstance()->Play(AUDIO_CHARGE);
 	 }
 	 if (isFollowing)
 	 {
@@ -247,7 +249,8 @@ void Rockman::die()
 		}
 		dx = 0;
 		dy = 0;
-		
+		AudioManager::getInstance()->StopSound(AUDIO_FIRSTSTAGE);
+		AudioManager::getInstance()->Play(AUDIO_ROCK_DIE);
 	}
 }
 
@@ -329,6 +332,7 @@ void Rockman::updateChangeAnimation()
 				curFrame = 0;
 				
 				isOnGround = false;
+				AudioManager::getInstance()->Play(AUDIO_ROCK_JUMP);
 			}
 			else
 			{
@@ -349,7 +353,7 @@ void Rockman::updateChangeAnimation()
 						changeAction(HIGH_JUMP);
 						vy = -170;
 					}
-
+					AudioManager::getInstance()->Play(AUDIO_ROCK_SURFING);
 				}
 				else
 					if (KEY->keyMove)
@@ -361,6 +365,7 @@ void Rockman::updateChangeAnimation()
 							timeCharging.canCreateFrame();
 							timeCharging1.canCreateFrame();
 							changeAction(RUN_SHOT);
+							//AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 						}
 						else if (KEYBOARD->IskeyUp(DIK_Z))
 						{
@@ -379,9 +384,11 @@ void Rockman::updateChangeAnimation()
 									RockButlet::getListBullet()->_Add(rb);
 								}
 								isCharging = false;
+								AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 							}
 							timeCharging.curLoop = 0;
 							timeCharging1.curLoop = 0;
+							
 						}
 					}
 					else
@@ -393,6 +400,7 @@ void Rockman::updateChangeAnimation()
 							timeCharging.canCreateFrame();
 							timeCharging1.canCreateFrame();
 							changeAction(SHOT);
+							//AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 						}
 						else if (KEYBOARD->IskeyUp(DIK_Z))
 						{
@@ -413,9 +421,11 @@ void Rockman::updateChangeAnimation()
 									RockButlet::getListBullet()->_Add(rb);
 								}
 								isCharging = false;
+								AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 							}
 							timeCharging.curLoop = 0;
 							timeCharging1.curLoop = 0;
+							
 						}
 							
 					}
@@ -441,15 +451,18 @@ void Rockman::updateChangeAnimation()
 						RockButlet::getListBullet()->_Add(rb);
 					}
 					isCharging = false;
+					AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 				}
 				timeCharging.curLoop = 0;
 				timeCharging1.curLoop = 0;
+				
 			}
 			if (KEY->keyAttack && !isPushing && curAnimation != ON_HIT && !isCharging && curAnimation != ON_HIT)
 			{
 				timeCharging.canCreateFrame();
 				timeCharging1.canCreateFrame();
 				changeAction(JUMP_SHOT);
+				//AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 			}
 
 			else
@@ -465,6 +478,7 @@ void Rockman::updateChangeAnimation()
 							changeAction(PUSHING_JUMP);
 							vy = -170;
 						}
+						AudioManager::getInstance()->Play(AUDIO_ROCK_JUMP);
 					}
 
 					if (KEY->keyAttack && !isCharging)
@@ -472,6 +486,7 @@ void Rockman::updateChangeAnimation()
 						timeCharging.canCreateFrame();
 						timeCharging1.canCreateFrame();
 						changeAction(PUSHING_SHOT);
+						
 					}
 					else if (KEYBOARD->IskeyUp(DIK_Z))
 					{
@@ -490,9 +505,11 @@ void Rockman::updateChangeAnimation()
 								RockButlet::getListBullet()->_Add(rb);
 							}
 							isCharging = false;
+							AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 						}
 						timeCharging.curLoop = 0;
 						timeCharging1.curLoop = 0;
+						
 					}
 				}
 				else
@@ -527,10 +544,10 @@ void Rockman::updateChangeAnimation()
 Rockman::Rockman()
 {
 	sprite = SPRITEMANAGER->sprites[SPR_MAIN];
-	//x = 110;
-	//y = 680;
-	x = 3964;
-	y = 385;
+	x = 110;
+	y = 680;
+	//x = 3964;
+	//y = 385;
 	//x = 1596;
 	//y = 579;
 	direction = Right;

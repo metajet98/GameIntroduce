@@ -47,6 +47,7 @@ void Byte::draw()
 			sprite = SPRITEMANAGER->sprites[SPR_BOSS_DIE];
 			curAnimation = 0;
 			curFrame = (curFrame + 1) % 6;
+			AudioManager::getInstance()->Play(AUDIO_BOSS_DIE);
 		}
 
 		if (timeDeath.isTerminated())
@@ -273,11 +274,12 @@ void Byte::onAABBCheck(BaseObject * other)
 			vx = 0;
 			ROCKMAN->changeAction(ON_HIT);
 			ROCKMAN->setOnHit(true);
-			if (curAnimation == BYTE_ATT && curFrame == sprite->animates[curAnimation].nFrame - 1)
+			/*if (curAnimation == BYTE_ATT && curFrame == sprite->animates[curAnimation].nFrame - 1)
 			{
 				ROCKMAN->vx = direction * 500;
 
-			}
+			}*/
+			ROCKMAN->vx = direction * 300;
 			ROCKMAN->life -= damage;
 			ROCKMAN->gameTimeLoop.start();
 		}
@@ -318,6 +320,9 @@ void Byte::restore(BaseObject * obj)
 	curAnimation = BYTE_STAND;
 	curFrame = 0;
 	// cap nhat lai x,y
+	x = 927;
+	y = 90;
+
 }
 
 void Byte::changeAction(int newAction)

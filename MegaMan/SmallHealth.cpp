@@ -10,6 +10,7 @@ void SmallHealth::onAABBCheck(BaseObject * other)
 		ROCKMAN->life += 4;
 		if (ROCKMAN->life >= 24) ROCKMAN->life = 24;
 		//audio
+		AudioManager::getInstance()->Play(AUDIO_ROCK_PICKUP);
 	}
 }
 

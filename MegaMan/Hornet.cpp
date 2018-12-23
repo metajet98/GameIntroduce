@@ -20,6 +20,7 @@ void Hornet::draw()
 			sprite = SPRITEMANAGER->sprites[SPR_HORNET_DIE];
 			curAnimation = 0;
 			curFrame = (curFrame + 1) % 6;
+			AudioManager::getInstance()->Play(AUDIO_CREP_DIE);
 		}
 
 		if (timeDeath.isTerminated())

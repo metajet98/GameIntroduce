@@ -7,10 +7,14 @@ void MainMenu::init()
 	img.Init("Data\\Miscellaneous\\Backgrounds\\IntroGame.png", D3DCOLOR_XRGB(1, 1, 1));
 	chooseBullet = new Sprite("Data\\Miscellaneous\\Backgrounds\\butlet.png", "Data\\Miscellaneous\\Backgrounds\\bullet_choose.txt");
 	chooseMGM = new Sprite("Data\\Rockman\\rock_x3.png", "Data\\Miscellaneous\\Backgrounds\\chose.txt");
+	
 }
 
 void MainMenu::update()
 {
+	AudioManager::getInstance()->Play(AUDIO_STARTGAME);
+	AudioManager::getInstance()->StopSound(AUDIO_BOSS_DIE);
+	AudioManager::getInstance()->StopSound(AUDIO_ROCK_DIE);
 	if (isStart)
 	{
 
@@ -36,6 +40,8 @@ void MainMenu::update()
 			CAMERA->x = Map::curMap->xMap;
 			CAMERA->y = Map::curMap->yMap;
 			//sound
+			AudioManager::getInstance()->StopSound(AUDIO_STARTGAME);
+			AudioManager::getInstance()->LoopSound(AUDIO_FIRSTSTAGE);
 		}
 	}
 
@@ -82,6 +88,7 @@ MainMenu::MainMenu()
 	timeChangeAnimation.start();
 	x = 50;
 	y = 128;
+	
 }
 
 

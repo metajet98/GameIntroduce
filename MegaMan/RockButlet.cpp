@@ -87,7 +87,7 @@ RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 	if (level == OF_MEGAMAN)
 	{
 		x = ROCKMAN->x + ((direction == Right) ? -1 : -2)*8;
-		y = ROCKMAN->yCenter() - height / 2;
+		y = ROCKMAN->yCenter() - height / 2 -2;
 		direction = ROCKMAN->direction;
 		if (ROCKMAN->curAnimation == PUSHING_SHOT)
 		{
@@ -100,12 +100,12 @@ RockButlet::RockButlet(CATEGORY_BULLET_FOR_MEGAMAN level)
 	{
 		direction = ROCKMAN->direction;
 		x = ROCKMAN->x + ((direction == Right) ? 0 : -1) * (ROCKMAN->width - 8);
-		y = ROCKMAN->yCenter() - height / 2;
+		y = ROCKMAN->yCenter() - height / 2-9;
 		if (ROCKMAN->isPushing)
 		{
 			direction = ROCKMAN->direction == Right ? Left : Right;
 			x = ROCKMAN->x + ((direction == Right) ? 1 : -2) * (ROCKMAN->width - 8);
-			y = ROCKMAN->yCenter() - height / 3;
+			y = ROCKMAN->yCenter() - height / 3-9;
 		}
 	}
 	if (categoryBullet == OF_MEGAMAN)

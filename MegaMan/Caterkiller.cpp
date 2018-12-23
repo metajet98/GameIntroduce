@@ -91,6 +91,7 @@ void Caterkiller::onCollision(BaseObject * S, int nx, int ny)
 
 void Caterkiller::restore(BaseObject * obj)
 {
+	Enermy::restore(obj);
 	alive = true;
 	life = 2;
 }

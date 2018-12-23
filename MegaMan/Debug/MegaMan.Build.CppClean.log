@@ -1,6 +1,5 @@
 d:\study\visual project\megaman\megaman\megaman\debug\vc141.pdb
 d:\study\visual project\megaman\megaman\megaman\debug\vc141.idb
-d:\study\visual project\megaman\megaman\megaman\debug\dragonfly_bullet.obj
 d:\study\visual project\megaman\megaman\megaman\debug\dragonfly.obj
 d:\study\visual project\megaman\megaman\megaman\debug\doorcanmove.obj
 d:\study\visual project\megaman\megaman\megaman\debug\door.obj
@@ -19,8 +18,8 @@ d:\study\visual project\megaman\megaman\megaman\debug\blashhornet_point.obj
 d:\study\visual project\megaman\megaman\megaman\debug\blashhornet.obj
 d:\study\visual project\megaman\megaman\megaman\debug\bighealth.obj
 d:\study\visual project\megaman\megaman\megaman\debug\baseobject.obj
+d:\study\visual project\megaman\megaman\megaman\debug\audiomanager.obj
 d:\study\visual project\megaman\megaman\megaman\debug\animate.obj
-d:\study\visual project\megaman\megaman\megaman\debug\map.obj
 d:\study\visual project\megaman\megaman\megaman\debug\mainmenu.obj
 d:\study\visual project\megaman\megaman\megaman\debug\main.obj
 d:\study\visual project\megaman\megaman\megaman\debug\hp_bar.obj
@@ -40,7 +39,7 @@ d:\study\visual project\megaman\megaman\megaman\debug\effect_power.obj
 d:\study\visual project\megaman\megaman\megaman\debug\effect.obj
 d:\study\visual project\megaman\megaman\megaman\debug\dsutil.obj
 d:\study\visual project\megaman\megaman\megaman\debug\drawableobject.obj
-d:\study\visual project\megaman\megaman\megaman\debug\stage.obj
+d:\study\visual project\megaman\megaman\megaman\debug\dragonfly_bullet.obj
 d:\study\visual project\megaman\megaman\megaman\debug\spritemanager.obj
 d:\study\visual project\megaman\megaman\megaman\debug\sprite.obj
 d:\study\visual project\megaman\megaman\megaman\debug\smallhealth.obj
@@ -60,12 +59,14 @@ d:\study\visual project\megaman\megaman\megaman\debug\notobanger_bullet.obj
 d:\study\visual project\megaman\megaman\megaman\debug\movableobject.obj
 d:\study\visual project\megaman\megaman\megaman\debug\mouse.obj
 d:\study\visual project\megaman\megaman\megaman\debug\megamanscene.obj
+d:\study\visual project\megaman\megaman\megaman\debug\map.obj
 d:\study\visual project\megaman\megaman\megaman\debug\wingame.obj
 d:\study\visual project\megaman\megaman\megaman\debug\windowgame.obj
 d:\study\visual project\megaman\megaman\megaman\debug\tilemap.obj
 d:\study\visual project\megaman\megaman\megaman\debug\texture.obj
-d:\study\visual project\megaman\megaman\debug\megaman.exe
+d:\study\visual project\megaman\megaman\megaman\debug\stage.obj
 d:\study\visual project\megaman\megaman\debug\megaman.ilk
+d:\study\visual project\megaman\megaman\debug\megaman.exe
 d:\study\visual project\megaman\megaman\debug\megaman.pdb
 d:\study\visual project\megaman\megaman\megaman\debug\megaman.tlog\cl.command.1.tlog
 d:\study\visual project\megaman\megaman\megaman\debug\megaman.tlog\cl.read.1.tlog

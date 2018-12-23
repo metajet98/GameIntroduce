@@ -94,6 +94,8 @@ void BlashHornet::draw()
 				de->y = y + 5;
 				if (de->curFrame == de->sprite->animates[0].nFrame - 1) de->allowDelete = true;
 			}
+			AudioManager::getInstance()->StopSound(AUDIO_BOSSSTAGE);
+			AudioManager::getInstance()->LoopSound(AUDIO_BOSS_DIE);
 		}
 
 		if (timeDeath.isTerminated())
@@ -102,6 +104,7 @@ void BlashHornet::draw()
 			DieEffect::getList()->Clear();
 			ROCKMAN->onAreaBoss = false;
 			HORNET->Clear();
+			this->isDeath = true;
 			return;
 		}
 
@@ -226,6 +229,11 @@ void BlashHornet::spawnChildAndFollow()
 void BlashHornet::update()
 {
 	if (!ROCKMAN->onAreaBoss) return;
+	if (ROCKMAN->onAreaBoss && alive)
+	{
+		AudioManager::getInstance()->StopSound(AUDIO_FIRSTSTAGE);
+		AudioManager::getInstance()->Play(AUDIO_BOSSSTAGE);
+	}
 	if (BlashHornet::lifeBoss <= 0)
 	{
 		dx = 0;

@@ -150,6 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animate.h" />
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="BaseObject.h" />
     <ClInclude Include="BigHealth.h" />
     <ClInclude Include="BlashHornet.h" />
@@ -209,6 +210,7 @@
     <ClInclude Include="Rockman.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SmallHealth.h" />
+    <ClInclude Include="Sound.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="SpriteManager.h" />
     <ClInclude Include="Stage.h" />
@@ -219,6 +221,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animate.cpp" />
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="BaseObject.cpp" />
     <ClCompile Include="BigHealth.cpp" />
     <ClCompile Include="BlashHornet.cpp" />
@@ -275,6 +278,7 @@
     <ClCompile Include="Rockman.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SmallHealth.cpp" />
+    <ClCompile Include="Sound.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="SpriteManager.cpp" />
     <ClCompile Include="Stage.cpp" />
