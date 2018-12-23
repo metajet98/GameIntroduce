@@ -98,7 +98,8 @@ void MegamanScene::update()
 		//HP_BOSS->curFrame = RHINO->life;
 		HP_BOSS->x = CAMERA->x + 220;
 		HP_BOSS->y = CAMERA->y;
-		AudioManager::getInstance()->Play(AUDIO_FIRSTSTAGE);
+		if(ROCKMAN->NumberOfLife!=0)
+			AudioManager::getInstance()->Play(AUDIO_FIRSTSTAGE);
 		return;
 	}
 

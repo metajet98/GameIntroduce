@@ -12,7 +12,7 @@ void MainMenu::init()
 
 void MainMenu::update()
 {
-	AudioManager::getInstance()->Play(AUDIO_STARTGAME);
+	AudioManager::getInstance()->LoopSound(AUDIO_STARTGAME);
 	AudioManager::getInstance()->StopSound(AUDIO_BOSS_DIE);
 	AudioManager::getInstance()->StopSound(AUDIO_ROCK_DIE);
 	if (isStart)

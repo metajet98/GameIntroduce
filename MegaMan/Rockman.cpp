@@ -384,6 +384,7 @@ void Rockman::updateChangeAnimation()
 									RockButlet::getListBullet()->_Add(rb);
 								}
 								isCharging = false;
+								AudioManager::getInstance()->StopSound(AUDIO_CHARGE);
 								AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 							}
 							timeCharging.curLoop = 0;
@@ -421,7 +422,9 @@ void Rockman::updateChangeAnimation()
 									RockButlet::getListBullet()->_Add(rb);
 								}
 								isCharging = false;
+								AudioManager::getInstance()->StopSound(AUDIO_CHARGE);
 								AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
+								
 							}
 							timeCharging.curLoop = 0;
 							timeCharging1.curLoop = 0;
@@ -451,6 +454,7 @@ void Rockman::updateChangeAnimation()
 						RockButlet::getListBullet()->_Add(rb);
 					}
 					isCharging = false;
+					AudioManager::getInstance()->StopSound(AUDIO_CHARGE);
 					AudioManager::getInstance()->Play(AUDIO_SHOT_BULLET);
 				}
 				timeCharging.curLoop = 0;
