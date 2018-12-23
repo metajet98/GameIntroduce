@@ -51,7 +51,10 @@ void Byte::draw()
 		}
 
 		if (timeDeath.isTerminated())
+		{
+			AudioManager::getInstance()->StopSound(AUDIO_BOSS_DIE);
 			return;
+		}
 
 		int xInViewport, yInViewport;
 		TileMap::curMap->convertToViewportPos(x, y, xInViewport, yInViewport);

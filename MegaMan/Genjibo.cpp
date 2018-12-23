@@ -28,6 +28,7 @@ void Genjibo::draw()
 
 		if (timeDeath.isTerminated())
 		{
+			AudioManager::getInstance()->StopSound(AUDIO_BOSS_DIE);
 			return;
 		}
 
