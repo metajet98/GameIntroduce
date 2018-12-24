@@ -42,6 +42,7 @@ void RockButlet::update()
 {		
 	
 	vx = direction * 120;
+	
 	isOnGround = false;
 	updateVerlocity();
 	if (!alive) return;

@@ -20,6 +20,7 @@ public:
 	GameTimeLoop timeStand;
 	GameTimeLoop timeShot;
 	int countJump;
+	bool isJump;
 
 	void draw();
 	void update();

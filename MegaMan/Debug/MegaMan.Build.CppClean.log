@@ -40,8 +40,8 @@ d:\study\visual project\megaman\megaman\megaman\debug\effect.obj
 d:\study\visual project\megaman\megaman\megaman\debug\dsutil.obj
 d:\study\visual project\megaman\megaman\megaman\debug\drawableobject.obj
 d:\study\visual project\megaman\megaman\megaman\debug\dragonfly_bullet.obj
-d:\study\visual project\megaman\megaman\megaman\debug\spritemanager.obj
 d:\study\visual project\megaman\megaman\megaman\debug\sprite.obj
+d:\study\visual project\megaman\megaman\megaman\debug\sound.obj
 d:\study\visual project\megaman\megaman\megaman\debug\smallhealth.obj
 d:\study\visual project\megaman\megaman\megaman\debug\scene.obj
 d:\study\visual project\megaman\megaman\megaman\debug\rockman.obj
@@ -65,7 +65,7 @@ d:\study\visual project\megaman\megaman\megaman\debug\windowgame.obj
 d:\study\visual project\megaman\megaman\megaman\debug\tilemap.obj
 d:\study\visual project\megaman\megaman\megaman\debug\texture.obj
 d:\study\visual project\megaman\megaman\megaman\debug\stage.obj
-d:\study\visual project\megaman\megaman\megaman\debug\sound.obj
+d:\study\visual project\megaman\megaman\megaman\debug\spritemanager.obj
 d:\study\visual project\megaman\megaman\debug\megaman.exe
 d:\study\visual project\megaman\megaman\debug\megaman.ilk
 d:\study\visual project\megaman\megaman\debug\megaman.pdb

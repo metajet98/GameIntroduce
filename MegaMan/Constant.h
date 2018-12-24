@@ -22,12 +22,12 @@
 #define GRAVITY				300
 #define TIMEJUMP			60.0f/GRAVITY
 #define CAMERA				Camera::getInstance()
-#define X_MAP				7
-#define Y_MAP				530
+//#define X_MAP				7
+//#define Y_MAP				530
 //#define X_MAP				1544
 //#define Y_MAP				519
-//#define X_MAP				3946
-//#define Y_MAP				282
+#define X_MAP				3746
+#define Y_MAP				282
 #define CURSCENE			MegamanScene::curScene
 #define CONTROLSPRITE		ControlAnimation::getInstance()
 

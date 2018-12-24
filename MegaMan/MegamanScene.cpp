@@ -89,7 +89,7 @@ void MegamanScene::update()
 		{
 			ROCKMAN->x = 4017;
 			ROCKMAN->y = 360;
-			RHINO->restore(RHINO);
+			BLASHHORNET->restore(BLASHHORNET);
 			Stage::curStage = Stage::curStages->at(7);
 			Stage::curStage->prev();
 		}

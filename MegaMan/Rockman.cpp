@@ -554,10 +554,10 @@ void Rockman::updateChangeAnimation()
 Rockman::Rockman()
 {
 	sprite = SPRITEMANAGER->sprites[SPR_MAIN];
-	x = 110;
-	y = 680;
-	//x = 3964;
-	//y = 385;
+	/*x = 110;
+	y = 680;*/
+	x = 3764;
+	y = 385;
 	//x = 1596;
 	//y = 579;
 	direction = Right;

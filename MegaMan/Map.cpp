@@ -48,8 +48,8 @@ void Map::initStage(const char * stageInfoPath)
 
 	if (Stage::curStage == NULL)
 	{
-		Stage::curStage = stages[5];
-		Stage::curStage->index = 5;
+		Stage::curStage = stages[0];
+		Stage::curStage->index = 0;
 	}
 }
 void Map::update()

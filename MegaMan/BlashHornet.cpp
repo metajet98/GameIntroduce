@@ -424,6 +424,7 @@ void BlashHornet::restore(BaseObject * obj)
 	y = 295;
 	damagedTime.start();
 	canUpdate = false;
+	AudioManager::getInstance()->StopSound(AUDIO_BOSSSTAGE);
 }
 
 void BlashHornet::updateDirecion()

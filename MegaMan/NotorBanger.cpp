@@ -42,13 +42,15 @@ void NotorBanger::update()
 				vx = direction * 50;
 				vy = -120;
 				curAnimation = NOTORBANGER_JUMP;
+				isJump = true;
 				countJump++;
 				timeStand.start();
 			}
 		}
 		
-		if (abs(x - (ROCKMAN->x + ROCKMAN->width) <= 50) && curAnimation!=NOTORBANGER_JUMP)
+		if (abs(x - (ROCKMAN->x + ROCKMAN->width) <= 40) && curAnimation!=NOTORBANGER_JUMP && isJump)
 		{
+			timeStand.start();
 			if (ROCKMAN->x >= x + width)
 			{
 				direction = Right;
@@ -64,15 +66,17 @@ void NotorBanger::update()
 			timeShot.canCreateFrame();
 			if (timeShot.isTerminated())
 			{
-				if (NOTOBANGER_BULLET->Count < 1)
+				if (NOTOBANGER_BULLET->Count < 3)
 				{
 					NotoBanger_bullet* nb;
 					if (direction == Left)
 						nb = new NotoBanger_bullet(this->x, this->y, this->direction);
 					else nb = new NotoBanger_bullet(this->x + this->width, this->y, this->direction);
 					NOTOBANGER_BULLET->_Add(nb);
-				}
+					
+				} else isJump = false;
 				timeShot.start();
+				
 			}
 			countJump = 0;
 		}
@@ -85,7 +89,7 @@ void NotorBanger::update()
 
 void NotorBanger::onCollision(BaseObject * S, int nx, int ny)
 {
-	if (ny == 1) isOnGround = true;
+	//if (ny == 1) isOnGround = true;
 	Enermy::onCollision(S, nx, ny);
 	if (S->collisionType == CT_GROUND && nx != 0)
 	{
@@ -132,7 +136,7 @@ NotorBanger::NotorBanger()
 	ay = GRAVITY;
 	countJump = 0;
 	//vy = 0;
-	timeShot.init(0.2, 5);
+	timeShot.init(0.2, 1);
 	timeShot.start();
 }
 
