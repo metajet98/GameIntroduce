@@ -93,7 +93,7 @@ void Rockman::draw()
 
 	 sprite->draw(xInViewport, yInViewport, curAnimation, curFrame);
 
-	 if ((curAnimation == SHOT) || (curAnimation == JUMP_SHOT) || ((curAnimation == PUSHING_SHOT) && isPushing) || (curAnimation == RUN_SHOT))
+	 if ((curAnimation == SHOT) || (curAnimation == JUMP_SHOT) || ((curAnimation == PUSHING_SHOT) && isPushing) || (curAnimation == RUN_SHOT) || (curAnimation==14 && isSliding))
 	 {
 		 if (ROCKBUTLET->Count < 1 && !isCharging )
 		 {
@@ -250,6 +250,7 @@ void Rockman::die()
 		dx = 0;
 		dy = 0;
 		AudioManager::getInstance()->StopSound(AUDIO_FIRSTSTAGE);
+		AudioManager::getInstance()->StopSound(AUDIO_BOSSSTAGE);
 		AudioManager::getInstance()->Play(AUDIO_ROCK_DIE);
 	}
 }
@@ -352,6 +353,11 @@ void Rockman::updateChangeAnimation()
 					{
 						changeAction(HIGH_JUMP);
 						vy = -170;
+					}
+					else if (KEY->keyAttack && isSliding)
+					{
+						changeAction(14);
+						if (curFrame == sprite->animates[14].nFrame - 1) isSliding = false;
 					}
 					AudioManager::getInstance()->Play(AUDIO_ROCK_SURFING);
 				}
