@@ -66,6 +66,7 @@ void Caterkiller_bullet::onAABBCheck(BaseObject * other)
 		this->allowDelete = true;
 		ROCKMAN->gameTimeLoop.start();
 	}
+	
 }
 
 Caterkiller_bullet::Caterkiller_bullet(int xCater, int yCater, Direction directionCater,bool _above)

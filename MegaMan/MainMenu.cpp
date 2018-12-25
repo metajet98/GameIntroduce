@@ -35,6 +35,7 @@ void MainMenu::update()
 		{
 			Scene::changeScene(new MegamanScene());
 			//stage
+			Stage::curStage = Stage::curStages->at(0);
 			Map::curMap->xMap = X_MAP;
 			Map::curMap->yMap = Y_MAP;
 			CAMERA->x = Map::curMap->xMap;

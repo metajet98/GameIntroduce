@@ -29,8 +29,11 @@ void NotorBanger::update()
 
 		if (isOnGround)
 		{
-			vx = 0;
-			curAnimation = NOTORBANGER_STAND;
+			if (!isJump)
+			{
+				curAnimation = NOTORBANGER_STAND;
+				vx = 0;
+			}
 			timeStand.canCreateFrame();
 			if (timeStand.isTerminated() && curAnimation != NOTORBANGER_JUMP)
 			{
@@ -41,14 +44,17 @@ void NotorBanger::update()
 				}
 				vx = direction * 50;
 				vy = -120;
+				ay = GRAVITY;
 				curAnimation = NOTORBANGER_JUMP;
+
 				isJump = true;
 				countJump++;
 				timeStand.start();
 			}
 		}
 		
-		if (abs(x - (ROCKMAN->x + ROCKMAN->width) <= 40) && curAnimation!=NOTORBANGER_JUMP && isJump)
+		
+		if (abs(x - (ROCKMAN->x + ROCKMAN->width) <= 40) && curAnimation!=NOTORBANGER_JUMP && !isJump)
 		{
 			timeStand.start();
 			if (ROCKMAN->x >= x + width)
@@ -71,20 +77,35 @@ void NotorBanger::update()
 					NotoBanger_bullet* nb;
 					if (direction == Left)
 						nb = new NotoBanger_bullet(this->x, this->y, this->direction);
-					else nb = new NotoBanger_bullet(this->x + this->width, this->y, this->direction);
+					else nb = new NotoBanger_bullet(this->x + this->width, this->y-5, this->direction);
 					NOTOBANGER_BULLET->_Add(nb);
 					
-				} else isJump = false;
+				} else isJump = true;
 				timeShot.start();
-				
 			}
 			countJump = 0;
 		}
 		//isOnGround = false;
-		MovableObject::update();
-		
+		//MovableObject::update();
+		updateMove();
 	}
 	
+}
+
+void NotorBanger::updateMove()
+{
+	if (!alive) return;
+	//isOnGround = false;
+	updateVerlocity();
+	BaseObject::update();
+	if (!pauseAnimation)
+	{
+		if (curFrame == sprite->animates[curAnimation].nFrame - 1)
+		{
+			curFrame = 0;
+		}
+		else sprite->animates[curAnimation].next(curFrame);
+	}
 }
 
 void NotorBanger::onCollision(BaseObject * S, int nx, int ny)
@@ -95,6 +116,11 @@ void NotorBanger::onCollision(BaseObject * S, int nx, int ny)
 	{
 		direction = (Direction)nx;
 		countJump = 0;
+		
+	}
+	if (S->collisionType == CT_GROUND && ny == -1 && curAnimation!=NOTORBANGER_SHOT)
+	{
+		isJump = false;
 	}
 	/*if (right() >= S->right()-50 && nx == 0 && S->collisionType == CT_GROUND)
 	{
@@ -117,6 +143,7 @@ void NotorBanger::restore(BaseObject * obj)
 {
 	Enermy::restore(obj);
 	life = 3;
+	isJump = false;
 }
 
 NotorBanger::NotorBanger()
@@ -138,6 +165,7 @@ NotorBanger::NotorBanger()
 	//vy = 0;
 	timeShot.init(0.2, 1);
 	timeShot.start();
+	isJump = false;
 }
 
 

@@ -104,6 +104,7 @@ void BlashHornet::draw()
 			DieEffect::getList()->Clear();
 			ROCKMAN->onAreaBoss = false;
 			HORNET->Clear();
+			BLASHHORNET_POINT->Clear();
 			this->isDeath = true;
 			return;
 		}
@@ -424,6 +425,7 @@ void BlashHornet::restore(BaseObject * obj)
 	y = 295;
 	damagedTime.start();
 	canUpdate = false;
+	isDeath = false;
 	AudioManager::getInstance()->StopSound(AUDIO_BOSSSTAGE);
 }
 

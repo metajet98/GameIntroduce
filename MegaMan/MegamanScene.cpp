@@ -31,8 +31,22 @@ void MegamanScene::update()
 		Stage::curStage = Stage::curStages->at(0);
 		Stage::curStage->prev();
 		BLASHHORNET->isDeath = false;
-		//Xoá list doorsCanmove
-		
+		ROCKMAN->curAnimation = APPEAR;
+		ROCKMAN->allowDraw = true;
+		ROCKMAN->curFrame = 0;
+		ROCKMAN->life = 24;
+		ROCKMAN->onAreaBoss = false;
+		ROCKMAN->onAreaBossSub = false;
+		ROCKMAN->alive = true;
+		ROCKMAN->pauseAnimation = false;
+		ROCKMAN->isDeath = false;
+		ROCKMAN->isFollowing = false;
+		ROCKMAN->timeDeath.start();
+		HP_BAR->x = CAMERA->x;
+		HP_BAR->y = CAMERA->y;
+		//HP_BOSS->curFrame = RHINO->life;
+		HP_BOSS->x = CAMERA->x + 220;
+		HP_BOSS->y = CAMERA->y;
 		return;
 	}
 	if (!ROCKMAN->alive && ROCKMAN->isDeath)

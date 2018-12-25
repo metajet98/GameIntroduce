@@ -24,6 +24,7 @@ public:
 
 	void draw();
 	void update();
+	void updateMove();
 	void onCollision(BaseObject* S, int nx, int ny);
 	void restore(BaseObject *obj);
 

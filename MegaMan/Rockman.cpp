@@ -117,9 +117,13 @@ void Rockman::draw()
 			 {
 				 changeAction(PUSHING);
 			 }
-			 if (curAnimation = RUN_SHOT)
+			 if (curAnimation == RUN_SHOT)
 			 {
 				 changeAction(MOVE);
+			 }
+			 if (curAnimation == 14)
+			 {
+				 changeAction(SLIDING);
 			 }
 		 }
 		 
@@ -268,6 +272,7 @@ void Rockman::update()
 	{
 		onAreaBossSub = true;
 	}
+	
 	if (x > 790 && x < 1014 && !onAreaBossSub)
 	{
 		onAreaBossSub = true;
@@ -354,7 +359,7 @@ void Rockman::updateChangeAnimation()
 						changeAction(HIGH_JUMP);
 						vy = -170;
 					}
-					else if (KEY->keyAttack && isSliding)
+					else if (KEY->keyAttack && isSliding && !isCharging)
 					{
 						changeAction(14);
 						if (curFrame == sprite->animates[14].nFrame - 1) isSliding = false;
@@ -554,10 +559,10 @@ void Rockman::updateChangeAnimation()
 Rockman::Rockman()
 {
 	sprite = SPRITEMANAGER->sprites[SPR_MAIN];
-	/*x = 110;
-	y = 680;*/
-	x = 3764;
-	y = 385;
+	x = 110;
+	y = 680;
+	//x = 3764;
+	//y = 385;
 	//x = 1596;
 	//y = 579;
 	direction = Right;

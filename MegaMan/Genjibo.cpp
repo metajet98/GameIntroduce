@@ -174,7 +174,7 @@ void Genjibo::mech()
 			timePerAnimation.curLoop++;
 			if (timePerAnimation.curLoop >= 80)
 			{
-				changeAction(GENJIBO_MOVE);
+				changeAction(GENJIBO_STAND);
 				ay = 0;
 				//run around
 				vx = direction*100;
@@ -311,6 +311,7 @@ void Genjibo::setOnHit(bool newOnHit)
 void Genjibo::restore(BaseObject * obj)
 {
 	if (ROCKMAN->onAreaBossSub) return;
+	Enermy::restore(obj);
 	alive = true;
 	life = LIFE_GENJIBO;
 	direction = Left;
@@ -326,8 +327,10 @@ void Genjibo::restore(BaseObject * obj)
 	countJump = 0;
 	updating = false;
 	appear = true;
-	vx = 0;
-	vy = 0;
+	width = 49;
+	height = 49;
+	isOnGround = true;
+	//ROCKMAN->onAreaBossSub = false;
 }
 
 void Genjibo::changeAction(int newAction)
